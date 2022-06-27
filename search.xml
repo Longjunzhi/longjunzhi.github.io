@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>博客第一篇文章</title>
+    <title>第一篇文章(当然是利用githubPage和hexo搭建博客)</title>
     <url>/2022/06/22/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>发布测试<br>自动化部署 hexo deploy</p>
+    <content><![CDATA[<h2 id="简单的介绍下好了-不做为教程"><a href="#简单的介绍下好了-不做为教程" class="headerlink" title="简单的介绍下好了,不做为教程."></a>简单的介绍下好了,不做为教程.</h2><h3 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h3><ul>
+<li>git node </li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>五行命令就可以本地运行Hexo博客了,就是这么简单.你学会了吗?</p>
+<pre><code>hexo g 
+</code></pre>
+<ul>
+<li>生成 public 目录,放到服务器上,就完成了自已的个人博客.</li>
+</ul>
+<h3 id="服务器需要钱"><a href="#服务器需要钱" class="headerlink" title="服务器需要钱?"></a>服务器需要钱?</h3><p>可以利用 githubPages | giteePages |gitlabPages<br>免费搭建自已的博客</p>
+<p>本博客就是利用 githubPages</p>
+<ul>
+<li>域名可以自已在阿里云或者腾讯云等购买,解析到对应的网址.</li>
+<li>就可以拥有自已域名的免费博客.</li>
+</ul>
+<h3 id="文中涉及的相关内容-官方相关资料直通车"><a href="#文中涉及的相关内容-官方相关资料直通车" class="headerlink" title="文中涉及的相关内容,官方相关资料直通车."></a>文中涉及的相关内容,官方相关资料直通车.</h3><p><a href="https://hexo.io/zh-cn/index.html">Hexo中文官网</a><br><a href="https://pages.github.com/">githubPages</a></p>
 ]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>firstTag</title>
