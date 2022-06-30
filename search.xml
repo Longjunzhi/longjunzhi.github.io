@@ -27,12 +27,18 @@
       </tags>
   </entry>
   <entry>
-    <title>firstTag</title>
-    <url>/2022/06/23/firstTag/</url>
-    <content><![CDATA[<p>test go</p>
+    <title>go 环境的安装</title>
+    <url>/2022/06/23/go%20%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<p>安装golang</p>
+<p>1.下载地址<br><a href="https://golang.google.cn/dl/">https://golang.google.cn/dl/</a></p>
+<p>2.添加环境变量<br>Go\bin 添加到Path环境变量<br>设置 go GOPROXY</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">go env -w GOPROXY=https://goproxy.cn,direct</span><br></pre></td></tr></table></figure>
+
+<p>3.配置GOROOT和GOPATH</p>
+<p>GOROOT: 配置go的sdk目录<br>GOPATH: 配置go项目都要放置到这个目录之下</p>
 ]]></content>
       <categories>
-        <category>web前端</category>
+        <category>go</category>
       </categories>
       <tags>
         <tag>go</tag>
