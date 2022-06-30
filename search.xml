@@ -44,4 +44,18 @@
         <tag>go</tag>
       </tags>
   </entry>
+  <entry>
+    <title>回调接口高并发</title>
+    <url>/2022/07/01/%E5%9B%9E%E8%B0%83%E6%8E%A5%E5%8F%A3%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
+    <content><![CDATA[<h2 id="一次高频率请求的优化"><a href="#一次高频率请求的优化" class="headerlink" title="一次高频率请求的优化"></a>一次高频率请求的优化</h2><p>第三方平台的高频率回调事件<br>每分钟1k以上的请求<br>导致不断的502报错</p>
+<p>1.首先接触laravel的频率限制,防止业务不能正常执行.<br>2.这种回调事件都是可以异步的,因此使用队列,从而快速响应请求防止连接数过多.<br>3.数据库的索引优化<br>4.单独的容器(服务器处理回调事件)</p>
+]]></content>
+      <categories>
+        <category>laravel</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
 </search>
