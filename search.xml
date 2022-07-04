@@ -48,7 +48,7 @@
     <title>回调接口高并发</title>
     <url>/2022/07/01/%E5%9B%9E%E8%B0%83%E6%8E%A5%E5%8F%A3%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
     <content><![CDATA[<h2 id="一次高频率请求的优化"><a href="#一次高频率请求的优化" class="headerlink" title="一次高频率请求的优化"></a>一次高频率请求的优化</h2><p>第三方平台的高频率回调事件<br>每分钟1k以上的请求<br>导致不断的502报错</p>
-<p>1.首先接触laravel的频率限制,防止业务不能正常执行.<br>2.这种回调事件都是可以异步的,因此使用队列,从而快速响应请求防止连接数过多.<br>3.数据库的索引优化<br>4.单独的容器(服务器处理回调事件)</p>
+<p>1.首先接触laravel的频率限制,防止业务不能正常执行.<br>2.这种回调事件都是可以异步的,因此使用队列,从而快速响应请求防止连接数过多.<br>3.数据库的表索引优化<br>4.单独的容器(服务器处理回调事件)</p>
 ]]></content>
       <categories>
         <category>laravel</category>
@@ -57,5 +57,60 @@
         <tag>php</tag>
         <tag>laravel</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>git常用命令</title>
+    <url>/2022/07/04/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p>总结下git版本管理</p>
+<ol>
+<li><p>git常用命令</p>
+<ol>
+<li>git clone #克隆项目</li>
+<li>git push #推送</li>
+<li>git add #添加</li>
+<li>git commit #提交</li>
+<li>git checkout #切换分支</li>
+<li>git pull #拉取</li>
+</ol>
+</li>
+<li><p>要用记不住的命令</p>
+</li>
+</ol>
+<ul>
+<li>git reset –soft HEAD^ # 取消commit,保留修改的文件</li>
+<li>git reset –hard HEAD^ # 取消commit,不保留修改的文件</li>
+<li>git checkout -b shen-dev(本地分支名) origin/release_dev(远程分支名) #切换远程分支</li>
+<li>git checkout . #恢复工作树文件</li>
+</ul>
+<ol start="3">
+<li><p>git的知识点</p>
+</li>
+<li><p>基于git的几大平台</p>
+</li>
+</ol>
+<ul>
+<li>github gitlab gitee</li>
+</ul>
+<p>相关的资料链接</p>
+<p><a href="https://git-scm.com/">git官网</a></p>
+<p><a href="https://git-scm.com/book/zh/v2">git官方中文文档</a></p>
+<p>官网下载速度慢,可以使用阿里云镜像.</p>
+<p><a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/">阿里云git镜像</a></p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>antdPro简单介绍</title>
+    <url>/2022/07/04/antdPro%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<p>安装</p>
+<h1 id="使用-npm"><a href="#使用-npm" class="headerlink" title="使用 npm"></a>使用 npm</h1><p>npm i @ant-design/pro-cli -g</p>
+<h1 id="使用-yarn"><a href="#使用-yarn" class="headerlink" title="使用 yarn"></a>使用 yarn</h1><p>pro create myapp</p>
+<p>安装依赖：</p>
+<p>$ cd myapp &amp;&amp; tyarn<br>// 或<br>$ cd myapp &amp;&amp; npm install</p>
+<p>相关文档</p>
+<p><a href="https://pro.ant.design/">antdPro官网</a><br><a href="https://procomponents.ant.design/components/">组件</a></p>
+]]></content>
   </entry>
 </search>
