@@ -169,6 +169,10 @@
 <td><a href="https://v3.cn.vuejs.org/guide/installation.html">VUE3文档</a></td>
 <td><a href="https://git-scm.com/book/zh/v2">git官方中文文档</a></td>
 </tr>
+<tr>
+<td><a href="https://markdown.com.cn/">markdown官网文档</a></td>
+<td></td>
+</tr>
 </tbody></table>
 <table>
 <thead>
@@ -191,10 +195,15 @@
 </tr>
 </tbody></table>
 <p>电子书</p>
-<p><a href="https://pangxuejun.cn/static/k8s.pdf">https://pangxuejun.cn/static/k8s.pdf</a><br><a href="https://pangxuejun.cn/static/docker.pdf">https://pangxuejun.cn/static/docker.pdf</a></p>
+<p><a href="https://pangxuejun.cn/static/k8s.pdf">kubernetes</a> <a href="https://pangxuejun.cn/static/docker.pdf">docker</a></p>
 ]]></content>
       <tags>
         <tag>网址书签</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>laravel route缓存坑</title>
+    <url>/2022/07/05/laravel-route%E7%BC%93%E5%AD%98%E5%9D%91/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
