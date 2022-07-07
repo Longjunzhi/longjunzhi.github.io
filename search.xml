@@ -81,6 +81,7 @@
 <li>git reset –hard HEAD^ # 取消commit,不保留修改的文件</li>
 <li>git checkout -b shen-dev(本地分支名) origin/release_dev(远程分支名) #切换远程分支</li>
 <li>git checkout . #恢复工作树文件</li>
+<li>ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#x6f;&#117;&#114;&#x5f;&#101;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;">&#x79;&#x6f;&#117;&#114;&#x5f;&#101;&#109;&#x61;&#x69;&#x6c;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a>“ #生成新的ssh key</li>
 </ul>
 <ol start="3">
 <li><p>git的知识点</p>
@@ -204,6 +205,13 @@
   <entry>
     <title>laravel route缓存坑</title>
     <url>/2022/07/05/laravel-route%E7%BC%93%E5%AD%98%E5%9D%91/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>本地访问没有问题,到测试服务器,一直访问不了,路由错误.<br>查看route文件路由没问题</p>
+<hr>
+<p>最终发现是laravel路由缓存问题<br>顺便说一下,路由缓存可以大大提高路由注册的速度.<br>引用Laravel社区Wiki:<br>路由缓存会大大减少注册所有路由所需的时间。在某些情况下，路由注册的速度甚至能快上 100 倍。<br>要生成路由缓存，只需执行 artisan 命令</p>
+<p>生成路由缓存命令:<br>php artisan route:cache<br>清除路由缓存命令:<br>php artisan route:clear</p>
+]]></content>
+      <tags>
+        <tag>laravel</tag>
+      </tags>
   </entry>
 </search>
