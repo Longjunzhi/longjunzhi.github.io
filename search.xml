@@ -210,6 +210,9 @@
 <p>最终发现是laravel路由缓存问题<br>顺便说一下,路由缓存可以大大提高路由注册的速度.<br>引用Laravel社区Wiki:<br>路由缓存会大大减少注册所有路由所需的时间。在某些情况下，路由注册的速度甚至能快上 100 倍。<br>要生成路由缓存，只需执行 artisan 命令</p>
 <p>生成路由缓存命令:<br>php artisan route:cache<br>清除路由缓存命令:<br>php artisan route:clear</p>
 ]]></content>
+      <categories>
+        <category>laravel</category>
+      </categories>
       <tags>
         <tag>laravel</tag>
       </tags>
