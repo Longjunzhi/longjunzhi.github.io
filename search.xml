@@ -142,4 +142,20 @@
 
 ]]></content>
   </entry>
+  <entry>
+    <title>mysql相关知识</title>
+    <url>/2022/07/11/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p>mysql基础语句</p>
+<p>mysql索引</p>
+<p>mysql锁</p>
+<p>mysql备份</p>
+<p>mysql分表</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
 </search>
