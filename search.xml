@@ -59,8 +59,62 @@
       </tags>
   </entry>
   <entry>
-    <title>git常用命令</title>
-    <url>/2022/07/04/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <title>antdPro简单介绍</title>
+    <url>/2022/07/04/antdPro%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<p>安装：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 使用 npm</span><br><span class="line">npm i @ant-design/pro-cli -g</span><br><span class="line"># 使用 yarn</span><br><span class="line">pro create myapp</span><br><span class="line">$ cd myapp &amp;&amp; tyarn</span><br><span class="line">// 或</span><br><span class="line">$ cd myapp &amp;&amp; npm install</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>相关文档</p>
+<p><a href="https://pro.ant.design/">antdPro官网</a><br><a href="https://procomponents.ant.design/components/">antdPro组件</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>laravel route缓存坑</title>
+    <url>/2022/07/05/laravel-route%E7%BC%93%E5%AD%98%E5%9D%91/</url>
+    <content><![CDATA[<p>本地访问没有问题,到测试服务器,一直访问不了,路由错误.<br>查看route文件路由没问题</p>
+<hr>
+<p>最终发现是laravel路由缓存问题<br>顺便说一下,路由缓存可以大大提高路由注册的速度.<br>引用Laravel社区Wiki:<br>路由缓存会大大减少注册所有路由所需的时间。在某些情况下，路由注册的速度甚至能快上 100 倍。<br>要生成路由缓存，只需执行 artisan 命令</p>
+<p>生成路由缓存命令:<br>php artisan route:cache<br>清除路由缓存命令:<br>php artisan route:clear</p>
+]]></content>
+      <categories>
+        <category>laravel</category>
+      </categories>
+      <tags>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>go的学习路线</title>
+    <url>/2022/07/10/go%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<hr>
+<img src="/static/go.jpg" width="80%" />
+
+]]></content>
+  </entry>
+  <entry>
+    <title>mysql相关知识</title>
+    <url>/2022/07/11/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h3 id="mysql优化"><a href="#mysql优化" class="headerlink" title="mysql优化"></a>mysql优化</h3><pre><code>- 目前主要是索引的优化
+- 给查询的字段添加索引,主键索引,外键索引,唯一索引.
+- 数据量不是特别大的时候,足够了
+- explain 来查是否命中索引
+</code></pre>
+<p>mysql基础语句</p>
+<p>mysql索引</p>
+<p>mysql锁</p>
+<p>mysql备份</p>
+<p>mysql分表</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git知识点</title>
+    <url>/2022/07/04/git%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p>总结下git版本管理</p>
 <ol>
 <li><p>git常用命令</p>
@@ -81,7 +135,7 @@
 <li>git reset –hard HEAD^ # 取消commit,不保留修改的文件</li>
 <li>git checkout -b shen-dev(本地分支名) origin/release_dev(远程分支名) #切换远程分支</li>
 <li>git checkout . #恢复工作树文件</li>
-<li>ssh-keygen -t rsa -C “<a href="mailto:&#x79;&#111;&#x75;&#114;&#x5f;&#101;&#109;&#97;&#105;&#108;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d;">&#x79;&#111;&#x75;&#114;&#x5f;&#101;&#109;&#97;&#105;&#108;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a>“ #生成新的ssh key</li>
+<li>ssh-keygen -t rsa -C “<a href="mailto:&#121;&#x6f;&#117;&#x72;&#x5f;&#x65;&#109;&#97;&#x69;&#x6c;&#64;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;">&#121;&#x6f;&#117;&#x72;&#x5f;&#x65;&#109;&#97;&#x69;&#x6c;&#64;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;</a>“ #生成新的ssh key</li>
 <li>git stash #git储藏</li>
 <li>git stash list # 储藏列表</li>
 <li>git stash pop # 恢复最近并删除</li>
@@ -122,52 +176,52 @@
       </tags>
   </entry>
   <entry>
-    <title>antdPro简单介绍</title>
-    <url>/2022/07/04/antdPro%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</url>
-    <content><![CDATA[<p>安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 使用 npm</span><br><span class="line">npm i @ant-design/pro-cli -g</span><br><span class="line"># 使用 yarn</span><br><span class="line">pro create myapp</span><br><span class="line">$ cd myapp &amp;&amp; tyarn</span><br><span class="line">// 或</span><br><span class="line">$ cd myapp &amp;&amp; npm install</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>laravel多对多关联</title>
+    <url>/2022/07/15/laravel%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E8%81%94/</url>
+    <content><![CDATA[<h3 id="model层的多对多关系"><a href="#model层的多对多关系" class="headerlink" title="model层的多对多关系"></a>model层的多对多关系</h3><p>表结构<br>要定义这种关联，需要三个数据库表： users，roles 和 role_user。role_user 表的命名是由关联的两个模型按照字母顺序来的，并且包含了 user_id 和 role_id 字段：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">users</span><br><span class="line">id - integer</span><br><span class="line">name - string</span><br><span class="line"></span><br><span class="line">roles</span><br><span class="line">id - integer</span><br><span class="line">name - string</span><br><span class="line"></span><br><span class="line">role_user</span><br><span class="line">user_id - integer</span><br><span class="line">role_id - integer</span><br></pre></td></tr></table></figure>
+<p>模型结构<br>多对多关联通过调用 belongsToMany 这个内部方法返回的结果来定义，例如，我们在 User 模型中定义 roles 方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line"></span><br><span class="line">class User extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 用户拥有的角色</span><br><span class="line">     */</span><br><span class="line">    public function roles()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一旦关联关系被定义后，你可以通过 roles「动态属性」获取用户角色：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$user = App\Models\User::find(1);</span><br><span class="line"></span><br><span class="line">foreach ($user-&gt;roles as $role) &#123;</span><br><span class="line">    //</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，像其它所有关联模型一样，你可以使用 roles 方法，利用链式调用对查询语句添加约束条件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$roles = App\Models\User::find(1)-&gt;roles()-&gt;orderBy(&#x27;name&#x27;)-&gt;get();</span><br></pre></td></tr></table></figure>
+<p>正如前面所提到的，为了确定关联连接表的表名，Eloquent 会按照字母顺序连接两个关联模型的名字。当然，你也可以不使用这种约定，传递第二个参数到 belongsToMany 方法即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;, &#x27;role_user&#x27;);</span><br></pre></td></tr></table></figure>
+<p>除了自定义连接表的表名，你还可以通过传递额外的参数到 belongsToMany 方法来定义该表中字段的键名。第三个参数是定义此关联的模型在连接表里的外键名，第四个参数是另一个模型在连接表里的外键名：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;, &#x27;role_user&#x27;, &#x27;user_id&#x27;, &#x27;role_id&#x27;);</span><br></pre></td></tr></table></figure>
+<p>定义反向关联<br>要定义多对多的反向关联， 你只需要在关联模型中调用 belongsToMany 方法。我们在 Role 模型中定义 users 方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line"></span><br><span class="line">class Role extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 拥有此角色的用户</span><br><span class="line">     */</span><br><span class="line">    public function users()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;belongsToMany(&#x27;App\Models\User&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如你所见，除了引入模型为 App\Models\User 外，其它与在 User 模型中定义的完全一样。由于我们重用了 belongsToMany 方法，自定义连接表表名和自定义连接表里的键的字段名称在这里同样适用。</p>
+<p>获取中间表字段<br>就如你刚才所了解的一样，多对多的关联关系需要一个中间表来提供支持， Eloquent 提供了一些有用的方法来和这张表进行交互。例如，假设我们的 User 对象关联了多个 Role 对象。在获得这些关联对象后，可以使用模型的 pivot 属性访问中间表的属性：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$user = App\Models\User::find(1);</span><br><span class="line"></span><br><span class="line">foreach ($user-&gt;roles as $role) &#123;</span><br><span class="line">    echo $role-&gt;pivot-&gt;created_at;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，我们获取的每个 Role 模型对象，都会被自动赋予 pivot 属性，它代表中间表的一个模型对象，并且可以像其他的 Eloquent 模型一样使用。</p>
+<p>默认情况下，pivot 对象只包含两个关联模型的主键，如果你的中间表里还有其他额外字段，你必须在定义关联时明确指出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;withPivot(&#x27;column1&#x27;, &#x27;column2&#x27;);</span><br></pre></td></tr></table></figure>
+<p>如果你想让中间表自动维护 created_at 和 updated_at 时间戳，那么在定义关联时附加上 withTimestamps 方法即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;withTimestamps();</span><br></pre></td></tr></table></figure>
+<p>注意：在数据透视表上使用时间戳时，该表必须同时具有 created_at 和 updated_at 时间戳字段。</p>
+<p>自定义 pivot 属性名称<br>如前所述，来自中间表的属性可以使用 pivot 属性访问。但是，你可以自由定制此属性的名称，以便更好的反应其在应用中的用途。</p>
+<p>例如，如果你的应用中包含可能订阅的用户，则用户与博客之间可能存在多对多的关系。如果是这种情况，你可能希望将中间表访问器命名为 subscription 取代 pivot。这可以在定义关系时使用 as 方法完成：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Podcast&#x27;)</span><br><span class="line">                -&gt;as(&#x27;subscription&#x27;)</span><br><span class="line">                -&gt;withTimestamps();</span><br></pre></td></tr></table></figure>
+<p>一旦定义完成，你可以使用自定义名称访问中间表数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$users = User::with(&#x27;podcasts&#x27;)-&gt;get();</span><br><span class="line"></span><br><span class="line">foreach ($users-&gt;flatMap-&gt;podcasts as $podcast) &#123;</span><br><span class="line">    echo $podcast-&gt;subscription-&gt;created_at;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过中间表过滤关系<br>在定义关系时，你还可以使用 wherePivot 和 wherePivotIn 方法来过滤 belongsToMany 返回的结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;wherePivot(&#x27;approved&#x27;, 1);</span><br><span class="line"></span><br><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;wherePivotIn(&#x27;priority&#x27;, [1, 2]);</span><br><span class="line"></span><br><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;wherePivotNotIn(&#x27;priority&#x27;, [1, 2]);</span><br></pre></td></tr></table></figure>
+<p>定义中间表模型<br>如果你想定义一个自定义模型来表示关联关系中的中间表，可以在定义关联时调用 using 方法。自定义多对多中间表模型都必须扩展自 Illuminate\Database\Eloquent\Relations\Pivot 类，自定义多对多（多态）中间表模型必须继承 Illuminate\Database\Eloquent\Relations\MorphPivot 类。例如，我们在写 Role 模型的关联时，使用自定义中间表模型 RoleUser：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line"></span><br><span class="line">class Role extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 拥有此角色的所有用户</span><br><span class="line">     */</span><br><span class="line">    public function users()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;belongsToMany(&#x27;App\Models\User&#x27;)-&gt;using(&#x27;App\Models\RoleUser&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当定义 RoleUser 模型时，我们要扩展 Pivot 类：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Relations\Pivot;</span><br><span class="line"></span><br><span class="line">class RoleUser extends Pivot</span><br><span class="line">&#123;</span><br><span class="line">    //</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你可以组合使用 using 和 withPivot 从中间表来检索列。例如，通过将列名传递给 withPivot 方法，就可以从 UserRole 中间表中检索出 created_by 和 updated_by 两列数据：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line"></span><br><span class="line">class Role extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 拥有此角色的用户</span><br><span class="line">     */</span><br><span class="line">    public function users()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;belongsToMany(&#x27;App\Models\User&#x27;)</span><br><span class="line">                        -&gt;using(&#x27;App\Models\RoleUser&#x27;)</span><br><span class="line">                        -&gt;withPivot([</span><br><span class="line">                            &#x27;created_by&#x27;,</span><br><span class="line">                            &#x27;updated_by&#x27;,</span><br><span class="line">                        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意: Pivot 模型可能不使用 SoftDeletes 特性。 如果您需要软删除数据关联记录，请考虑将您的数据关联模型转换为实际的 Eloquent 模型。</p>
+<p>带有递增 ID 的自定义中继模型<br>如果你用一个自定义的中继模型定义了多对多的关系，而且这个中继模型拥有一个自增的主键，你应当确保这个自定义中继模型类中定义了一个 incrementing 属性其值为 true。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 标识 ID 是否自增</span><br><span class="line"> *</span><br><span class="line"> * @var bool</span><br><span class="line"> */</span><br><span class="line">public $incrementing = true;</span><br></pre></td></tr></table></figure>
 
-<p>相关文档</p>
-<p><a href="https://pro.ant.design/">antdPro官网</a><br><a href="https://procomponents.ant.design/components/">antdPro组件</a></p>
+<p>文章来源:<br><a href="https://learnku.com/docs/laravel/8.x/eloquent-relationships/9407#000a62">https://learnku.com/docs/laravel/8.x/eloquent-relationships/9407#000a62</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>laravel route缓存坑</title>
-    <url>/2022/07/05/laravel-route%E7%BC%93%E5%AD%98%E5%9D%91/</url>
-    <content><![CDATA[<p>本地访问没有问题,到测试服务器,一直访问不了,路由错误.<br>查看route文件路由没问题</p>
-<hr>
-<p>最终发现是laravel路由缓存问题<br>顺便说一下,路由缓存可以大大提高路由注册的速度.<br>引用Laravel社区Wiki:<br>路由缓存会大大减少注册所有路由所需的时间。在某些情况下，路由注册的速度甚至能快上 100 倍。<br>要生成路由缓存，只需执行 artisan 命令</p>
-<p>生成路由缓存命令:<br>php artisan route:cache<br>清除路由缓存命令:<br>php artisan route:clear</p>
-]]></content>
-      <categories>
-        <category>laravel</category>
-      </categories>
       <tags>
         <tag>laravel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>go的学习路线</title>
-    <url>/2022/07/10/go%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
-    <content><![CDATA[<hr>
-<img src="/static/go.jpg" width="80%" />
-
-]]></content>
-  </entry>
-  <entry>
-    <title>mysql相关知识</title>
-    <url>/2022/07/11/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<p>mysql基础语句</p>
-<p>mysql索引</p>
-<p>mysql锁</p>
-<p>mysql备份</p>
-<p>mysql分表</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
       </tags>
   </entry>
 </search>
