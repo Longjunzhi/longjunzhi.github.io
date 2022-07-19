@@ -165,6 +165,7 @@
 - 给查询的字段添加索引,主键索引,外键索引,唯一索引.
 - 数据量不是特别大的时候,足够了
 - explain 来查是否命中索引
+- 分库分表
 </code></pre>
 <p>mysql基础语句</p>
 <p>mysql索引</p>
@@ -350,20 +351,8 @@
 <li><p>要用记不住的命令</p>
 </li>
 </ol>
-<ul>
-<li>git reset –soft HEAD^ # 取消commit,保留修改的文件</li>
-<li>git reset –hard HEAD^ # 取消commit,不保留修改的文件</li>
-<li>git checkout -b shen-dev(本地分支名) origin/release_dev(远程分支名) #切换远程分支</li>
-<li>git checkout . #恢复工作树文件</li>
-<li>ssh-keygen -t rsa -C “<a href="mailto:&#121;&#x6f;&#117;&#x72;&#x5f;&#x65;&#109;&#97;&#x69;&#x6c;&#64;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;">&#121;&#x6f;&#117;&#x72;&#x5f;&#x65;&#109;&#97;&#x69;&#x6c;&#64;&#x65;&#120;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;</a>“ #生成新的ssh key</li>
-<li>git stash #git储藏</li>
-<li>git stash list # 储藏列表</li>
-<li>git stash pop # 恢复最近并删除</li>
-<li>git stash drop #移除stash</li>
-<li>git stash show #跟着stash名字</li>
-<li>git stash clear #删除所有缓存的stash</li>
-<li>git stash save #跟着stash名字</li>
-</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">* git reset --soft HEAD^ # 取消commit,保留修改的文件</span><br><span class="line">* git reset --hard HEAD^ # 取消commit,不保留修改的文件</span><br><span class="line">* git checkout -b shen-dev(本地分支名) origin/release_dev(远程分支名) #切换远程分支</span><br><span class="line">* git checkout . #恢复工作树文件</span><br><span class="line">* ssh-keygen -t rsa -C &quot;your_email@example.com&quot; #生成新的ssh key</span><br><span class="line">* git stash #git储藏</span><br><span class="line">* git stash list # 储藏列表</span><br><span class="line">* git stash pop # 恢复最近并删除</span><br><span class="line">* git stash drop #移除stash</span><br><span class="line">* git stash show #跟着stash名字</span><br><span class="line">* git stash clear #删除所有缓存的stash</span><br><span class="line">* git stash save #跟着stash名字</span><br></pre></td></tr></table></figure>
+
 <ol start="3">
 <li><p>git的知识点</p>
 </li>
@@ -629,7 +618,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2022-7-15 庞学军<br>
+      &copy; 2022-7-19 庞学军<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
