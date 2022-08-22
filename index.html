@@ -56,6 +56,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-postMan设置切换本地开发线上环境" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/22/postMan%E8%AE%BE%E7%BD%AE%E5%88%87%E6%8D%A2%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E7%BA%BF%E4%B8%8A%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time datetime="2022-08-22T03:52:03.000Z" itemprop="datePublished">2022-08-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/22/postMan%E8%AE%BE%E7%BD%AE%E5%88%87%E6%8D%A2%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E7%BA%BF%E4%B8%8A%E7%8E%AF%E5%A2%83/">postMan设置切换本地开发线上环境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="设置环境变量来实现域名和token的变化"><a href="#设置环境变量来实现域名和token的变化" class="headerlink" title="设置环境变量来实现域名和token的变化"></a>设置环境变量来实现域名和token的变化</h3><p>开发经常需要切换端口,域名,token等.</p>
+<p>手动改太麻烦了</p>
+<p>设置环境变量快速切换环境</p>
+<p>1.添加环境如图<br><img src="/static/images/img_1.png" width="80%" /></p>
+<p>2.使用变量作为token和host<br><img src="/static/images/img.png" width="80%" /></p>
+<p>4.就可以快速切换环境<br><img src="/static/images/img_2.png" width="80%" /></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2022/08/22/postMan%E8%AE%BE%E7%BD%AE%E5%88%87%E6%8D%A2%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E7%BA%BF%E4%B8%8A%E7%8E%AF%E5%A2%83/" data-id="cl748dejt0000d4w5d9cq6q6p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">postman 环境变量</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-层次划分" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/08/17/%E5%B1%82%E6%AC%A1%E5%88%92%E5%88%86/" class="article-date">
@@ -528,55 +572,6 @@
 
 
   
-    <article id="categories-go 环境的安装" class="article article-type-categories" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/06/23/go%20%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/" class="article-date">
-  <time datetime="2022-06-22T16:30:28.000Z" itemprop="datePublished">2022-06-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/go/">go</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/23/go%20%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/">go 环境的安装</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>安装golang</p>
-<p>1.下载地址<br><a target="_blank" rel="noopener" href="https://golang.google.cn/dl/">https://golang.google.cn/dl/</a></p>
-<p>2.添加环境变量<br>Go\bin 添加到Path环境变量<br>设置 go GOPROXY</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go env -w GO111MODULE=on</span><br><span class="line">go env -w GOPROXY=https://goproxy.cn,direct</span><br></pre></td></tr></table></figure>
-
-<p>3.配置GOROOT和GOPATH</p>
-<p>GOROOT: 配置go的sdk目录<br>GOPATH: 配置go项目都要放置到这个目录之下</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2022/06/23/go%20%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/" data-id="cl50eqw3000005kw5d4186cl3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -595,6 +590,10 @@
       <ul>
         
           <li>
+            <a href="/2022/08/22/postMan%E8%AE%BE%E7%BD%AE%E5%88%87%E6%8D%A2%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E7%BA%BF%E4%B8%8A%E7%8E%AF%E5%A2%83/">postMan设置切换本地开发线上环境</a>
+          </li>
+        
+          <li>
             <a href="/2022/08/17/%E5%B1%82%E6%AC%A1%E5%88%92%E5%88%86/">层次划分</a>
           </li>
         
@@ -608,10 +607,6 @@
         
           <li>
             <a href="/2022/07/11/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/">mysql相关知识</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/10/go%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/">go的学习路线</a>
           </li>
         
       </ul>
@@ -633,7 +628,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">postman 环境变量</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -643,7 +638,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -656,7 +651,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2022-8-18 庞学军<br>
+      &copy; 2022-8-22 庞学军<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

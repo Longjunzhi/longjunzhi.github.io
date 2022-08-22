@@ -240,4 +240,18 @@
 <p>代码要有条理,要高质量.<br>有层次感<br>重复代码封装<br>合理分层</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>postMan设置切换本地开发线上环境</title>
+    <url>/2022/08/22/postMan%E8%AE%BE%E7%BD%AE%E5%88%87%E6%8D%A2%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91%E7%BA%BF%E4%B8%8A%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<h3 id="设置环境变量来实现域名和token的变化"><a href="#设置环境变量来实现域名和token的变化" class="headerlink" title="设置环境变量来实现域名和token的变化"></a>设置环境变量来实现域名和token的变化</h3><p>开发经常需要切换端口,域名,token等.</p>
+<p>手动改太麻烦了</p>
+<p>设置环境变量快速切换环境</p>
+<p>1.添加环境如图<br><img src="/static/images/img_1.png" width="80%" /></p>
+<p>2.使用变量作为token和host<br><img src="/static/images/img.png" width="80%" /></p>
+<p>4.就可以快速切换环境<br><img src="/static/images/img_2.png" width="80%" /></p>
+]]></content>
+      <tags>
+        <tag>postman 环境变量</tag>
+      </tags>
+  </entry>
 </search>
