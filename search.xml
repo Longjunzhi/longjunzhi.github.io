@@ -1,64 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>第一篇文章(当然是利用githubPage和hexo搭建博客)</title>
-    <url>/2022/06/22/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h2 id="简单的介绍下好了-不做为教程"><a href="#简单的介绍下好了-不做为教程" class="headerlink" title="简单的介绍下好了,不做为教程."></a>简单的介绍下好了,不做为教程.</h2><h3 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h3><ul>
-<li>git node </li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-
-<p>五行命令就可以本地运行Hexo博客了,就是这么简单.你学会了吗?</p>
-<pre><code>hexo g 
-</code></pre>
-<ul>
-<li>生成 public 目录,放到服务器上,就完成了自已的个人博客.</li>
-</ul>
-<h3 id="服务器需要钱"><a href="#服务器需要钱" class="headerlink" title="服务器需要钱?"></a>服务器需要钱?</h3><p>可以利用 githubPages | giteePages |gitlabPages<br>免费搭建自已的博客</p>
-<p>本博客就是利用 githubPages</p>
-<ul>
-<li>域名可以自已在阿里云或者腾讯云等购买,解析到对应的网址.</li>
-<li>就可以拥有自已域名的免费博客.</li>
-</ul>
-<h3 id="文中涉及的相关内容-官方相关资料直通车"><a href="#文中涉及的相关内容-官方相关资料直通车" class="headerlink" title="文中涉及的相关内容,官方相关资料直通车."></a>文中涉及的相关内容,官方相关资料直通车.</h3><p><a href="https://hexo.io/zh-cn/index.html">Hexo中文官网</a><br><a href="https://pages.github.com/">githubPages</a></p>
-]]></content>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>go 环境的安装</title>
-    <url>/2022/06/23/go%20%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
-    <content><![CDATA[<p>安装golang</p>
-<p>1.下载地址<br><a href="https://golang.google.cn/dl/">https://golang.google.cn/dl/</a></p>
-<p>2.添加环境变量<br>Go\bin 添加到Path环境变量<br>设置 go GOPROXY</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">go env -w GO111MODULE=on</span><br><span class="line">go env -w GOPROXY=https://goproxy.cn,direct</span><br></pre></td></tr></table></figure>
-
-<p>3.配置GOROOT和GOPATH</p>
-<p>GOROOT: 配置go的sdk目录<br>GOPATH: 配置go项目都要放置到这个目录之下</p>
-]]></content>
-      <categories>
-        <category>go</category>
-      </categories>
-      <tags>
-        <tag>go</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>回调接口高并发</title>
-    <url>/2022/07/01/%E5%9B%9E%E8%B0%83%E6%8E%A5%E5%8F%A3%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
-    <content><![CDATA[<h2 id="一次高频率请求的优化"><a href="#一次高频率请求的优化" class="headerlink" title="一次高频率请求的优化"></a>一次高频率请求的优化</h2><p>第三方平台的高频率回调事件<br>每分钟1k以上的请求<br>导致不断的502报错</p>
-<p>1.首先接触laravel的频率限制,防止业务不能正常执行.<br>2.这种回调事件都是可以异步的,因此使用队列,从而快速响应请求防止连接数过多.<br>3.数据库的表索引优化<br>4.单独的容器(服务器处理回调事件)</p>
-]]></content>
-      <categories>
-        <category>laravel</category>
-      </categories>
-      <tags>
-        <tag>php</tag>
-        <tag>laravel</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>antdPro简单介绍</title>
     <url>/2022/07/04/antdPro%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<p>安装：</p>
@@ -67,51 +9,6 @@
 <p>相关文档</p>
 <p><a href="https://pro.ant.design/">antdPro官网</a><br><a href="https://procomponents.ant.design/components/">antdPro组件</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>laravel route缓存坑</title>
-    <url>/2022/07/05/laravel-route%E7%BC%93%E5%AD%98%E5%9D%91/</url>
-    <content><![CDATA[<p>本地访问没有问题,到测试服务器,一直访问不了,路由错误.<br>查看route文件路由没问题</p>
-<hr>
-<p>最终发现是laravel路由缓存问题<br>顺便说一下,路由缓存可以大大提高路由注册的速度.<br>引用Laravel社区Wiki:<br>路由缓存会大大减少注册所有路由所需的时间。在某些情况下，路由注册的速度甚至能快上 100 倍。<br>要生成路由缓存，只需执行 artisan 命令</p>
-<p>生成路由缓存命令:<br>php artisan route:cache<br>清除路由缓存命令:<br>php artisan route:clear</p>
-]]></content>
-      <categories>
-        <category>laravel</category>
-      </categories>
-      <tags>
-        <tag>laravel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>go的学习路线</title>
-    <url>/2022/07/10/go%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
-    <content><![CDATA[<hr>
-<img src="/static/go.jpg" width="80%" />
-
-]]></content>
-  </entry>
-  <entry>
-    <title>mysql相关知识</title>
-    <url>/2022/07/11/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
-    <content><![CDATA[<h3 id="mysql优化"><a href="#mysql优化" class="headerlink" title="mysql优化"></a>mysql优化</h3><pre><code>- 目前主要是索引的优化
-- 给查询的字段添加索引,主键索引,外键索引,唯一索引.
-- 数据量不是特别大的时候,足够了
-- explain 来查是否命中索引
-- 分库分表
-</code></pre>
-<p>mysql基础语句</p>
-<p>mysql索引</p>
-<p>mysql锁</p>
-<p>mysql备份</p>
-<p>mysql分表</p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>mysql</tag>
-      </tags>
   </entry>
   <entry>
     <title>git知识点</title>
@@ -165,6 +62,50 @@
       </tags>
   </entry>
   <entry>
+    <title>go 环境的安装</title>
+    <url>/2022/06/23/go%20%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<p>安装golang</p>
+<p>1.下载地址<br><a href="https://golang.google.cn/dl/">https://golang.google.cn/dl/</a></p>
+<p>2.添加环境变量<br>Go\bin 添加到Path环境变量<br>设置 go GOPROXY</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">go env -w GO111MODULE=on</span><br><span class="line">go env -w GOPROXY=https://goproxy.cn,direct</span><br></pre></td></tr></table></figure>
+
+<p>3.配置GOROOT和GOPATH</p>
+<p>GOROOT: 配置go的sdk目录<br>GOPATH: 配置go项目都要放置到这个目录之下</p>
+]]></content>
+      <categories>
+        <category>go</category>
+      </categories>
+      <tags>
+        <tag>go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>go的学习路线</title>
+    <url>/2022/07/10/go%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF/</url>
+    <content><![CDATA[<hr>
+<img src="/static/go.jpg" width="80%" />
+
+]]></content>
+  </entry>
+  <entry>
+    <title>jetbrains编辑器快捷键</title>
+    <url>/2022/07/22/jetbrains%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<p>记录下jetbrains快捷键，提高效率。</p>
+<hr>
+<h3 id="【常规】"><a href="#【常规】" class="headerlink" title="【常规】"></a>【常规】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ctrl+Shift + Enter，语句完成</span><br><span class="line">“！”，否定完成，输入表达式时按 “！”键</span><br><span class="line">Ctrl+E，最近的文件</span><br><span class="line">Ctrl+Shift+E，最近更改的文件</span><br><span class="line">Shift+Click，可以关闭文件</span><br><span class="line">Ctrl+[ OR ]，可以跑到大括号的开头与结尾</span><br><span class="line">Ctrl+F12，可以显示当前文件的结构</span><br><span class="line">Ctrl+F7，可以查询当前元素在当前文件中的引用，然后按 F3 可以选择</span><br><span class="line">Ctrl+N，可以快速打开类</span><br><span class="line">Ctrl+Shift+N，可以快速打开文件</span><br><span class="line">Alt+Q，可以看到当前方法的声明</span><br><span class="line">Ctrl+P，可以显示参数信息</span><br><span class="line">Ctrl+Shift+Insert，可以选择剪贴板内容并插入</span><br><span class="line">Alt+Insert，可以生成构造器/Getter/Setter等</span><br><span class="line">Ctrl+Alt+V，可以引入变量。例如：new String();  自动导入变量定义</span><br><span class="line">Ctrl+Alt+T，可以把代码包在一个块内，例如：try/catch</span><br><span class="line">Ctrl+Enter，导入包，自动修正</span><br><span class="line">Ctrl+Alt+L，一键格式化代码</span><br><span class="line">Ctrl+Alt+I，将选中的代码进行自动缩进编排，这个功能在编辑 JSP 文件时也可以工作</span><br><span class="line">Ctrl+Alt+O，优化导入的类和包</span><br><span class="line">Ctrl+R，替换文本</span><br><span class="line">Ctrl+F，查找文本</span><br><span class="line">Ctrl+Shift+Space，自动补全代码</span><br><span class="line">Ctrl+空格，代码提示（与系统输入法快捷键冲突）</span><br><span class="line">Ctrl+Shift+Alt+N，查找类中的方法或变量</span><br><span class="line">Alt+Shift+C，最近的更改</span><br><span class="line">Alt+Shift+Up/Down，上/下移一行</span><br><span class="line">Shift+F6，重构 - 重命名</span><br><span class="line">Ctrl+X，删除行</span><br><span class="line">Ctrl+D，复制行</span><br><span class="line">Ctrl+/或Ctrl+Shift+/，注释（//或者/**/）</span><br><span class="line">Ctrl+J，自动代码（例如：serr）</span><br><span class="line">Ctrl+Alt+J，用动态模板环绕</span><br><span class="line">Ctrl+H，显示类结构图（类的继承层次）</span><br><span class="line">Ctrl+Q，显示注释文档</span><br><span class="line">Alt+F1，查找代码所在位置</span><br><span class="line">Alt+1，快速打开或隐藏工程面板</span><br><span class="line">Ctrl+Alt+left/right，返回至上次浏览的位置</span><br><span class="line">Alt+left/right，切换代码视图</span><br><span class="line">Alt+Up/Down，在方法间快速移动定位</span><br><span class="line">Ctrl+Shift+Up/Down，向上/下移动语句</span><br><span class="line">F2 或 Shift+F2，高亮错误或警告快速定位</span><br><span class="line">Tab，代码标签输入完成后，按 Tab，生成代码</span><br><span class="line">Ctrl+Shift+F7，高亮显示所有该文本，按 Esc 高亮消失</span><br><span class="line">Alt+F3，逐个往下查找相同文本，并高亮显示</span><br><span class="line">Ctrl+Up/Down，光标中转到第一行或最后一行下</span><br><span class="line">Ctrl+B/Ctrl+Click，快速打开光标处的类或方法（跳转到定义处）</span><br><span class="line">Ctrl+Alt+B，跳转到方法实现处</span><br><span class="line">Ctrl+Shift+Backspace，跳转到上次编辑的地方</span><br><span class="line">Ctrl+O，重写方法</span><br><span class="line">Ctrl+Alt+Space，类名自动完成</span><br><span class="line">Ctrl+Alt+Up/Down，快速跳转搜索结果</span><br><span class="line">Ctrl+Shift+J，整合两行</span><br><span class="line">Alt+F8，计算变量值</span><br><span class="line">Ctrl+Shift+V，可以将最近使用的剪贴板内容选择插入到文本</span><br><span class="line">Ctrl+Alt+Shift+V，简单粘贴</span><br><span class="line">Shift+Esc，不仅可以把焦点移到编辑器上，而且还可以隐藏当前（或最后活动的）工具窗口</span><br><span class="line">F12，把焦点从编辑器移到最近使用的工具窗口</span><br><span class="line">Shift+F1，要打开编辑器光标字符处使用的类或者方法 Java 文档的浏览器</span><br><span class="line">Ctrl+W，可以选择单词继而语句继而行继而函数</span><br><span class="line">Ctrl+Shift+W，取消选择光标所在词</span><br><span class="line">Alt+F7，查找整个工程中使用地某一个类、方法或者变量的位置</span><br><span class="line">Ctrl+I，实现方法</span><br><span class="line">Ctrl+Shift+U，大小写转化</span><br><span class="line">Ctrl+Y，删除当前行</span><br><span class="line">Shift+Enter，向下插入新行</span><br><span class="line">psvm/sout，main/System.out.println(); Ctrl+J，查看更多</span><br><span class="line">Ctrl+Shift+F，全局查找</span><br><span class="line">Ctrl+F，查找/Shift+F3，向上查找/F3，向下查找</span><br><span class="line">Ctrl+Shift+S，高级搜索</span><br><span class="line">Ctrl+U，转到父类</span><br><span class="line">Ctrl+Alt+S，打开设置对话框</span><br><span class="line">Alt+Shift+Inert，开启/关闭列选择模式</span><br><span class="line">Ctrl+Alt+Shift+S，打开当前项目/模块属性</span><br><span class="line">Ctrl+G，定位行</span><br><span class="line">Alt+Home，跳转到导航栏</span><br><span class="line">Ctrl+Enter，上插一行</span><br><span class="line">Ctrl+Backspace，按单词删除</span><br><span class="line">Ctrl+&quot;+/-&quot;，当前方法展开、折叠</span><br><span class="line">Ctrl+Shift+&quot;+/-&quot;，全部展开、折叠</span><br></pre></td></tr></table></figure>
+
+<h3 id="【调试部分、编译】"><a href="#【调试部分、编译】" class="headerlink" title="【调试部分、编译】"></a>【调试部分、编译】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ctrl+F2，停止</span><br><span class="line">Alt+Shift+F9，选择 Debug</span><br><span class="line">Alt+Shift+F10，选择 Run</span><br><span class="line">Ctrl+Shift+F9，编译</span><br><span class="line">Ctrl+Shift+F10，运行</span><br><span class="line">Ctrl+Shift+F8，查看断点</span><br><span class="line">F8，步过</span><br><span class="line">F7，步入</span><br><span class="line">Shift+F7，智能步入</span><br><span class="line">Shift+F8，步出</span><br><span class="line">Alt+Shift+F8，强制步过</span><br><span class="line">Alt+Shift+F7，强制步入</span><br><span class="line">Alt+F9，运行至光标处</span><br><span class="line">Ctrl+Alt+F9，强制运行至光标处</span><br><span class="line">F9，恢复程序</span><br><span class="line">Alt+F10，定位到断点</span><br><span class="line">Ctrl+F8，切换行断点</span><br><span class="line">Ctrl+F9，生成项目</span><br><span class="line">Alt+1，项目</span><br><span class="line">Alt+2，收藏</span><br><span class="line">Alt+6，TODO</span><br><span class="line">Alt+7，结构</span><br><span class="line">Ctrl+Shift+C，复制路径</span><br><span class="line">Ctrl+Alt+Shift+C，复制引用，必须选择类名</span><br><span class="line">Ctrl+Alt+Y，同步</span><br><span class="line">Ctrl+~，快速切换方案（界面外观、代码风格、快捷键映射等菜单）</span><br><span class="line">Shift+F12，还原默认布局</span><br><span class="line">Ctrl+Shift+F12，隐藏/恢复所有窗口</span><br><span class="line">Ctrl+F4，关闭</span><br><span class="line">Ctrl+Shift+F4，关闭活动选项卡</span><br><span class="line">Ctrl+Tab，转到下一个拆分器</span><br><span class="line">Ctrl+Shift+Tab，转到上一个拆分器</span><br></pre></td></tr></table></figure>
+
+<h3 id="【重构】"><a href="#【重构】" class="headerlink" title="【重构】"></a>【重构】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ctrl+Alt+Shift+T，弹出重构菜单</span><br><span class="line">Shift+F6，重命名</span><br><span class="line">F6，移动</span><br><span class="line">F5，复制</span><br><span class="line">Alt+Delete，安全删除</span><br><span class="line">Ctrl+Alt+N，内联</span><br></pre></td></tr></table></figure>
+
+<h3 id="【查找】"><a href="#【查找】" class="headerlink" title="【查找】"></a>【查找】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ctrl+F，查找</span><br><span class="line">Ctrl+R，替换</span><br><span class="line">F3，查找下一个</span><br><span class="line">Shift+F3，查找上一个</span><br><span class="line">Ctrl+Shift+F，在路径中查找</span><br><span class="line">Ctrl+Shift+R，在路径中替换</span><br><span class="line">Ctrl+Shift+S，搜索结构</span><br><span class="line">Ctrl+Shift+M，替换结构</span><br><span class="line">Alt+F7，查找用法</span><br><span class="line">Ctrl+Alt+F7，显示用法</span><br><span class="line">Ctrl+F7，在文件中查找用法</span><br><span class="line">Ctrl+Shift+F7，在文件中高亮显示用法</span><br></pre></td></tr></table></figure>
+
+<h3 id="【VCS】"><a href="#【VCS】" class="headerlink" title="【VCS】"></a>【VCS】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+~，VCS 操作菜单</span><br><span class="line">Ctrl+K，提交更改</span><br><span class="line">Ctrl+T，更新项目</span><br><span class="line">Ctrl+Alt+Shift+D，显示变化</span><br></pre></td></tr></table></figure>
+
+<p>来源<br><a href="https://blog.csdn.net/qq_41289920/article/details/90750786#:~:text=JetBrains%20-%20IDEA%20%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB%201%20Ctrl%2BShift%20%2B%20Enter%EF%BC%8C%E8%AF%AD%E5%8F%A5%E5%AE%8C%E6%88%90,%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9%209%20Ctrl%2BN%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80%E7%B1%BB%2010%20Ctrl%2BShift%2BN%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%20More%20items...%20">JetBrains - IDEA 常用快捷键汇总</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>laravel多对多关联</title>
     <url>/2022/07/15/laravel%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E8%81%94/</url>
     <content><![CDATA[<h3 id="model层的多对多关系"><a href="#model层的多对多关系" class="headerlink" title="model层的多对多关系"></a>model层的多对多关系</h3><p>表结构<br>要定义这种关联，需要三个数据库表： users，roles 和 role_user。role_user 表的命名是由关联的两个模型按照字母顺序来的，并且包含了 user_id 和 role_id 字段：</p>
@@ -214,31 +155,52 @@
       </tags>
   </entry>
   <entry>
-    <title>jetbrains编辑器快捷键</title>
-    <url>/2022/07/22/jetbrains%E7%BC%96%E8%BE%91%E5%99%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<p>记录下jetbrains快捷键，提高效率。</p>
-<hr>
-<h3 id="【常规】"><a href="#【常规】" class="headerlink" title="【常规】"></a>【常规】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ctrl+Shift + Enter，语句完成</span><br><span class="line">“！”，否定完成，输入表达式时按 “！”键</span><br><span class="line">Ctrl+E，最近的文件</span><br><span class="line">Ctrl+Shift+E，最近更改的文件</span><br><span class="line">Shift+Click，可以关闭文件</span><br><span class="line">Ctrl+[ OR ]，可以跑到大括号的开头与结尾</span><br><span class="line">Ctrl+F12，可以显示当前文件的结构</span><br><span class="line">Ctrl+F7，可以查询当前元素在当前文件中的引用，然后按 F3 可以选择</span><br><span class="line">Ctrl+N，可以快速打开类</span><br><span class="line">Ctrl+Shift+N，可以快速打开文件</span><br><span class="line">Alt+Q，可以看到当前方法的声明</span><br><span class="line">Ctrl+P，可以显示参数信息</span><br><span class="line">Ctrl+Shift+Insert，可以选择剪贴板内容并插入</span><br><span class="line">Alt+Insert，可以生成构造器/Getter/Setter等</span><br><span class="line">Ctrl+Alt+V，可以引入变量。例如：new String();  自动导入变量定义</span><br><span class="line">Ctrl+Alt+T，可以把代码包在一个块内，例如：try/catch</span><br><span class="line">Ctrl+Enter，导入包，自动修正</span><br><span class="line">Ctrl+Alt+L，一键格式化代码</span><br><span class="line">Ctrl+Alt+I，将选中的代码进行自动缩进编排，这个功能在编辑 JSP 文件时也可以工作</span><br><span class="line">Ctrl+Alt+O，优化导入的类和包</span><br><span class="line">Ctrl+R，替换文本</span><br><span class="line">Ctrl+F，查找文本</span><br><span class="line">Ctrl+Shift+Space，自动补全代码</span><br><span class="line">Ctrl+空格，代码提示（与系统输入法快捷键冲突）</span><br><span class="line">Ctrl+Shift+Alt+N，查找类中的方法或变量</span><br><span class="line">Alt+Shift+C，最近的更改</span><br><span class="line">Alt+Shift+Up/Down，上/下移一行</span><br><span class="line">Shift+F6，重构 - 重命名</span><br><span class="line">Ctrl+X，删除行</span><br><span class="line">Ctrl+D，复制行</span><br><span class="line">Ctrl+/或Ctrl+Shift+/，注释（//或者/**/）</span><br><span class="line">Ctrl+J，自动代码（例如：serr）</span><br><span class="line">Ctrl+Alt+J，用动态模板环绕</span><br><span class="line">Ctrl+H，显示类结构图（类的继承层次）</span><br><span class="line">Ctrl+Q，显示注释文档</span><br><span class="line">Alt+F1，查找代码所在位置</span><br><span class="line">Alt+1，快速打开或隐藏工程面板</span><br><span class="line">Ctrl+Alt+left/right，返回至上次浏览的位置</span><br><span class="line">Alt+left/right，切换代码视图</span><br><span class="line">Alt+Up/Down，在方法间快速移动定位</span><br><span class="line">Ctrl+Shift+Up/Down，向上/下移动语句</span><br><span class="line">F2 或 Shift+F2，高亮错误或警告快速定位</span><br><span class="line">Tab，代码标签输入完成后，按 Tab，生成代码</span><br><span class="line">Ctrl+Shift+F7，高亮显示所有该文本，按 Esc 高亮消失</span><br><span class="line">Alt+F3，逐个往下查找相同文本，并高亮显示</span><br><span class="line">Ctrl+Up/Down，光标中转到第一行或最后一行下</span><br><span class="line">Ctrl+B/Ctrl+Click，快速打开光标处的类或方法（跳转到定义处）</span><br><span class="line">Ctrl+Alt+B，跳转到方法实现处</span><br><span class="line">Ctrl+Shift+Backspace，跳转到上次编辑的地方</span><br><span class="line">Ctrl+O，重写方法</span><br><span class="line">Ctrl+Alt+Space，类名自动完成</span><br><span class="line">Ctrl+Alt+Up/Down，快速跳转搜索结果</span><br><span class="line">Ctrl+Shift+J，整合两行</span><br><span class="line">Alt+F8，计算变量值</span><br><span class="line">Ctrl+Shift+V，可以将最近使用的剪贴板内容选择插入到文本</span><br><span class="line">Ctrl+Alt+Shift+V，简单粘贴</span><br><span class="line">Shift+Esc，不仅可以把焦点移到编辑器上，而且还可以隐藏当前（或最后活动的）工具窗口</span><br><span class="line">F12，把焦点从编辑器移到最近使用的工具窗口</span><br><span class="line">Shift+F1，要打开编辑器光标字符处使用的类或者方法 Java 文档的浏览器</span><br><span class="line">Ctrl+W，可以选择单词继而语句继而行继而函数</span><br><span class="line">Ctrl+Shift+W，取消选择光标所在词</span><br><span class="line">Alt+F7，查找整个工程中使用地某一个类、方法或者变量的位置</span><br><span class="line">Ctrl+I，实现方法</span><br><span class="line">Ctrl+Shift+U，大小写转化</span><br><span class="line">Ctrl+Y，删除当前行</span><br><span class="line">Shift+Enter，向下插入新行</span><br><span class="line">psvm/sout，main/System.out.println(); Ctrl+J，查看更多</span><br><span class="line">Ctrl+Shift+F，全局查找</span><br><span class="line">Ctrl+F，查找/Shift+F3，向上查找/F3，向下查找</span><br><span class="line">Ctrl+Shift+S，高级搜索</span><br><span class="line">Ctrl+U，转到父类</span><br><span class="line">Ctrl+Alt+S，打开设置对话框</span><br><span class="line">Alt+Shift+Inert，开启/关闭列选择模式</span><br><span class="line">Ctrl+Alt+Shift+S，打开当前项目/模块属性</span><br><span class="line">Ctrl+G，定位行</span><br><span class="line">Alt+Home，跳转到导航栏</span><br><span class="line">Ctrl+Enter，上插一行</span><br><span class="line">Ctrl+Backspace，按单词删除</span><br><span class="line">Ctrl+&quot;+/-&quot;，当前方法展开、折叠</span><br><span class="line">Ctrl+Shift+&quot;+/-&quot;，全部展开、折叠</span><br></pre></td></tr></table></figure>
-
-<h3 id="【调试部分、编译】"><a href="#【调试部分、编译】" class="headerlink" title="【调试部分、编译】"></a>【调试部分、编译】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ctrl+F2，停止</span><br><span class="line">Alt+Shift+F9，选择 Debug</span><br><span class="line">Alt+Shift+F10，选择 Run</span><br><span class="line">Ctrl+Shift+F9，编译</span><br><span class="line">Ctrl+Shift+F10，运行</span><br><span class="line">Ctrl+Shift+F8，查看断点</span><br><span class="line">F8，步过</span><br><span class="line">F7，步入</span><br><span class="line">Shift+F7，智能步入</span><br><span class="line">Shift+F8，步出</span><br><span class="line">Alt+Shift+F8，强制步过</span><br><span class="line">Alt+Shift+F7，强制步入</span><br><span class="line">Alt+F9，运行至光标处</span><br><span class="line">Ctrl+Alt+F9，强制运行至光标处</span><br><span class="line">F9，恢复程序</span><br><span class="line">Alt+F10，定位到断点</span><br><span class="line">Ctrl+F8，切换行断点</span><br><span class="line">Ctrl+F9，生成项目</span><br><span class="line">Alt+1，项目</span><br><span class="line">Alt+2，收藏</span><br><span class="line">Alt+6，TODO</span><br><span class="line">Alt+7，结构</span><br><span class="line">Ctrl+Shift+C，复制路径</span><br><span class="line">Ctrl+Alt+Shift+C，复制引用，必须选择类名</span><br><span class="line">Ctrl+Alt+Y，同步</span><br><span class="line">Ctrl+~，快速切换方案（界面外观、代码风格、快捷键映射等菜单）</span><br><span class="line">Shift+F12，还原默认布局</span><br><span class="line">Ctrl+Shift+F12，隐藏/恢复所有窗口</span><br><span class="line">Ctrl+F4，关闭</span><br><span class="line">Ctrl+Shift+F4，关闭活动选项卡</span><br><span class="line">Ctrl+Tab，转到下一个拆分器</span><br><span class="line">Ctrl+Shift+Tab，转到上一个拆分器</span><br></pre></td></tr></table></figure>
-
-<h3 id="【重构】"><a href="#【重构】" class="headerlink" title="【重构】"></a>【重构】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ctrl+Alt+Shift+T，弹出重构菜单</span><br><span class="line">Shift+F6，重命名</span><br><span class="line">F6，移动</span><br><span class="line">F5，复制</span><br><span class="line">Alt+Delete，安全删除</span><br><span class="line">Ctrl+Alt+N，内联</span><br></pre></td></tr></table></figure>
-
-<h3 id="【查找】"><a href="#【查找】" class="headerlink" title="【查找】"></a>【查找】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ctrl+F，查找</span><br><span class="line">Ctrl+R，替换</span><br><span class="line">F3，查找下一个</span><br><span class="line">Shift+F3，查找上一个</span><br><span class="line">Ctrl+Shift+F，在路径中查找</span><br><span class="line">Ctrl+Shift+R，在路径中替换</span><br><span class="line">Ctrl+Shift+S，搜索结构</span><br><span class="line">Ctrl+Shift+M，替换结构</span><br><span class="line">Alt+F7，查找用法</span><br><span class="line">Ctrl+Alt+F7，显示用法</span><br><span class="line">Ctrl+F7，在文件中查找用法</span><br><span class="line">Ctrl+Shift+F7，在文件中高亮显示用法</span><br></pre></td></tr></table></figure>
-
-<h3 id="【VCS】"><a href="#【VCS】" class="headerlink" title="【VCS】"></a>【VCS】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Alt+~，VCS 操作菜单</span><br><span class="line">Ctrl+K，提交更改</span><br><span class="line">Ctrl+T，更新项目</span><br><span class="line">Ctrl+Alt+Shift+D，显示变化</span><br></pre></td></tr></table></figure>
-
-<p>来源<br><a href="https://blog.csdn.net/qq_41289920/article/details/90750786#:~:text=JetBrains%20-%20IDEA%20%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB%201%20Ctrl%2BShift%20%2B%20Enter%EF%BC%8C%E8%AF%AD%E5%8F%A5%E5%AE%8C%E6%88%90,%E5%8F%AF%E4%BB%A5%E9%80%89%E6%8B%A9%209%20Ctrl%2BN%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80%E7%B1%BB%2010%20Ctrl%2BShift%2BN%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%BF%AB%E9%80%9F%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%20More%20items...%20">JetBrains - IDEA 常用快捷键汇总</a></p>
+    <title>js replaceAll方法有兼容性问题(记录下坑)</title>
+    <url>/2022/08/23/js-replaceAll%E6%96%B9%E6%B3%95%E6%9C%89%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>旧版本游览器不支持该写法,可以转化成</p>
+<p>replace方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var str = &quot;wordwordwordword&quot;;</span><br><span class="line">var strNew = str.replace(/word/g,&quot;Excel&quot;)</span><br><span class="line">strNew = replaceAll(str);</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
   </entry>
   <entry>
-    <title>层次划分</title>
-    <url>/2022/08/17/%E5%B1%82%E6%AC%A1%E5%88%92%E5%88%86/</url>
-    <content><![CDATA[<h2 id="简单思考下代码的层次感"><a href="#简单思考下代码的层次感" class="headerlink" title="简单思考下代码的层次感"></a>简单思考下代码的层次感</h2><hr>
-<p>回顾自已代码,总结出太多问题了.<br>有多余的,有沉余的,也有层次不对的.<br>仅仅实现了功能.<br>好的写法也不是说多难.<br>而是好的习惯和思考及经验不足.<br>未来还是要写高质量的代码.<br>坚持规范自已的代码</p>
-<p>路由–&gt;中间件–&gt;参数验证–&gt;逻辑–&gt;数据交互–&gt;前置处理—&gt;后置处理–&gt;异常处理–&gt;返回</p>
-<p>代码要有条理,要高质量.<br>有层次感<br>重复代码封装<br>合理分层</p>
+    <title>laravel route缓存坑</title>
+    <url>/2022/07/05/laravel-route%E7%BC%93%E5%AD%98%E5%9D%91/</url>
+    <content><![CDATA[<p>本地访问没有问题,到测试服务器,一直访问不了,路由错误.<br>查看route文件路由没问题</p>
+<hr>
+<p>最终发现是laravel路由缓存问题<br>顺便说一下,路由缓存可以大大提高路由注册的速度.<br>引用Laravel社区Wiki:<br>路由缓存会大大减少注册所有路由所需的时间。在某些情况下，路由注册的速度甚至能快上 100 倍。<br>要生成路由缓存，只需执行 artisan 命令</p>
+<p>生成路由缓存命令:<br>php artisan route:cache<br>清除路由缓存命令:<br>php artisan route:clear</p>
 ]]></content>
+      <categories>
+        <category>laravel</category>
+      </categories>
+      <tags>
+        <tag>laravel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql相关知识</title>
+    <url>/2022/07/11/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<h3 id="mysql优化"><a href="#mysql优化" class="headerlink" title="mysql优化"></a>mysql优化</h3><pre><code>- 目前主要是索引的优化
+- 给查询的字段添加索引,主键索引,外键索引,唯一索引.
+- 数据量不是特别大的时候,足够了
+- explain 来查是否命中索引
+- 分库分表
+</code></pre>
+<p>mysql基础语句</p>
+<p>mysql索引</p>
+<p>mysql锁</p>
+<p>mysql备份</p>
+<p>mysql分表</p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
   </entry>
   <entry>
     <title>postMan设置切换本地开发线上环境</title>
@@ -255,14 +217,52 @@
       </tags>
   </entry>
   <entry>
-    <title>js replaceAll方法有兼容性问题(记录下坑)</title>
-    <url>/2022/08/23/js-replaceAll%E6%96%B9%E6%B3%95%E6%9C%89%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>旧版本游览器不支持该写法,可以转化成</p>
-<p>replace方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var str = &quot;wordwordwordword&quot;;</span><br><span class="line">var strNew = str.replace(/word/g,&quot;Excel&quot;)</span><br><span class="line">strNew = replaceAll(str);</span><br></pre></td></tr></table></figure>
+    <title>第一篇文章(当然是利用githubPage和hexo搭建博客)</title>
+    <url>/2022/06/22/%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h2 id="简单的介绍下好了-不做为教程"><a href="#简单的介绍下好了-不做为教程" class="headerlink" title="简单的介绍下好了,不做为教程."></a>简单的介绍下好了,不做为教程.</h2><h3 id="环境介绍"><a href="#环境介绍" class="headerlink" title="环境介绍"></a>环境介绍</h3><ul>
+<li>git node </li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init blog</span><br><span class="line">cd blog</span><br><span class="line">npm install</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p>五行命令就可以本地运行Hexo博客了,就是这么简单.你学会了吗?</p>
+<pre><code>hexo g 
+</code></pre>
+<ul>
+<li>生成 public 目录,放到服务器上,就完成了自已的个人博客.</li>
+</ul>
+<h3 id="服务器需要钱"><a href="#服务器需要钱" class="headerlink" title="服务器需要钱?"></a>服务器需要钱?</h3><p>可以利用 githubPages | giteePages |gitlabPages<br>免费搭建自已的博客</p>
+<p>本博客就是利用 githubPages</p>
+<ul>
+<li>域名可以自已在阿里云或者腾讯云等购买,解析到对应的网址.</li>
+<li>就可以拥有自已域名的免费博客.</li>
+</ul>
+<h3 id="文中涉及的相关内容-官方相关资料直通车"><a href="#文中涉及的相关内容-官方相关资料直通车" class="headerlink" title="文中涉及的相关内容,官方相关资料直通车."></a>文中涉及的相关内容,官方相关资料直通车.</h3><p><a href="https://hexo.io/zh-cn/index.html">Hexo中文官网</a><br><a href="https://pages.github.com/">githubPages</a></p>
 ]]></content>
       <tags>
-        <tag>js</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>层次划分</title>
+    <url>/2022/08/17/%E5%B1%82%E6%AC%A1%E5%88%92%E5%88%86/</url>
+    <content><![CDATA[<h2 id="简单思考下代码的层次感"><a href="#简单思考下代码的层次感" class="headerlink" title="简单思考下代码的层次感"></a>简单思考下代码的层次感</h2><hr>
+<p>回顾自已代码,总结出太多问题了.<br>有多余的,有沉余的,也有层次不对的.<br>仅仅实现了功能.<br>好的写法也不是说多难.<br>而是好的习惯和思考及经验不足.<br>未来还是要写高质量的代码.<br>坚持规范自已的代码</p>
+<p>路由–&gt;中间件–&gt;参数验证–&gt;逻辑–&gt;数据交互–&gt;前置处理—&gt;后置处理–&gt;异常处理–&gt;返回</p>
+<p>代码要有条理,要高质量.<br>有层次感<br>重复代码封装<br>合理分层</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>回调接口高并发</title>
+    <url>/2022/07/01/%E5%9B%9E%E8%B0%83%E6%8E%A5%E5%8F%A3%E9%AB%98%E5%B9%B6%E5%8F%91/</url>
+    <content><![CDATA[<h2 id="一次高频率请求的优化"><a href="#一次高频率请求的优化" class="headerlink" title="一次高频率请求的优化"></a>一次高频率请求的优化</h2><p>第三方平台的高频率回调事件<br>每分钟1k以上的请求<br>导致不断的502报错</p>
+<p>1.首先接触laravel的频率限制,防止业务不能正常执行.<br>2.这种回调事件都是可以异步的,因此使用队列,从而快速响应请求防止连接数过多.<br>3.数据库的表索引优化<br>4.单独的容器(服务器处理回调事件)</p>
+]]></content>
+      <categories>
+        <category>laravel</category>
+      </categories>
+      <tags>
+        <tag>laravel</tag>
+        <tag>php</tag>
       </tags>
   </entry>
 </search>
