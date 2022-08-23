@@ -254,4 +254,15 @@
         <tag>postman 环境变量</tag>
       </tags>
   </entry>
+  <entry>
+    <title>js replaceAll方法有兼容性问题(记录下坑)</title>
+    <url>/2022/08/23/js-replaceAll%E6%96%B9%E6%B3%95%E6%9C%89%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>旧版本游览器不支持该写法,可以转化成</p>
+<p>replace方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var str = &quot;wordwordwordword&quot;;</span><br><span class="line">var strNew = str.replace(/word/g,&quot;Excel&quot;)</span><br><span class="line">strNew = replaceAll(str);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>js</tag>
+      </tags>
+  </entry>
 </search>
