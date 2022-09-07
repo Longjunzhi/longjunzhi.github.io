@@ -265,4 +265,19 @@
         <tag>php</tag>
       </tags>
   </entry>
+  <entry>
+    <title>go运行的DockerFile文件</title>
+    <url>/2022/09/07/go%E8%BF%90%E8%A1%8C%E7%9A%84DockerFile%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<p>go的dockerFile文件</p>
+<pre><code>1. /src/pxj/courseSystem 目录要修改成自已的项目目录
+2. ENTRYPOINT [&quot;./courseSystem&quot;] 要修改成自已的目录
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM golang:latest</span><br><span class="line"></span><br><span class="line">ENV GO111MODULE=on \</span><br><span class="line">    CGO_ENABLED=0 \</span><br><span class="line">    GOPROXY=https://goproxy.cn,direct \</span><br><span class="line">    ENV=prod</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">WORKDIR $GOPATH/src/pxj/courseSystem</span><br><span class="line">COPY . $GOPATH/src/pxj/courseSystem</span><br><span class="line">RUN go build .</span><br><span class="line"></span><br><span class="line">EXPOSE 8087</span><br><span class="line">ENTRYPOINT [&quot;./courseSystem&quot;]</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>go</tag>
+        <tag>docker</tag>
+        <tag>dockerFile</tag>
+      </tags>
+  </entry>
 </search>
