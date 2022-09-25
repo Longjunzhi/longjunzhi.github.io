@@ -289,4 +289,12 @@
 <p>计算单独的模块</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>科学上网</title>
+    <url>/2022/09/25/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo ufw disable \</span><br><span class="line">wget https://git.io/vpnsetup -O vpnsetup.sh &amp;&amp; sudo \</span><br><span class="line">VPN_IPSEC_PSK=&#x27;myvpn&#x27; \</span><br><span class="line">VPN_USER=&#x27;myvpn&#x27; \</span><br><span class="line">VPN_PASSWORD=&#x27;myvpn&#x27; \</span><br><span class="line">sh vpnsetup.sh</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/hwdsl2/setup-ipsec-vpn">来源</a></p>
+]]></content>
+  </entry>
 </search>
