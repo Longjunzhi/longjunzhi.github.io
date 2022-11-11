@@ -7,15 +7,15 @@
   
   <title>git知识点 | 庞学军的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="总结下git版本管理  git常用命令  git clone #克隆项目 git push #推送 git add #添加 git commit #提交 git checkout #切换分支 git pull #拉取   要用记不住的命令   123456789101112* git reset --soft HEAD^ # 取消commit,保留修改的文件* git reset --hard H">
+  <meta name="description" content="总结下git版本管理  git常用命令  git clone #克隆项目 git push #推送 git add #添加 git commit #提交 git checkout #切换分支 git pull #拉取   要用记不住的命令   1234567891011121314* git reset --soft HEAD^ # 取消commit,保留修改的文件* git reset --ha">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git知识点">
 <meta property="og:url" content="http://pangxuejun.cn/longjunzhi.github.io/2022/07/04/git%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
 <meta property="og:site_name" content="庞学军的个人博客">
-<meta property="og:description" content="总结下git版本管理  git常用命令  git clone #克隆项目 git push #推送 git add #添加 git commit #提交 git checkout #切换分支 git pull #拉取   要用记不住的命令   123456789101112* git reset --soft HEAD^ # 取消commit,保留修改的文件* git reset --hard H">
+<meta property="og:description" content="总结下git版本管理  git常用命令  git clone #克隆项目 git push #推送 git add #添加 git commit #提交 git checkout #切换分支 git pull #拉取   要用记不住的命令   1234567891011121314* git reset --soft HEAD^ # 取消commit,保留修改的文件* git reset --ha">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-04T02:09:03.000Z">
-<meta property="article:modified_time" content="2022-07-19T02:21:31.611Z">
+<meta property="article:modified_time" content="2022-11-07T02:47:48.119Z">
 <meta property="article:author" content="庞学军">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -93,7 +93,7 @@
 <li><p>要用记不住的命令</p>
 </li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">* git reset --soft HEAD^ # 取消commit,保留修改的文件</span><br><span class="line">* git reset --hard HEAD^ # 取消commit,不保留修改的文件</span><br><span class="line">* git checkout -b shen-dev(本地分支名) origin/release_dev(远程分支名) #切换远程分支</span><br><span class="line">* git checkout . #恢复工作树文件</span><br><span class="line">* ssh-keygen -t rsa -C &quot;your_email@example.com&quot; #生成新的ssh key</span><br><span class="line">* git stash #git储藏</span><br><span class="line">* git stash list # 储藏列表</span><br><span class="line">* git stash pop # 恢复最近并删除</span><br><span class="line">* git stash drop #移除stash</span><br><span class="line">* git stash show #跟着stash名字</span><br><span class="line">* git stash clear #删除所有缓存的stash</span><br><span class="line">* git stash save #跟着stash名字</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">* git reset --soft HEAD^ # 取消commit,保留修改的文件</span><br><span class="line">* git reset --hard HEAD^ # 取消commit,不保留修改的文件</span><br><span class="line">* git checkout -b shen-dev(本地分支名) origin/release_dev(远程分支名) #切换远程分支</span><br><span class="line">* git checkout . #恢复工作树文件</span><br><span class="line">* ssh-keygen -t rsa -C &quot;your_email@example.com&quot; #生成新的ssh key</span><br><span class="line">* git stash #git储藏</span><br><span class="line">* git stash list # 储藏列表</span><br><span class="line">* git stash pop # 恢复最近并删除</span><br><span class="line">* git stash drop #移除stash</span><br><span class="line">* git stash show #跟着stash名字</span><br><span class="line">* git stash clear #删除所有缓存的stash</span><br><span class="line">* git stash save #跟着stash名字</span><br><span class="line">* git update-index --assume-unchanged filenname #git 忽略已经追踪的文件</span><br><span class="line">* git update-index --no--assume-unchanged filenname #git 取消忽略已经追踪的文件</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li><p>git的知识点</p>
@@ -228,7 +228,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2022-10-22 庞学军<br>
+      &copy; 2022-11-11 庞学军<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
