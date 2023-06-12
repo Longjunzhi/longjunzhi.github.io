@@ -311,4 +311,71 @@
         <tag>goland</tag>
       </tags>
   </entry>
+  <entry>
+    <title>docker常用命令</title>
+    <url>/2023/06/12/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<p><a href="https://docs.docker.com/engine/reference/run/">docker 文档</a></p>
+<p><a href="https://blog.csdn.net/qiaoshaw/article/details/117048140">csdn docker常用命令</a></p>
+<p>贴两个别人的链接</p>
+]]></content>
+      <tags>
+        <tag>docker</tag>
+        <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>apiPost自动获取token</title>
+    <url>/2023/06/08/apiPost%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96token/</url>
+    <content><![CDATA[<p>提高生产力和效率，往往是把基础的东西做好，搭建好。</p>
+<p>学习永远是官方文档优先</p>
+<p><a href="https://v7-wiki.apipost.cn/docs/2">ApiPost文档</a></p>
+<p>环境的切换 </p>
+<ul>
+<li>本地</li>
+<li>测试 </li>
+<li>正式</li>
+</ul>
+<p>变量的使用</p>
+
+
+<p>目录公共模块预执行脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">await $.ajax(&#123;</span><br><span class="line">&quot;url&quot;: apt.environment.getPreUrl() + &quot;/admin/login/account&quot;,</span><br><span class="line">&quot;method&quot;: &quot;POST&quot;,</span><br><span class="line">&quot;content-type&quot;: &quot;appication/json&quot;,</span><br><span class="line">&quot;data&quot;: JSON.stringify(&#123;</span><br><span class="line">&quot;type&quot;: &quot;account&quot;,</span><br><span class="line">&quot;password&quot;: &quot;admin&quot;,</span><br><span class="line">&quot;username&quot;: &quot;admin&quot;</span><br><span class="line">&#125;),</span><br><span class="line">&quot;success&quot;: function (response) &#123;</span><br><span class="line">response = typeof response == &quot;object&quot; ? response : JSON.parse(response);</span><br><span class="line">console.log(response);</span><br><span class="line">apt.variables.set(&quot;bearerToken&quot;, response.token);</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>利用请求参数&amp;响应值可快速生成api文档</p>
+]]></content>
+      <tags>
+        <tag>apiPost</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>花生壳内网穿透</title>
+    <url>/2023/06/08/%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
+    <content><![CDATA[<p>最近想起自已的旧笔记本，本着不浪费的原则和学习的需求。<br>放宿舍当linux服务器使用，ubuntu搭建远程数据库使用，方便。</p>
+<p>花生壳 linux教程安装使用教程<br><a href="https://service.oray.com/question/11630.html">文档</a><br>下载 phddns-5.0.0-amd64.deb</p>
+<p>安装：dpkg -i phddns-5.0.0-amd64.deb<br>卸载：dpkg -r phddns</p>
+<p>相关命令<br>    * phddns start（启动）| status（状态）| stop（停止）|restart（重启）| reset（重置）|enable（开机自启动）|disable（关闭开机自启动）|version（版本）**</p>
+<p>1、浏览器访问<a href="http://b.oray.com/">http://b.oray.com</a> ，输入花生壳Linux 5.0在安装时产生SN码与默认登录密码admin登录。</p>
+<p>选择SN码登录</p>
+<p>免费的只能映射两个端口：<br>    - 使用了ssh远程<br>    - mysql数据库</p>
+<p>作为学习已经足够了</p>
+]]></content>
+      <tags>
+        <tag>花生壳</tag>
+        <tag>内网穿透</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker安装mysql8远程访问</title>
+    <url>/2023/06/08/docker%E5%AE%89%E8%A3%85mysql8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</url>
+    <content><![CDATA[<p>花生壳 内网穿透<br>用来作为自已的测试数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">拉取mysql镜像</span><br><span class="line"></span><br><span class="line">docker pull msyql:latset</span><br><span class="line"></span><br><span class="line">运行</span><br><span class="line"></span><br><span class="line">docker run -it -d --name mysql -p 3306:3306 \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">-v /root/mysql/config:/etc/mysql/conf.d \</span><br><span class="line">-v /root/mysql/data:/var/lib/mysql \</span><br><span class="line">-e TZ=Asia/Shanghai mysql</span><br><span class="line"></span><br><span class="line">进入容器</span><br><span class="line">docker exec -it mysql /bin/bash</span><br><span class="line"></span><br><span class="line">登录mysql</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br><span class="line">输入密码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">授权远程访问</span><br><span class="line">grant all privileges on *.* to &#x27;root&#x27;@&#x27;%&#x27;;</span><br><span class="line"></span><br><span class="line">修改密码</span><br><span class="line">ALTER user &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;密码&#x27;;</span><br><span class="line">刷新数据库权限</span><br><span class="line"></span><br><span class="line">flush privileges;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
+      <tags>
+        <tag>mysql</tag>
+        <tag>docker</tag>
+        <tag>mysql8</tag>
+      </tags>
+  </entry>
 </search>
