@@ -57,6 +57,9 @@
 <p>官网下载速度慢,可以使用阿里云镜像.</p>
 <p><a href="https://registry.npmmirror.com/binary.html?path=git-for-windows/">阿里云git镜像</a></p>
 ]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
       <tags>
         <tag>git</tag>
       </tags>
@@ -86,6 +89,9 @@
 <img src="/static/go.jpg" width="80%" />
 
 ]]></content>
+      <categories>
+        <category>go</category>
+      </categories>
   </entry>
   <entry>
     <title>jetbrains编辑器快捷键</title>
@@ -150,6 +156,9 @@
 
 <p>文章来源:<br><a href="https://learnku.com/docs/laravel/8.x/eloquent-relationships/9407#000a62">https://learnku.com/docs/laravel/8.x/eloquent-relationships/9407#000a62</a></p>
 ]]></content>
+      <categories>
+        <category>laravel</category>
+      </categories>
       <tags>
         <tag>laravel</tag>
       </tags>
@@ -274,6 +283,9 @@
 </code></pre>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM golang:latest</span><br><span class="line"></span><br><span class="line">ENV GO111MODULE=on \</span><br><span class="line">    CGO_ENABLED=0 \</span><br><span class="line">    GOPROXY=https://goproxy.cn,direct \</span><br><span class="line">    ENV=prod</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">WORKDIR $GOPATH/src/pxj/courseSystem</span><br><span class="line">COPY . $GOPATH/src/pxj/courseSystem</span><br><span class="line">RUN go build .</span><br><span class="line"></span><br><span class="line">EXPOSE 8087</span><br><span class="line">ENTRYPOINT [&quot;./courseSystem&quot;]</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>go</category>
+      </categories>
       <tags>
         <tag>go</tag>
         <tag>docker</tag>
@@ -318,6 +330,9 @@
 <p><a href="https://blog.csdn.net/qiaoshaw/article/details/117048140">csdn docker常用命令</a></p>
 <p>贴两个别人的链接</p>
 ]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
       <tags>
         <tag>docker</tag>
         <tag>容器</tag>
@@ -372,10 +387,30 @@
 
 
 ]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
       <tags>
         <tag>mysql</tag>
         <tag>docker</tag>
         <tag>mysql8</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker安装RabbitMQ</title>
+    <url>/2023/06/13/docker%E5%AE%89%E8%A3%85RabbitMQ/</url>
+    <content><![CDATA[<h3 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h3><p><a href="https://rabbitmq.mr-ping.com/">RabbitMQ 中文文档</a></p>
+<p>php laravel + RabbitMQ</p>
+<p>go + RabbitMQ</p>
+<p>python + RabbitMQ</p>
+<p>相关应用</p>
+]]></content>
+      <categories>
+        <category>RabbitMQ</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>RabbitMQ</tag>
       </tags>
   </entry>
 </search>
