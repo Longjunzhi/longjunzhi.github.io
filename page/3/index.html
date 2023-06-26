@@ -56,6 +56,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-回调接口高并发" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/07/01/%E5%9B%9E%E8%B0%83%E6%8E%A5%E5%8F%A3%E9%AB%98%E5%B9%B6%E5%8F%91/" class="article-date">
+  <time datetime="2022-06-30T16:37:00.000Z" itemprop="datePublished">2022-07-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/laravel/">laravel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/01/%E5%9B%9E%E8%B0%83%E6%8E%A5%E5%8F%A3%E9%AB%98%E5%B9%B6%E5%8F%91/">回调接口高并发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一次高频率请求的优化"><a href="#一次高频率请求的优化" class="headerlink" title="一次高频率请求的优化"></a>一次高频率请求的优化</h2><p>第三方平台的高频率回调事件<br>每分钟1k以上的请求<br>导致不断的502报错</p>
+<p>1.首先接触laravel的频率限制,防止业务不能正常执行.<br>2.这种回调事件都是可以异步的,因此使用队列,从而快速响应请求防止连接数过多.<br>3.数据库的表索引优化<br>4.单独的容器(服务器处理回调事件)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2022/07/01/%E5%9B%9E%E8%B0%83%E6%8E%A5%E5%8F%A3%E9%AB%98%E5%B9%B6%E5%8F%91/" data-id="cl764i3nu0014jww53m2c5ogs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/" rel="tag">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="categories-go 环境的安装" class="article article-type-categories" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/06/23/go%20%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85/" class="article-date">
@@ -179,6 +223,10 @@
       <ul>
         
           <li>
+            <a href="/2023/06/19/%E5%9D%9A%E6%8C%81%E5%AD%A6%E4%B9%A0/">坚持学习</a>
+          </li>
+        
+          <li>
             <a href="/2023/06/13/docker%E5%AE%89%E8%A3%85RabbitMQ/">docker安装RabbitMQ</a>
           </li>
         
@@ -192,10 +240,6 @@
         
           <li>
             <a href="/2023/06/08/docker%E5%AE%89%E8%A3%85mysql8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/">docker安装mysql8远程访问</a>
-          </li>
-        
-          <li>
-            <a href="/2023/06/08/%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">花生壳内网穿透</a>
           </li>
         
       </ul>
@@ -227,7 +271,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -240,7 +284,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2023-6-13 庞学军<br>
+      &copy; 2023-6-26 庞学军<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
