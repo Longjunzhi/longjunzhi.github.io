@@ -427,4 +427,22 @@ docker k8s
 <p>希望自已可以坚持10年</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>阿里云云解析DNSapi</title>
+    <url>/2023/07/18/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E8%A7%A3%E6%9E%90DNSapi/</url>
+    <content><![CDATA[<p>相关资料：</p>
+<ul>
+<li><p><a href="https://help.aliyun.com/document_detail/2355661.html?spm=a2c4g.29726.0.0.32786527v9N04Y">阿里云云解析DNS文档</a></p>
+</li>
+<li><p><a href="https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09&language=go-tea">云解析openApi sdk</a></p>
+</li>
+<li><p><a href="https://help.aliyun.com/document_detail/116401.html?spm=a2c4g.2355661.0.0.14ee6dc8w998EX">阿里云accessKey</a></p>
+</li>
+</ul>
+<p>go实现监听自已的电脑ip，动态解析。</p>
+<ul>
+<li><a href="">go仓库</a></li>
+</ul>
+]]></content>
+  </entry>
 </search>
