@@ -56,6 +56,266 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-linux常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/09/06/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2023-09-05T17:07:40.000Z" itemprop="datePublished">2023-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/06/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><ul>
+<li>防火墙ufw</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow ssh #配置允许 SSH 远程连接</span><br><span class="line">sudo ufw allow 6061 #配置允许 端口6061（花生壳）</span><br><span class="line">sudo ufw enable #启动</span><br><span class="line">sudo ufw disable #禁止</span><br><span class="line">sudo ufw status #状态</span><br><span class="line">ufw allow port_number/protocol #例如sudo ufw allow 6061/tcp</span><br><span class="line">sudo ufw allow 7100:7200/tcp # 范围端口</span><br><span class="line">sudo ufw allow 7100:7200/udp</span><br></pre></td></tr></table></figure>
+
+<p>关联链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139381645">https://zhuanlan.zhihu.com/p/139381645</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2023/09/06/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="clm76xgn80005bwv1b6vjgzqg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-docker阿里云镜像加速" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/09/06/docker%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/" class="article-date">
+  <time datetime="2023-09-05T17:04:02.000Z" itemprop="datePublished">2023-09-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/06/docker%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/">docker阿里云镜像加速</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-shenzhen/instances/mirrors">阿里云镜像加速器</a></p>
+<p>阿里云文档</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">配置镜像加速器</span><br><span class="line">针对Docker客户端版本大于 1.10.0 的用户</span><br><span class="line"></span><br><span class="line">您可以通过修改daemon配置文件/etc/docker/daemon.json来使用加速器</span><br><span class="line"></span><br><span class="line">sudo mkdir -p /etc/docker</span><br><span class="line">sudo tee /etc/docker/daemon.json &lt;&lt;-&#x27;EOF&#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://cevlvoox.mirror.aliyuncs.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2023/09/06/docker%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/" data-id="clm76xgn30001bwv1as2542pf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-分类-标签" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/09/05/%E5%88%86%E7%B1%BB-%E6%A0%87%E7%AD%BE/" class="article-date">
+  <time datetime="2023-09-04T16:50:54.000Z" itemprop="datePublished">2023-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/05/%E5%88%86%E7%B1%BB-%E6%A0%87%E7%AD%BE/">分类&amp;标签</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="博客文章的分类"><a href="#博客文章的分类" class="headerlink" title="博客文章的分类"></a>博客文章的分类</h3><ul>
+<li>编程语言</li>
+<li>服务器</li>
+<li>数据库</li>
+<li>集群</li>
+<li>运维</li>
+<li>后端</li>
+<li>前端</li>
+</ul>
+<h3 id="博客文章的分类下标签"><a href="#博客文章的分类下标签" class="headerlink" title="博客文章的分类下标签"></a>博客文章的分类下标签</h3><ul>
+<li>编程语言分类<ul>
+<li>go</li>
+<li>php</li>
+<li>c</li>
+<li>java</li>
+<li>python</li>
+</ul>
+</li>
+<li>服务器<ul>
+<li>ubuntu</li>
+</ul>
+</li>
+<li>数据库<ul>
+<li>mysql</li>
+<li>redis</li>
+</ul>
+</li>
+<li>集群<ul>
+<li>k8s</li>
+</ul>
+</li>
+<li>运维<ul>
+<li>docker</li>
+</ul>
+</li>
+<li>后端<br>* </li>
+<li>前端<ul>
+<li>vue</li>
+<li>react</li>
+<li>js</li>
+<li>uniapp</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2023/09/05/%E5%88%86%E7%B1%BB-%E6%A0%87%E7%AD%BE/" data-id="clm76xgn40002bwv1ebn6a0n2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu安装docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/09/05/Ubuntu%E5%AE%89%E8%A3%85docker/" class="article-date">
+  <time datetime="2023-09-04T16:50:11.000Z" itemprop="datePublished">2023-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/05/Ubuntu%E5%AE%89%E8%A3%85docker/">Ubuntu安装docker</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2023/09/05/Ubuntu%E5%AE%89%E8%A3%85docker/" data-id="clm76xgmy0000bwv1dk63bqtn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-【Ubuntu-22-04-LTS】设置笔记本合并盖子不休眠" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/09/05/%E3%80%90Ubuntu-22-04-LTS%E3%80%91%E8%AE%BE%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%90%88%E5%B9%B6%E7%9B%96%E5%AD%90%E4%B8%8D%E4%BC%91%E7%9C%A0/" class="article-date">
+  <time datetime="2023-09-04T16:43:26.000Z" itemprop="datePublished">2023-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/05/%E3%80%90Ubuntu-22-04-LTS%E3%80%91%E8%AE%BE%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%90%88%E5%B9%B6%E7%9B%96%E5%AD%90%E4%B8%8D%E4%BC%91%E7%9C%A0/">【Ubuntu 22.04 LTS】设置笔记本合并盖子不休眠</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>配置文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/systemd/logind.conf</span><br></pre></td></tr></table></figure>
+
+<p>配置说明</p>
+<ul>
+<li>HandlePowerKey: 按下电源键后的行为，默认power off </li>
+<li>HandleSleepKey: 按下挂起键后的行为，默认suspend </li>
+<li>HandleHibernateKey: 按下休眠键后的行为，默认hibernate </li>
+<li>HandleLidSwitch: 合上笔记本盖后的行为，默认suspend</li>
+</ul>
+<p>只监视带有 “power-switch” 标签的 输入设备的 key(按下按钮)/lid(合上盖子) 事件。</p>
+<p>如果主机插入了一个扩展坞(docking station) 或者连接了多个显示器， 那么”合上盖子”将执行 HandleLidSwitchDocked= 动作；</p>
+<p>如果主机使用外部电源， 并且 HandleLidSwitchExternalPower= 不是默认值(“ignore”)， 那么”合上盖子”将执行 HandleLidSwitchExternalPower= 动作； 否则将执行 HandleLidSwitch= 动作。</p>
+<p>参数说明:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ignore(无操作),</span><br><span class="line">poweroff(关闭系统并切断电源),</span><br><span class="line">reboot(重新启动),</span><br><span class="line">halt(关闭系统但不切断电源),</span><br><span class="line">kexec(调用内核&quot;kexec&quot;函数),</span><br><span class="line">suspend(休眠到内存),</span><br><span class="line">hibernate(休眠到硬盘),</span><br><span class="line">hybrid-sleep(同时休眠到内存与硬盘),</span><br><span class="line">suspend-then-hibernate(先休眠到内存超时后再休眠到硬盘),</span><br><span class="line">lock(锁屏)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HandleLidSwitch=ignore</span><br><span class="line">HandleLidSwitch=lock</span><br><span class="line">service systemd-logind restart</span><br></pre></td></tr></table></figure>
+
+
+<p>引用：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31635851/article/details/124627990">https://blog.csdn.net/qq_31635851/article/details/124627990</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2023/09/05/%E3%80%90Ubuntu-22-04-LTS%E3%80%91%E8%AE%BE%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%90%88%E5%B9%B6%E7%9B%96%E5%AD%90%E4%B8%8D%E4%BC%91%E7%9C%A0/" data-id="clm76xgn90006bwv18jpe01mj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-阿里云云解析DNSapi" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/07/18/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E8%A7%A3%E6%9E%90DNSapi/" class="article-date">
@@ -296,221 +556,6 @@ docker k8s
 
 
   
-    <article id="post-docker安装mysql8远程访问" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/06/08/docker%E5%AE%89%E8%A3%85mysql8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" class="article-date">
-  <time datetime="2023-06-08T10:04:29.000Z" itemprop="datePublished">2023-06-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/docker/">docker</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/08/docker%E5%AE%89%E8%A3%85mysql8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/">docker安装mysql8远程访问</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>花生壳 内网穿透<br>用来作为自已的测试数据库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">拉取mysql镜像</span><br><span class="line"></span><br><span class="line">docker pull msyql:latset</span><br><span class="line"></span><br><span class="line">运行</span><br><span class="line"></span><br><span class="line">docker run -it -d --name mysql -p 3306:3306 \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">-v /root/mysql/config:/etc/mysql/conf.d \</span><br><span class="line">-v /root/mysql/data:/var/lib/mysql \</span><br><span class="line">-e TZ=Asia/Shanghai mysql</span><br><span class="line"></span><br><span class="line">进入容器</span><br><span class="line">docker exec -it mysql /bin/bash</span><br><span class="line"></span><br><span class="line">登录mysql</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br><span class="line">输入密码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">授权远程访问</span><br><span class="line">grant all privileges on *.* to &#x27;root&#x27;@&#x27;%&#x27;;</span><br><span class="line"></span><br><span class="line">修改密码</span><br><span class="line">ALTER user &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;密码&#x27;;</span><br><span class="line">刷新数据库权限</span><br><span class="line"></span><br><span class="line">flush privileges;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2023/06/08/docker%E5%AE%89%E8%A3%85mysql8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" data-id="clislbhac00075ov1egv72pi8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql8/" rel="tag">mysql8</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-花生壳内网穿透" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/06/08/%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="article-date">
-  <time datetime="2023-06-08T09:15:31.000Z" itemprop="datePublished">2023-06-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/08/%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">花生壳内网穿透</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近想起自已的旧笔记本，本着不浪费的原则和学习的需求。<br>放宿舍当linux服务器使用，ubuntu搭建远程数据库使用，方便。</p>
-<p>花生壳 linux教程安装使用教程<br><a target="_blank" rel="noopener" href="https://service.oray.com/question/11630.html">文档</a><br>下载 phddns-5.0.0-amd64.deb</p>
-<p>安装：dpkg -i phddns-5.0.0-amd64.deb<br>卸载：dpkg -r phddns</p>
-<p>相关命令<br>    * phddns start（启动）| status（状态）| stop（停止）|restart（重启）| reset（重置）|enable（开机自启动）|disable（关闭开机自启动）|version（版本）**</p>
-<p>1、浏览器访问<a target="_blank" rel="noopener" href="http://b.oray.com/">http://b.oray.com</a> ，输入花生壳Linux 5.0在安装时产生SN码与默认登录密码admin登录。</p>
-<p>选择SN码登录</p>
-<p>免费的只能映射两个端口：<br>    - 使用了ssh远程<br>    - mysql数据库</p>
-<p>作为学习已经足够了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2023/06/08/%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" data-id="clislbhab00055ov123e3d451" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8A%B1%E7%94%9F%E5%A3%B3/" rel="tag">花生壳</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-goland2021-3破解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/12/13/goland2021-3%E7%A0%B4%E8%A7%A3/" class="article-date">
-  <time datetime="2022-12-13T02:44:50.000Z" itemprop="datePublished">2022-12-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/12/13/goland2021-3%E7%A0%B4%E8%A7%A3/">goland2021.3破解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="下载破解"><a href="#下载破解" class="headerlink" title="下载破解"></a>下载破解</h3><p><a href="https://pangxuejun.cn/static/zhile_agent_po.zip">zhile_agent_po.zip</a></p>
-<h3 id="进入goland-bin-目录"><a href="#进入goland-bin-目录" class="headerlink" title="进入goland bin 目录"></a>进入goland bin 目录</h3><ul>
-<li>打开 goland64.exe.vmoptions</li>
-<li>最下方，复制-javaagent:d:/zhile_agent_po/ja-netfilter.jar</li>
-<li>复制key.txt的激活码，确认。</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2022/12/13/goland2021-3%E7%A0%B4%E8%A7%A3/" data-id="clblmohq80000asv1c9raad2h" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/goland/" rel="tag">goland</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-科学上网" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/09/25/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" class="article-date">
-  <time datetime="2022-09-25T04:26:22.000Z" itemprop="datePublished">2022-09-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/25/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/">科学上网</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw disable \</span><br><span class="line">wget https://git.io/vpnsetup -O vpnsetup.sh &amp;&amp; sudo \</span><br><span class="line">VPN_IPSEC_PSK=&#x27;myvpn&#x27; \</span><br><span class="line">VPN_USER=&#x27;myvpn&#x27; \</span><br><span class="line">VPN_PASSWORD=&#x27;myvpn&#x27; \</span><br><span class="line">sh vpnsetup.sh</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://github.com/hwdsl2/setup-ipsec-vpn">来源</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2022/09/25/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" data-id="cl8gucd300000wgw54sylhue5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-计算东西-分类" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/09/23/%E8%AE%A1%E7%AE%97%E4%B8%9C%E8%A5%BF-%E5%88%86%E7%B1%BB/" class="article-date">
-  <time datetime="2022-09-23T09:01:01.000Z" itemprop="datePublished">2022-09-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/23/%E8%AE%A1%E7%AE%97%E4%B8%9C%E8%A5%BF-%E5%88%86%E7%B1%BB/">计算东西(分类)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>思考是否需要重复的计算</p>
-<p>1.如果不需要存起来</p>
-<p>2.需要的才动态计算<br>    看需要的数据和时间，是否需要队列和后台执行等方案优化。</p>
-<p>计算单独的模块</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2022/09/23/%E8%AE%A1%E7%AE%97%E4%B8%9C%E8%A5%BF-%E5%88%86%E7%B1%BB/" data-id="cl8e9b8ib0000lkw5fimz00l0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -529,23 +574,23 @@ docker k8s
       <ul>
         
           <li>
-            <a href="/2023/07/18/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E8%A7%A3%E6%9E%90DNSapi/">阿里云云解析DNSapi</a>
+            <a href="/2023/09/06/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令</a>
           </li>
         
           <li>
-            <a href="/2023/06/19/%E5%9D%9A%E6%8C%81%E5%AD%A6%E4%B9%A0/">坚持学习</a>
+            <a href="/2023/09/06/docker%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E5%8A%A0%E9%80%9F/">docker阿里云镜像加速</a>
           </li>
         
           <li>
-            <a href="/2023/06/13/docker%E5%AE%89%E8%A3%85RabbitMQ/">docker安装RabbitMQ</a>
+            <a href="/2023/09/05/%E5%88%86%E7%B1%BB-%E6%A0%87%E7%AD%BE/">分类&amp;标签</a>
           </li>
         
           <li>
-            <a href="/2023/06/12/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">docker常用命令</a>
+            <a href="/2023/09/05/Ubuntu%E5%AE%89%E8%A3%85docker/">Ubuntu安装docker</a>
           </li>
         
           <li>
-            <a href="/2023/06/08/apiPost%E8%87%AA%E5%8A%A8%E8%8E%B7%E5%8F%96token/">apiPost自动获取token</a>
+            <a href="/2023/09/05/%E3%80%90Ubuntu-22-04-LTS%E3%80%91%E8%AE%BE%E7%BD%AE%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%90%88%E5%B9%B6%E7%9B%96%E5%AD%90%E4%B8%8D%E4%BC%91%E7%9C%A0/">【Ubuntu 22.04 LTS】设置笔记本合并盖子不休眠</a>
           </li>
         
       </ul>
@@ -557,7 +602,7 @@ docker k8s
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/RabbitMQ/">RabbitMQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/laravel/">laravel</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/RabbitMQ/">RabbitMQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/laravel/">laravel</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -567,7 +612,7 @@ docker k8s
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apiPost/" rel="tag">apiPost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dockerFile/" rel="tag">dockerFile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/goland/" rel="tag">goland</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8/" rel="tag">mysql8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">postman 环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%B1%E7%94%9F%E5%A3%B3/" rel="tag">花生壳</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apiPost/" rel="tag">apiPost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dockerFile/" rel="tag">dockerFile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/goland/" rel="tag">goland</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8/" rel="tag">mysql8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">postman 环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%B1%E7%94%9F%E5%A3%B3/" rel="tag">花生壳</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -577,7 +622,7 @@ docker k8s
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -590,7 +635,7 @@ docker k8s
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2023-9-5 庞学军<br>
+      &copy; 2023-9-6 庞学军<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
