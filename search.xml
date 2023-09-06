@@ -554,4 +554,16 @@ docker k8s
         <tag>ubuntu</tag>
       </tags>
   </entry>
+  <entry>
+    <title>github访问加速</title>
+    <url>/2023/09/06/github%E8%AE%BF%E9%97%AE%E5%8A%A0%E9%80%9F/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">140.82.113.3    github.com</span><br><span class="line">185.199.109.153 assets-cdn.github.com</span><br><span class="line">151.101.1.194  github.global.ssl.fastly.net</span><br><span class="line">185.199.110.154 github.githubassets.com</span><br><span class="line"></span><br><span class="line">ipconfig /flushdns #刷新dns</span><br><span class="line">解析 https://www.ipaddress.com/</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>引用:<a href="https://zhuanlan.zhihu.com/p/314071453">https://zhuanlan.zhihu.com/p/314071453</a></p>
+]]></content>
+  </entry>
 </search>
