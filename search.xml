@@ -566,4 +566,9 @@ docker k8s
 <p>引用:<a href="https://zhuanlan.zhihu.com/p/314071453">https://zhuanlan.zhihu.com/p/314071453</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>nginx Docker</title>
+    <url>/2023/09/13/nginx-Docker/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo docker pull nginx</span><br><span class="line">sudo docker run --name myBlog -p 8080:80 -itd -v /home/pang/code/github/longjunzhi.github.io:/usr/share/nginx/html nginx</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
 </search>
