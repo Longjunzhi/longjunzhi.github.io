@@ -586,4 +586,30 @@ docker k8s
 <p>参考：<a href="https://blog.csdn.net/BThinker/article/details/123507820">https://blog.csdn.net/BThinker/article/details/123507820</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>docker 推送容器镜像</title>
+    <url>/2023/10/20/docker-%E6%8E%A8%E9%80%81%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F/</url>
+    <content><![CDATA[<h2 id="阿里云容器镜像服务-https-cr-console-aliyun-com-cn-shenzhen-instances"><a href="#阿里云容器镜像服务-https-cr-console-aliyun-com-cn-shenzhen-instances" class="headerlink" title="阿里云容器镜像服务 https://cr.console.aliyun.com/cn-shenzhen/instances"></a>阿里云容器镜像服务 <a href="https://cr.console.aliyun.com/cn-shenzhen/instances">https://cr.console.aliyun.com/cn-shenzhen/instances</a></h2><ul>
+<li>使用仓库自动构建</li>
+<li>本地仓库手动构建推送</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 登录阿里云Docker Registry</span><br><span class="line">$ docker login --username=用户名 registry.cn-shenzhen.aliyuncs.com</span><br><span class="line">用于登录的用户名为阿里云账号全名，密码为开通服务时设置的密码。</span><br><span class="line"></span><br><span class="line">您可以在访问凭证页面修改凭证密码。</span><br><span class="line"></span><br><span class="line">2. 从Registry中拉取镜像</span><br><span class="line">$ docker pull registry.cn-shenzhen.aliyuncs.com:[镜像版本号]</span><br><span class="line">3. 将镜像推送到Registry</span><br><span class="line">$ docker login --username=用户名 registry.cn-shenzhen.aliyuncs.com</span><br><span class="line">$ docker tag [ImageId] registry.cn-shenzhen.aliyuncs.com:[镜像版本号]</span><br><span class="line">$ docker push registry.cn-shenzhen.aliyuncs.com:[镜像版本号]</span><br><span class="line">请根据实际镜像信息替换示例中的[ImageId]和[镜像版本号]参数。</span><br><span class="line"></span><br><span class="line">4. 选择合适的镜像仓库地址</span><br><span class="line">从ECS推送镜像时，可以选择使用镜像仓库内网地址。推送速度将得到提升并且将不会损耗您的公网流量。</span><br><span class="line"></span><br><span class="line">如果您使用的机器位于VPC网络，请使用 registry-vpc.cn-shenzhen.aliyuncs.com 作为Registry的域名登录。</span><br><span class="line"></span><br><span class="line">5. 示例</span><br><span class="line">使用&quot;docker tag&quot;命令重命名镜像，并将它通过专有网络地址推送至Registry。</span><br><span class="line"></span><br><span class="line">$ docker images</span><br><span class="line">REPOSITORY                                                         TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</span><br><span class="line">registry.aliyuncs.com/acs/agent                                    0.7-dfb6816         37bb9c63c8b2        7 days ago          37.89 MB</span><br><span class="line">$ docker tag 37bb9c63c8b2 registry-vpc.cn-shenzhen.aliyuncs.com/acs/agent:0.7-dfb6816</span><br><span class="line">使用 &quot;docker push&quot; 命令将该镜像推送至远程。</span><br><span class="line"></span><br><span class="line">$ docker push registry-vpc.cn-shenzhen.aliyuncs.com/acs/agent:0.7-dfb6816</span><br></pre></td></tr></table></figure>
+
+<p>构建自已的镜像 docker build -t 名称:0.0.1 .</p>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>容器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>配置自已域名邮箱</title>
+    <url>/2023/10/20/%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B2%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/</url>
+    <content><![CDATA[<p>注册网易企业免费邮箱<br>注册腾讯企业免费邮箱<br>按操作配置域名解析</p>
+<p>成功得到<br><a href="mailto:&#101;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x70;&#x61;&#110;&#103;&#120;&#117;&#101;&#106;&#117;&#x6e;&#46;&#99;&#x6e;">&#101;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x70;&#x61;&#110;&#103;&#120;&#117;&#101;&#106;&#117;&#x6e;&#46;&#99;&#x6e;</a><br><a href="mailto:&#112;&#97;&#x6e;&#103;&#x78;&#x75;&#x65;&#106;&#117;&#x6e;&#x40;&#x70;&#x61;&#110;&#x67;&#x78;&#117;&#101;&#106;&#117;&#110;&#46;&#99;&#110;">&#112;&#97;&#x6e;&#103;&#x78;&#x75;&#x65;&#106;&#117;&#x6e;&#x40;&#x70;&#x61;&#110;&#x67;&#x78;&#117;&#101;&#106;&#117;&#110;&#46;&#99;&#110;</a></p>
+]]></content>
+  </entry>
 </search>
