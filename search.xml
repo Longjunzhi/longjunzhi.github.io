@@ -386,9 +386,17 @@
     <title>docker安装mysql8远程访问</title>
     <url>/2023/06/08/docker%E5%AE%89%E8%A3%85mysql8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/</url>
     <content><![CDATA[<p>花生壳 内网穿透<br>用来作为自已的测试数据库</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">拉取mysql镜像</span><br><span class="line"></span><br><span class="line">docker pull msyql:latset</span><br><span class="line"></span><br><span class="line">运行</span><br><span class="line"></span><br><span class="line">docker run -it -d --name mysql -p 3306:3306 \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">-v /root/mysql/config:/etc/mysql/conf.d \</span><br><span class="line">-v /root/mysql/data:/var/lib/mysql \</span><br><span class="line">-e TZ=Asia/Shanghai mysql</span><br><span class="line"></span><br><span class="line">进入容器</span><br><span class="line">docker exec -it mysql /bin/bash</span><br><span class="line"></span><br><span class="line">登录mysql</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br><span class="line">输入密码</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">授权远程访问</span><br><span class="line">grant all privileges on *.* to &#x27;root&#x27;@&#x27;%&#x27;;</span><br><span class="line"></span><br><span class="line">修改密码</span><br><span class="line">ALTER user &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;密码&#x27;;</span><br><span class="line">刷新数据库权限</span><br><span class="line"></span><br><span class="line">flush privileges;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>基本配置复制出来</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql</span><br><span class="line">sudo docker cp mysql:/etc/mysql /home/pang/soft/mysql/mysql8</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行<br>mysql.sh</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line">sudo docker run -it -d --name mysql -p 3306:3306 \</span><br><span class="line">--privileged=true \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">-v /home/pang/soft/mysql/mysql8:/etc/mysql \</span><br><span class="line">-v /home/pang/soft/mysql/mysql8/logs:/logs \</span><br><span class="line">-v /home/pang/soft/mysql/mysql8/data:/var/lib/mysql \</span><br><span class="line">-v /etc/localtime:/etc/localtime mysql</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>远程访问</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">登录mysql</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br><span class="line">输入密码</span><br><span class="line"></span><br><span class="line">授权远程访问</span><br><span class="line">grant all privileges on <span class="emphasis">*.*</span> to &#x27;root&#x27;@&#x27;%&#x27;;</span><br><span class="line"></span><br><span class="line">~~修改密码</span><br><span class="line">ALTER user &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;密码&#x27;;</span><br><span class="line">刷新数据库权限</span><br><span class="line"></span><br><span class="line">flush privileges;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
+<p><a href="https://blog.csdn.net/u014576291/article/details/1058~~90286">引用文章</a></p>
 ]]></content>
       <categories>
         <category>docker</category>
