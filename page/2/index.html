@@ -56,6 +56,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-阿里云云解析DNSapi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/07/18/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E8%A7%A3%E6%9E%90DNSapi/" class="article-date">
+  <time datetime="2023-07-18T03:34:07.000Z" itemprop="datePublished">2023-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/07/18/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E8%A7%A3%E6%9E%90DNSapi/">阿里云云解析DNSapi</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相关资料：</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/2355661.html?spm=a2c4g.29726.0.0.32786527v9N04Y">阿里云云解析DNS文档</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://next.api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09&language=go-tea">云解析openApi sdk</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/116401.html?spm=a2c4g.2355661.0.0.14ee6dc8w998EX">阿里云accessKey</a></p>
+</li>
+</ul>
+<p>go实现监听自已的电脑ip，动态解析。</p>
+<ul>
+<li><a href="">go仓库</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2023/07/18/%E9%98%BF%E9%87%8C%E4%BA%91%E4%BA%91%E8%A7%A3%E6%9E%90DNSapi/" data-id="clk9xc1by0000hwv1ejkh91ey" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-坚持学习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/06/19/%E5%9D%9A%E6%8C%81%E5%AD%A6%E4%B9%A0/" class="article-date">
@@ -473,53 +522,6 @@ docker k8s
 
 
   
-    <article id="post-go运行的DockerFile文件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/09/07/go%E8%BF%90%E8%A1%8C%E7%9A%84DockerFile%E6%96%87%E4%BB%B6/" class="article-date">
-  <time datetime="2022-09-07T04:02:11.000Z" itemprop="datePublished">2022-09-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/go/">go</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/07/go%E8%BF%90%E8%A1%8C%E7%9A%84DockerFile%E6%96%87%E4%BB%B6/">go运行的DockerFile文件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>go的dockerFile文件</p>
-<pre><code>1. /src/pxj/courseSystem 目录要修改成自已的项目目录
-2. ENTRYPOINT [&quot;./courseSystem&quot;] 要修改成自已的目录
-</code></pre>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FROM golang:latest</span><br><span class="line"></span><br><span class="line">ENV GO111MODULE=on \</span><br><span class="line">    CGO_ENABLED=0 \</span><br><span class="line">    GOPROXY=https://goproxy.cn,direct \</span><br><span class="line">    ENV=prod</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">WORKDIR $GOPATH/src/pxj/courseSystem</span><br><span class="line">COPY . $GOPATH/src/pxj/courseSystem</span><br><span class="line">RUN go build .</span><br><span class="line"></span><br><span class="line">EXPOSE 8087</span><br><span class="line">ENTRYPOINT [&quot;./courseSystem&quot;]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2022/09/07/go%E8%BF%90%E8%A1%8C%E7%9A%84DockerFile%E6%96%87%E4%BB%B6/" data-id="cl7r3lwg20000dww52ogc7vsg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dockerFile/" rel="tag">dockerFile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go/" rel="tag">go</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -538,6 +540,10 @@ docker k8s
       <ul>
         
           <li>
+            <a href="/2023/11/09/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/">宝塔面板</a>
+          </li>
+        
+          <li>
             <a href="/2023/10/20/%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B2%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/">配置自已域名邮箱</a>
           </li>
         
@@ -551,10 +557,6 @@ docker k8s
         
           <li>
             <a href="/2023/09/06/github%E8%AE%BF%E9%97%AE%E5%8A%A0%E9%80%9F/">github访问加速</a>
-          </li>
-        
-          <li>
-            <a href="/2023/09/06/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令</a>
           </li>
         
       </ul>
@@ -586,7 +588,7 @@ docker k8s
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -599,7 +601,7 @@ docker k8s
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2023-10-27 庞学军<br>
+      &copy; 2023-11-10 庞学军<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

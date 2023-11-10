@@ -56,6 +56,91 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-git知识点" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/07/04/git%E7%9F%A5%E8%AF%86%E7%82%B9/" class="article-date">
+  <time datetime="2022-07-04T02:09:03.000Z" itemprop="datePublished">2022-07-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/04/git%E7%9F%A5%E8%AF%86%E7%82%B9/">git知识点</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>总结下git版本管理</p>
+<ol>
+<li><p>git常用命令</p>
+<ol>
+<li>git clone #克隆项目</li>
+<li>git push #推送</li>
+<li>git add #添加</li>
+<li>git commit #提交</li>
+<li>git checkout #切换分支</li>
+<li>git pull #拉取</li>
+</ol>
+</li>
+<li><p>要用记不住的命令</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">* git reset --soft HEAD^ # 取消commit,保留修改的文件</span><br><span class="line">* git reset --hard HEAD^ # 取消commit,不保留修改的文件</span><br><span class="line">* git checkout -b shen-dev(本地分支名) origin/release_dev(远程分支名) #切换远程分支</span><br><span class="line">* git checkout . #恢复工作树文件</span><br><span class="line">* ssh-keygen -t rsa -C &quot;your_email@example.com&quot; #生成新的ssh key</span><br><span class="line">* git stash #git储藏</span><br><span class="line">* git stash list # 储藏列表</span><br><span class="line">* git stash pop # 恢复最近并删除</span><br><span class="line">* git stash drop #移除stash</span><br><span class="line">* git stash show #跟着stash名字</span><br><span class="line">* git stash clear #删除所有缓存的stash</span><br><span class="line">* git stash save #跟着stash名字</span><br><span class="line">* git update-index --assume-unchanged filenname #git 忽略已经追踪的文件</span><br><span class="line">* git update-index --no--assume-unchanged filenname #git 取消忽略已经追踪的文件</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>git的知识点</p>
+</li>
+<li><p>基于git的几大平台</p>
+</li>
+</ol>
+<ul>
+<li>github gitlab gitee</li>
+</ul>
+<ol start="5">
+<li>解决问题的命令</li>
+</ol>
+<hr>
+<p>git拉取github超时</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br><span class="line">git config http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>commit规范</li>
+</ol>
+<p>type用于说明 commit 的类别。</p>
+<p>feat：新增功能<br>fix：bug 修复<br>docs：文档更新<br>style：不影响程序逻辑的代码修改(修改空白字符，格式缩进，补全缺失的分号等，没有改变代码逻辑)<br>refactor：重构代码(既没有新增功能，也没有修复 bug)<br>perf：性能, 体验优化<br>test：新增测试用例或是更新现有测试<br>build：主要目的是修改项目构建系统(例如 glup，webpack，rollup 的配置等)的提交<br>ci：主要目的是修改项目继续集成流程(例如 Travis，Jenkins，GitLab CI，Circle等)的提交<br>chore：不属于以上类型的其他类，比如构建流程, 依赖管理<br>revert：回滚某个更早之前的提交</p>
+<p>相关的资料链接</p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/">git官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">git官方中文文档</a></p>
+<p>官网下载速度慢,可以使用阿里云镜像.</p>
+<p><a target="_blank" rel="noopener" href="https://registry.npmmirror.com/binary.html?path=git-for-windows/">阿里云git镜像</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pangxuejun.cn/longjunzhi.github.io/2022/07/04/git%E7%9F%A5%E8%AF%86%E7%82%B9/" data-id="cl764i3mr0003jww57syeewiw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-回调接口高并发" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/07/01/%E5%9B%9E%E8%B0%83%E6%8E%A5%E5%8F%A3%E9%AB%98%E5%B9%B6%E5%8F%91/" class="article-date">
@@ -223,6 +308,10 @@
       <ul>
         
           <li>
+            <a href="/2023/11/09/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/">宝塔面板</a>
+          </li>
+        
+          <li>
             <a href="/2023/10/20/%E9%85%8D%E7%BD%AE%E8%87%AA%E5%B7%B2%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/">配置自已域名邮箱</a>
           </li>
         
@@ -236,10 +325,6 @@
         
           <li>
             <a href="/2023/09/06/github%E8%AE%BF%E9%97%AE%E5%8A%A0%E9%80%9F/">github访问加速</a>
-          </li>
-        
-          <li>
-            <a href="/2023/09/06/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令</a>
           </li>
         
       </ul>
@@ -271,7 +356,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -284,7 +369,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2023-10-27 庞学军<br>
+      &copy; 2023-11-10 庞学军<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

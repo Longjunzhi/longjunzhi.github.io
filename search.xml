@@ -620,4 +620,15 @@ docker k8s
 <p>成功得到<br><a href="mailto:&#101;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x70;&#x61;&#110;&#103;&#120;&#117;&#101;&#106;&#117;&#x6e;&#46;&#99;&#x6e;">&#101;&#x6d;&#x61;&#105;&#x6c;&#x40;&#x70;&#x61;&#110;&#103;&#120;&#117;&#101;&#106;&#117;&#x6e;&#46;&#99;&#x6e;</a><br><a href="mailto:&#112;&#97;&#x6e;&#103;&#x78;&#x75;&#x65;&#106;&#117;&#x6e;&#x40;&#x70;&#x61;&#110;&#x67;&#x78;&#117;&#101;&#106;&#117;&#110;&#46;&#99;&#110;">&#112;&#97;&#x6e;&#103;&#x78;&#x75;&#x65;&#106;&#117;&#x6e;&#x40;&#x70;&#x61;&#110;&#x67;&#x78;&#117;&#101;&#106;&#117;&#110;&#46;&#99;&#110;</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>宝塔面板</title>
+    <url>/2023/11/09/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/</url>
+    <content><![CDATA[<p>安装</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Centos安装脚本</span><br><span class="line">yum install -y wget &amp;&amp; wget -O install.sh https://download.bt.cn/install/install<span class="emphasis">_6.0.sh &amp;&amp; sh install.sh ed8484bec</span></span><br><span class="line"><span class="emphasis">复制</span></span><br><span class="line"><span class="emphasis">Ubuntu/Deepin安装脚本</span></span><br><span class="line"><span class="emphasis">wget -O install.sh https://download.bt.cn/install/install-ubuntu_</span>6.0.sh &amp;&amp; sudo bash install.sh ed8484bec</span><br><span class="line">复制</span><br><span class="line">Debian安装脚本</span><br><span class="line">wget -O install.sh https://download.bt.cn/install/install-ubuntu<span class="emphasis">_6.0.sh &amp;&amp; bash install.sh ed8484bec</span></span><br><span class="line"><span class="emphasis">复制</span></span><br><span class="line"><span class="emphasis"></span></span><br></pre></td></tr></table></figure>
+
+<p>支持ipv6访问</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo echo &#x27;::&#x27; &gt; /www/server/panel/data/ipv6.pl &amp;&amp; sudo /etc/init.d/bt restart</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
 </search>
