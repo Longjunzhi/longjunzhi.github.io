@@ -631,4 +631,19 @@ docker k8s
 
 ]]></content>
   </entry>
+  <entry>
+    <title>ubuntu22.04开机任务</title>
+    <url>/2023/11/11/ubuntu22-04%E5%BC%80%E6%9C%BA%E4%BB%BB%E5%8A%A1/</url>
+    <content><![CDATA[<p>在目录/etc/init.d/目录新建脚本#<br>sudo vim /etc/init.d/startup.sh</p>
+<p>Copy<br>#!/bin/bash</p>
+<h1 id="Only-for-test"><a href="#Only-for-test" class="headerlink" title="Only for test"></a>Only for test</h1><p>touch /root/1.txt<br>添加执行权限#<br>sudo chmod +x /etc/init.d/startup.sh</p>
+<p>添加启动脚本#<br>sudo update-rc.d startup.sh defaults 90</p>
+<p>查看服务列表#<br>sudo service –status-all</p>
+<p>测试是否生效#<br>Copy<br>sudo service startup.sh start</p>
+<p>sudo service startup.sh stop<br>或者直接重启验证</p>
+<p>删除任务#<br>sudo update-rc.d -f startup.sh remove</p>
+<p>Tips：此方法只在ubuntu22.04测试可用，其他版本未验证。</p>
+<p>来源：<a href="https://www.cnblogs.com/ALice1024/p/17302426.html">https://www.cnblogs.com/ALice1024/p/17302426.html</a></p>
+]]></content>
+  </entry>
 </search>
