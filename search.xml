@@ -203,6 +203,8 @@
 <p>mysql锁</p>
 <p>mysql备份</p>
 <p>mysql分表</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table newTable as select * oldTable where 1=0; 仅复制表结构</span><br><span class="line"></span><br><span class="line">create table newTable as select * oldTable;复制表结构和数据</span><br><span class="line"></span><br><span class="line">create table newTable as select * oldTable where a=*** and b=***;复制表结构和部分数据</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>数据库</category>
