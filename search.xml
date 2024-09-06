@@ -657,4 +657,31 @@ docker k8s
         <tag>个人</tag>
       </tags>
   </entry>
+  <entry>
+    <title>nginx配置跨域</title>
+    <url>/2024/09/06/nginx%E9%85%8D%E7%BD%AE%E8%B7%A8%E5%9F%9F/</url>
+    <content><![CDATA[<p>不走代码配置跨域<br>使用nginx配置跨域</p>
+<p>配置示例</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen        80;</span><br><span class="line">        server_name  demo.pangxuejun.cn;</span><br><span class="line">        root   &quot;~/public&quot;;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Origin&#x27; &quot;*&quot; always;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Credentials&#x27; &#x27;true&#x27; always;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Methods&#x27; &#x27;GET, OPTIONS&#x27; always;</span><br><span class="line">        add_header &#x27;Access-Control-Allow-Headers&#x27; &#x27;Accept,Authorization,Cache-Control,Content-Type,DNT,If-Modified-Since,Keep-Alive,Origin,User-Agent,X-Requested-With,authtoken&#x27; always;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>php-fpm内存跑满</title>
+    <url>/2024/09/06/php-fpm%E5%86%85%E5%AD%98%E8%B7%91%E6%BB%A1/</url>
+    <content><![CDATA[<p>参考文档<br><a href="https://blog.csdn.net/weixin_45526912/article/details/135149425">https://blog.csdn.net/weixin_45526912/article/details/135149425</a><br><a href="https://blog.csdn.net/guo_qiangqiang/article/details/89532660">https://blog.csdn.net/guo_qiangqiang/article/details/89532660</a><br><a href="https://zhuanlan.zhihu.com/p/405981279">https://zhuanlan.zhihu.com/p/405981279</a><br><a href="https://www.cnblogs.com/zoutong/p/13523945.html">https://www.cnblogs.com/zoutong/p/13523945.html</a></p>
+<p>pm.max_children = 80</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>php-fpm内存跑满</li>
+<li>laravel的afterResponse</li>
+<li>接口处理耗时任务</li>
+<li>导致进程没有释放</li>
+<li>服务器内存不够，直接跑满所有内存。<br>request_terminate_timeout<br>优化方案<br>1、耗时任务放到队列里<br>2、合适的max_children，避免进程过多，结合服务器内存<br>3、使用opcache缓存，workman swoole 等</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
 </search>
