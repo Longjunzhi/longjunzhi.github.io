@@ -7,6 +7,9 @@
   
   <title>回调接口高并发 | 军的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="baidu-site-verification" content="codeva-cSR3vf2y9M" />
+  
   <meta name="description" content="一次高频率请求的优化第三方平台的高频率回调事件每分钟1k以上的请求导致不断的502报错 1.首先接触laravel的频率限制,防止业务不能正常执行.2.这种回调事件都是可以异步的,因此使用队列,从而快速响应请求防止连接数过多.3.数据库的表索引优化4.单独的容器(服务器处理回调事件)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回调接口高并发">
@@ -21,9 +24,6 @@
 <meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
   
-  {% if theme.baidu_site_verification %}
-  <meta name="baidu-site-verification" content="codeva-cSR3vf2y9M" />
-  {% endif %}
   
     <link rel="icon" href="[object Object]">
   
