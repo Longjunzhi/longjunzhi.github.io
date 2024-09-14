@@ -62,6 +62,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-docker安装mysql8远程访问" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/06/08/docker%E5%AE%89%E8%A3%85mysql8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" class="article-date">
+  <time datetime="2023-06-08T10:04:29.000Z" itemprop="datePublished">2023-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/docker/">docker</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/06/08/docker%E5%AE%89%E8%A3%85mysql8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/">docker安装mysql8远程访问</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>花生壳 内网穿透<br>用来作为自已的测试数据库</p>
+<p>基本配置复制出来</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql</span><br><span class="line">sudo docker cp mysql:/etc/mysql /home/pang/soft/mysql/mysql8</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行<br>mysql.sh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/sh</span></span><br><span class="line">sudo docker run -it -d --name mysql -p 3306:3306 \</span><br><span class="line">--privileged=true \</span><br><span class="line">--restart unless-stopped \</span><br><span class="line">-e MYSQL_ROOT_PASSWORD=123456 \</span><br><span class="line">-v /home/pang/soft/mysql/mysql8:/etc/mysql \</span><br><span class="line">-v /home/pang/soft/mysql/mysql8/logs:/logs \</span><br><span class="line">-v /home/pang/soft/mysql/mysql8/data:/var/lib/mysql \</span><br><span class="line">-v /etc/localtime:/etc/localtime mysql</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>远程访问</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">登录mysql</span><br><span class="line"></span><br><span class="line">mysql -uroot -p</span><br><span class="line">输入密码</span><br><span class="line"></span><br><span class="line">授权远程访问</span><br><span class="line">grant all privileges on <span class="emphasis">*.*</span> to &#x27;root&#x27;@&#x27;%&#x27;;</span><br><span class="line"></span><br><span class="line">~~修改密码</span><br><span class="line">ALTER user &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;密码&#x27;;</span><br><span class="line">刷新数据库权限</span><br><span class="line"></span><br><span class="line">flush privileges;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014576291/article/details/1058~~90286">引用文章</a></p>
+
+          <p style="color: gray; font-size: 0.75em;">
+              作者：庞学军
+          </p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.pangxuejun.cn/2023/06/08/docker%E5%AE%89%E8%A3%85mysql8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" data-id="clislbhac00075ov1egv72pi8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql8/" rel="tag">mysql8</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-花生壳内网穿透" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/06/08/%E8%8A%B1%E7%94%9F%E5%A3%B3%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="article-date">
@@ -482,92 +539,6 @@
 
 
   
-    <article id="post-laravel多对多关联" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/07/15/laravel%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E8%81%94/" class="article-date">
-  <time datetime="2022-07-15T01:41:26.000Z" itemprop="datePublished">2022-07-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/laravel/">laravel</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/15/laravel%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E8%81%94/">laravel多对多关联</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="model层的多对多关系"><a href="#model层的多对多关系" class="headerlink" title="model层的多对多关系"></a>model层的多对多关系</h3><p>表结构<br>要定义这种关联，需要三个数据库表： users，roles 和 role_user。role_user 表的命名是由关联的两个模型按照字母顺序来的，并且包含了 user_id 和 role_id 字段：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">users</span><br><span class="line">id - integer</span><br><span class="line">name - string</span><br><span class="line"></span><br><span class="line">roles</span><br><span class="line">id - integer</span><br><span class="line">name - string</span><br><span class="line"></span><br><span class="line">role_user</span><br><span class="line">user_id - integer</span><br><span class="line">role_id - integer</span><br></pre></td></tr></table></figure>
-<p>模型结构<br>多对多关联通过调用 belongsToMany 这个内部方法返回的结果来定义，例如，我们在 User 模型中定义 roles 方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line"></span><br><span class="line">class User extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 用户拥有的角色</span><br><span class="line">     */</span><br><span class="line">    public function roles()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一旦关联关系被定义后，你可以通过 roles「动态属性」获取用户角色：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$user = App\Models\User::find(1);</span><br><span class="line"></span><br><span class="line">foreach ($user-&gt;roles as $role) &#123;</span><br><span class="line">    //</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当然，像其它所有关联模型一样，你可以使用 roles 方法，利用链式调用对查询语句添加约束条件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$roles = App\Models\User::find(1)-&gt;roles()-&gt;orderBy(&#x27;name&#x27;)-&gt;get();</span><br></pre></td></tr></table></figure>
-<p>正如前面所提到的，为了确定关联连接表的表名，Eloquent 会按照字母顺序连接两个关联模型的名字。当然，你也可以不使用这种约定，传递第二个参数到 belongsToMany 方法即可：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;, &#x27;role_user&#x27;);</span><br></pre></td></tr></table></figure>
-<p>除了自定义连接表的表名，你还可以通过传递额外的参数到 belongsToMany 方法来定义该表中字段的键名。第三个参数是定义此关联的模型在连接表里的外键名，第四个参数是另一个模型在连接表里的外键名：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;, &#x27;role_user&#x27;, &#x27;user_id&#x27;, &#x27;role_id&#x27;);</span><br></pre></td></tr></table></figure>
-<p>定义反向关联<br>要定义多对多的反向关联， 你只需要在关联模型中调用 belongsToMany 方法。我们在 Role 模型中定义 users 方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line"></span><br><span class="line">class Role extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 拥有此角色的用户</span><br><span class="line">     */</span><br><span class="line">    public function users()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;belongsToMany(&#x27;App\Models\User&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如你所见，除了引入模型为 App\Models\User 外，其它与在 User 模型中定义的完全一样。由于我们重用了 belongsToMany 方法，自定义连接表表名和自定义连接表里的键的字段名称在这里同样适用。</p>
-<p>获取中间表字段<br>就如你刚才所了解的一样，多对多的关联关系需要一个中间表来提供支持， Eloquent 提供了一些有用的方法来和这张表进行交互。例如，假设我们的 User 对象关联了多个 Role 对象。在获得这些关联对象后，可以使用模型的 pivot 属性访问中间表的属性：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$user = App\Models\User::find(1);</span><br><span class="line"></span><br><span class="line">foreach ($user-&gt;roles as $role) &#123;</span><br><span class="line">    echo $role-&gt;pivot-&gt;created_at;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>需要注意的是，我们获取的每个 Role 模型对象，都会被自动赋予 pivot 属性，它代表中间表的一个模型对象，并且可以像其他的 Eloquent 模型一样使用。</p>
-<p>默认情况下，pivot 对象只包含两个关联模型的主键，如果你的中间表里还有其他额外字段，你必须在定义关联时明确指出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;withPivot(&#x27;column1&#x27;, &#x27;column2&#x27;);</span><br></pre></td></tr></table></figure>
-<p>如果你想让中间表自动维护 created_at 和 updated_at 时间戳，那么在定义关联时附加上 withTimestamps 方法即可：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;withTimestamps();</span><br></pre></td></tr></table></figure>
-<p>注意：在数据透视表上使用时间戳时，该表必须同时具有 created_at 和 updated_at 时间戳字段。</p>
-<p>自定义 pivot 属性名称<br>如前所述，来自中间表的属性可以使用 pivot 属性访问。但是，你可以自由定制此属性的名称，以便更好的反应其在应用中的用途。</p>
-<p>例如，如果你的应用中包含可能订阅的用户，则用户与博客之间可能存在多对多的关系。如果是这种情况，你可能希望将中间表访问器命名为 subscription 取代 pivot。这可以在定义关系时使用 as 方法完成：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Podcast&#x27;)</span><br><span class="line">                -&gt;as(&#x27;subscription&#x27;)</span><br><span class="line">                -&gt;withTimestamps();</span><br></pre></td></tr></table></figure>
-<p>一旦定义完成，你可以使用自定义名称访问中间表数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$users = User::with(&#x27;podcasts&#x27;)-&gt;get();</span><br><span class="line"></span><br><span class="line">foreach ($users-&gt;flatMap-&gt;podcasts as $podcast) &#123;</span><br><span class="line">    echo $podcast-&gt;subscription-&gt;created_at;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过中间表过滤关系<br>在定义关系时，你还可以使用 wherePivot 和 wherePivotIn 方法来过滤 belongsToMany 返回的结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;wherePivot(&#x27;approved&#x27;, 1);</span><br><span class="line"></span><br><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;wherePivotIn(&#x27;priority&#x27;, [1, 2]);</span><br><span class="line"></span><br><span class="line">return $this-&gt;belongsToMany(&#x27;App\Models\Role&#x27;)-&gt;wherePivotNotIn(&#x27;priority&#x27;, [1, 2]);</span><br></pre></td></tr></table></figure>
-<p>定义中间表模型<br>如果你想定义一个自定义模型来表示关联关系中的中间表，可以在定义关联时调用 using 方法。自定义多对多中间表模型都必须扩展自 Illuminate\Database\Eloquent\Relations\Pivot 类，自定义多对多（多态）中间表模型必须继承 Illuminate\Database\Eloquent\Relations\MorphPivot 类。例如，我们在写 Role 模型的关联时，使用自定义中间表模型 RoleUser：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line"></span><br><span class="line">class Role extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 拥有此角色的所有用户</span><br><span class="line">     */</span><br><span class="line">    public function users()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;belongsToMany(&#x27;App\Models\User&#x27;)-&gt;using(&#x27;App\Models\RoleUser&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当定义 RoleUser 模型时，我们要扩展 Pivot 类：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Relations\Pivot;</span><br><span class="line"></span><br><span class="line">class RoleUser extends Pivot</span><br><span class="line">&#123;</span><br><span class="line">    //</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>你可以组合使用 using 和 withPivot 从中间表来检索列。例如，通过将列名传递给 withPivot 方法，就可以从 UserRole 中间表中检索出 created_by 和 updated_by 两列数据：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">namespace App\Models;</span><br><span class="line"></span><br><span class="line">use Illuminate\Database\Eloquent\Model;</span><br><span class="line"></span><br><span class="line">class Role extends Model</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * 拥有此角色的用户</span><br><span class="line">     */</span><br><span class="line">    public function users()</span><br><span class="line">    &#123;</span><br><span class="line">        return $this-&gt;belongsToMany(&#x27;App\Models\User&#x27;)</span><br><span class="line">                        -&gt;using(&#x27;App\Models\RoleUser&#x27;)</span><br><span class="line">                        -&gt;withPivot([</span><br><span class="line">                            &#x27;created_by&#x27;,</span><br><span class="line">                            &#x27;updated_by&#x27;,</span><br><span class="line">                        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意: Pivot 模型可能不使用 SoftDeletes 特性。 如果您需要软删除数据关联记录，请考虑将您的数据关联模型转换为实际的 Eloquent 模型。</p>
-<p>带有递增 ID 的自定义中继模型<br>如果你用一个自定义的中继模型定义了多对多的关系，而且这个中继模型拥有一个自增的主键，你应当确保这个自定义中继模型类中定义了一个 incrementing 属性其值为 true。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 标识 ID 是否自增</span><br><span class="line"> *</span><br><span class="line"> * @var bool</span><br><span class="line"> */</span><br><span class="line">public $incrementing = true;</span><br></pre></td></tr></table></figure>
-
-<p>文章来源:<br><a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/8.x/eloquent-relationships/9407#000a62">https://learnku.com/docs/laravel/8.x/eloquent-relationships/9407#000a62</a></p>
-
-          <p style="color: gray; font-size: 0.75em;">
-              作者：庞学军
-          </p>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.pangxuejun.cn/2022/07/15/laravel%E5%A4%9A%E5%AF%B9%E5%A4%9A%E5%85%B3%E8%81%94/" data-id="cl764i3n6000djww5cu2s1kau" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/" rel="tag">laravel</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -586,6 +557,10 @@
       <ul>
         
           <li>
+            <a href="/2024/09/12/24%E5%B9%B4%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/">24年继续深入学习</a>
+          </li>
+        
+          <li>
             <a href="/2024/09/06/php-fpm%E5%86%85%E5%AD%98%E8%B7%91%E6%BB%A1/">php-fpm内存跑满</a>
           </li>
         
@@ -599,10 +574,6 @@
         
           <li>
             <a href="/2023/11/11/ubuntu22-04%E5%BC%80%E6%9C%BA%E4%BB%BB%E5%8A%A1/">ubuntu22.04开机任务</a>
-          </li>
-        
-          <li>
-            <a href="/2023/11/09/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/">宝塔面板</a>
           </li>
         
       </ul>
@@ -624,7 +595,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apiPost/" rel="tag">apiPost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dockerFile/" rel="tag">dockerFile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/goland/" rel="tag">goland</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8/" rel="tag">mysql8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">postman 环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA/" rel="tag">个人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%B1%E7%94%9F%E5%A3%B3/" rel="tag">花生壳</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apiPost/" rel="tag">apiPost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dockerFile/" rel="tag">dockerFile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8/" rel="tag">es搜索引擎使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/goland/" rel="tag">goland</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8/" rel="tag">mysql8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">postman 环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA/" rel="tag">个人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%B1%E7%94%9F%E5%A3%B3/" rel="tag">花生壳</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BDphp/" rel="tag">高性能php</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -634,7 +605,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -647,7 +618,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2024-9-11 庞学军 | <a href="https://beian.miit.gov.cn" target="_blank">粤ICP备2024179527号</a><br>
+      &copy; 2024-9-14 庞学军 | <a href="https://beian.miit.gov.cn" target="_blank">粤ICP备2024179527号</a><br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

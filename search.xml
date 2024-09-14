@@ -684,4 +684,15 @@ docker k8s
         <tag>php</tag>
       </tags>
   </entry>
+  <entry>
+    <title>24年继续深入学习</title>
+    <url>/2024/09/12/24%E5%B9%B4%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>swoole<br>workman<br>hyperf<br>elasticsearch<br>mq<br>微服务</p>
+<p>go<br>gin<br>gorm</p>
+]]></content>
+      <tags>
+        <tag>高性能php</tag>
+        <tag>es搜索引擎使用</tag>
+      </tags>
+  </entry>
 </search>
