@@ -62,6 +62,112 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-docker-推送容器镜像" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/10/20/docker-%E6%8E%A8%E9%80%81%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F/" class="article-date">
+  <time datetime="2023-10-20T11:11:16.000Z" itemprop="datePublished">2023-10-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/docker/">docker</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/10/20/docker-%E6%8E%A8%E9%80%81%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F/">docker 推送容器镜像</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="阿里云容器镜像服务-https-cr-console-aliyun-com-cn-shenzhen-instances"><a href="#阿里云容器镜像服务-https-cr-console-aliyun-com-cn-shenzhen-instances" class="headerlink" title="阿里云容器镜像服务 https://cr.console.aliyun.com/cn-shenzhen/instances"></a>阿里云容器镜像服务 <a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-shenzhen/instances">https://cr.console.aliyun.com/cn-shenzhen/instances</a></h2><ul>
+<li>使用仓库自动构建</li>
+<li>本地仓库手动构建推送</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">1. 登录阿里云Docker Registry</span><br><span class="line">$ docker login --username=用户名 registry.cn-shenzhen.aliyuncs.com</span><br><span class="line">用于登录的用户名为阿里云账号全名，密码为开通服务时设置的密码。</span><br><span class="line"></span><br><span class="line">您可以在访问凭证页面修改凭证密码。</span><br><span class="line"></span><br><span class="line">2. 从Registry中拉取镜像</span><br><span class="line">$ docker pull registry.cn-shenzhen.aliyuncs.com:[镜像版本号]</span><br><span class="line">3. 将镜像推送到Registry</span><br><span class="line">$ docker login --username=用户名 registry.cn-shenzhen.aliyuncs.com</span><br><span class="line">$ docker tag [ImageId] registry.cn-shenzhen.aliyuncs.com:[镜像版本号]</span><br><span class="line">$ docker push registry.cn-shenzhen.aliyuncs.com:[镜像版本号]</span><br><span class="line">请根据实际镜像信息替换示例中的[ImageId]和[镜像版本号]参数。</span><br><span class="line"></span><br><span class="line">4. 选择合适的镜像仓库地址</span><br><span class="line">从ECS推送镜像时，可以选择使用镜像仓库内网地址。推送速度将得到提升并且将不会损耗您的公网流量。</span><br><span class="line"></span><br><span class="line">如果您使用的机器位于VPC网络，请使用 registry-vpc.cn-shenzhen.aliyuncs.com 作为Registry的域名登录。</span><br><span class="line"></span><br><span class="line">5. 示例</span><br><span class="line">使用&quot;docker tag&quot;命令重命名镜像，并将它通过专有网络地址推送至Registry。</span><br><span class="line"></span><br><span class="line">$ docker images</span><br><span class="line">REPOSITORY                                                         TAG                 IMAGE ID            CREATED             VIRTUAL SIZE</span><br><span class="line">registry.aliyuncs.com/acs/agent                                    0.7-dfb6816         37bb9c63c8b2        7 days ago          37.89 MB</span><br><span class="line">$ docker tag 37bb9c63c8b2 registry-vpc.cn-shenzhen.aliyuncs.com/acs/agent:0.7-dfb6816</span><br><span class="line">使用 &quot;docker push&quot; 命令将该镜像推送至远程。</span><br><span class="line"></span><br><span class="line">$ docker push registry-vpc.cn-shenzhen.aliyuncs.com/acs/agent:0.7-dfb6816</span><br></pre></td></tr></table></figure>
+
+<p>构建自已的镜像 docker build -t 名称:0.0.1 .</p>
+
+          <p style="color: gray; font-size: 0.75em;">
+              作者：庞学军
+          </p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.pangxuejun.cn/2023/10/20/docker-%E6%8E%A8%E9%80%81%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F/" data-id="clnzi90up0000c0v16f4q8hb7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nginx-Docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/09/13/nginx-Docker/" class="article-date">
+  <time datetime="2023-09-13T11:08:32.000Z" itemprop="datePublished">2023-09-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/09/13/nginx-Docker/">nginx Docker</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>docker nginx 挂载nginx配置文件，日志文件，ssl证书，静态网站。</p>
+<p>1.第一步 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /www/nginx/conf \</span><br><span class="line">&amp;&amp; mkdir -p /www/nginx/html \</span><br><span class="line">&amp;&amp; mkdir -p /www/nginx/log </span><br></pre></td></tr></table></figure>
+
+<p>2.第二步</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 生成容器</span><br><span class="line">sudo docker run --name nginx -p 9001:80 -d nginx</span><br><span class="line"># 将容器nginx.conf文件复制到宿主机</span><br><span class="line">sudo docker cp nginx:/etc/nginx /www/nginx/conf</span><br><span class="line"># 将容器中的html文件夹复制到宿主机</span><br><span class="line">sudo docker cp nginx:/usr/share/nginx/html /www/nginx/html</span><br></pre></td></tr></table></figure>
+
+<p>3.第三步</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run \</span><br><span class="line">-p 80:80 \</span><br><span class="line">-p 443:443 \</span><br><span class="line">--name nginx \</span><br><span class="line">-v /www/nginx/conf:/etc/nginx \</span><br><span class="line">-v /www/nginx/log:/var/log/nginx \</span><br><span class="line">-v /www/nginx/html:/usr/share/nginx/html \</span><br><span class="line">-d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>4.第四步<br>    vi /www/nginx/config/conf/blog.pangxuejun.cn.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">前端</span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name blog.pangxuejun.cn;</span><br><span class="line">    root /user/share/nginx/html/blog.pangxuejun.cn;</span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files $uri $uri/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line">    rewrite  ^(.*)$  https://blog.pangxuejun.cn$1 permanent;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       443  ssl;</span><br><span class="line">    server_name blog.pangxuejun.cn;</span><br><span class="line">    root /usr/share/nginx/html/blog.pangxuejun.cn;</span><br><span class="line"></span><br><span class="line">    # gzip config</span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_min_length 1k;</span><br><span class="line">    gzip_comp_level 9;</span><br><span class="line">    gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;</span><br><span class="line">    gzip_vary on;</span><br><span class="line">    gzip_disable &quot;MSIE [1-6]\.&quot;;</span><br><span class="line"></span><br><span class="line">    ssl_certificate      /etc/nginx/cert/blog.pangxuejun.cn.pem;</span><br><span class="line">    ssl_certificate_key  /etc/nginx/cert/blog.pangxuejun.cn.key;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files $uri $uri/ /index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">后端php配置</span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name blog-api.qzyyds.com;</span><br><span class="line">    rewrite  ^(.*)$  https://blog-api.pangxuejun.cn$1 permanent;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen       443  ssl;</span><br><span class="line">    server_name blog-api.pangxuejun.cn;</span><br><span class="line"></span><br><span class="line">    root /var/www/blog-api.pangxuejun.cn/public;</span><br><span class="line"></span><br><span class="line">    ssl_certificate      /etc/nginx/cert/blog-api.pangxuejun.cn.pem;</span><br><span class="line">    ssl_certificate_key  /etc/nginx/cert/blog-api.pangxuejun.cn.key;</span><br><span class="line">    ssl_session_timeout  5m;</span><br><span class="line">    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;</span><br><span class="line">    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">    ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">    add_header X-Frame-Options &quot;SAMEORIGIN&quot;;</span><br><span class="line">    add_header X-XSS-Protection &quot;1; mode=block&quot;;</span><br><span class="line">    add_header X-Content-Type-Options &quot;nosniff&quot;;</span><br><span class="line"></span><br><span class="line">    index index.html index.htm index.php;</span><br><span class="line"></span><br><span class="line">    charset utf-8;</span><br><span class="line"></span><br><span class="line">    access_log   /var/log/nginx/blog-api.pangxuejun.cn.access.log;</span><br><span class="line">    error_log    /var/log/nginx/blog-api.pangxuejun.cn.error.log;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files $uri $uri/ /index.php?$query_string;</span><br><span class="line">        if (!-e $request_filename) &#123;</span><br><span class="line">                rewrite  ^(.*)$  /index.php?s=$1  last;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location = /favicon.ico &#123; access_log off; log_not_found off; &#125;</span><br><span class="line">    location = /robots.txt  &#123; access_log off; log_not_found off; &#125;</span><br><span class="line"></span><br><span class="line">    error_page 404 /index.php;</span><br><span class="line"></span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">       include snippets/fastcgi-php.conf;</span><br><span class="line"></span><br><span class="line">       fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    location ~ /\.(?!well-known).* &#123;</span><br><span class="line">        deny all;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">方向代理</span><br><span class="line">server&#123;</span><br><span class="line">       listen 80;</span><br><span class="line">       charset utf-8;</span><br><span class="line">       server_name blog-api.pangxuejun.cn;</span><br><span class="line">       location / &#123;</span><br><span class="line">          proxy_pass http://127.0.0.1:8000;</span><br><span class="line">          proxy_redirect default;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line">server&#123;</span><br><span class="line">       listen 80;</span><br><span class="line">       charset utf-8;</span><br><span class="line">       server_name blog.pangxuejun.cn;</span><br><span class="line">       location / &#123;</span><br><span class="line">          proxy_pass http://127.0.0.1:8080;</span><br><span class="line">          proxy_redirect default;</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.第五步<br>配置ssl证书/www/nginx/cert</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/BThinker/article/details/123507820">https://blog.csdn.net/BThinker/article/details/123507820</a></p>
+
+          <p style="color: gray; font-size: 0.75em;">
+              作者：庞学军
+          </p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.pangxuejun.cn/2023/09/13/nginx-Docker/" data-id="clmhncnrp0000jov14pnv0neh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-github访问加速" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2023/09/06/github%E8%AE%BF%E9%97%AE%E5%8A%A0%E9%80%9F/" class="article-date">
@@ -483,109 +589,11 @@ docker k8s
 
 
   
-    <article id="post-docker安装RabbitMQ" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/06/13/docker%E5%AE%89%E8%A3%85RabbitMQ/" class="article-date">
-  <time datetime="2023-06-13T11:30:05.000Z" itemprop="datePublished">2023-06-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/RabbitMQ/">RabbitMQ</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/13/docker%E5%AE%89%E8%A3%85RabbitMQ/">docker安装RabbitMQ</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h3><p><a target="_blank" rel="noopener" href="https://rabbitmq.mr-ping.com/">RabbitMQ 中文文档</a></p>
-<p>php laravel + RabbitMQ</p>
-<p>go + RabbitMQ</p>
-<p>python + RabbitMQ</p>
-<p>相关应用</p>
-
-          <p style="color: gray; font-size: 0.75em;">
-              作者：庞学军
-          </p>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.pangxuejun.cn/2023/06/13/docker%E5%AE%89%E8%A3%85RabbitMQ/" data-id="cliu81n7q0000ygv1637w5ahv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-docker常用命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2023/06/12/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time datetime="2023-06-12T07:56:15.000Z" itemprop="datePublished">2023-06-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/docker/">docker</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/12/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">docker常用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/run/">docker 文档</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qiaoshaw/article/details/117048140">csdn docker常用命令</a></p>
-<p>贴两个别人的链接</p>
-
-          <p style="color: gray; font-size: 0.75em;">
-              作者：庞学军
-          </p>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://blog.pangxuejun.cn/2023/06/12/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" data-id="clislbha200005ov1e6c8frah" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">« 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">下一页 »</a>
+    <a class="extend prev" rel="prev" href="/">« 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页 »</a>
   </nav>
 
 </section>
@@ -599,6 +607,14 @@ docker k8s
       <ul>
         
           <li>
+            <a href="/2025/03/31/my-Q2-plan/">my Q2 plan</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/28/2025-plan/">2025 plan</a>
+          </li>
+        
+          <li>
             <a href="/2025/03/28/think-something-in-ai/">think something in ai</a>
           </li>
         
@@ -608,14 +624,6 @@ docker k8s
         
           <li>
             <a href="/2024/09/06/php-fpm%E5%86%85%E5%AD%98%E8%B7%91%E6%BB%A1/">php-fpm内存跑满</a>
-          </li>
-        
-          <li>
-            <a href="/2024/09/06/nginx%E9%85%8D%E7%BD%AE%E8%B7%A8%E5%9F%9F/">nginx配置跨域</a>
-          </li>
-        
-          <li>
-            <a href="/2024/08/28/%E4%B8%80%E4%BA%9B%E6%84%9F%E6%82%9F/">一些感悟</a>
           </li>
         
       </ul>
@@ -637,7 +645,7 @@ docker k8s
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">ai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apiPost/" rel="tag">apiPost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepseek/" rel="tag">deepseek</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dockerFile/" rel="tag">dockerFile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8/" rel="tag">es搜索引擎使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/goland/" rel="tag">goland</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8/" rel="tag">mysql8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">postman 环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA/" rel="tag">个人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%B1%E7%94%9F%E5%A3%B3/" rel="tag">花生壳</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BDphp/" rel="tag">高性能php</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">ai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apiPost/" rel="tag">apiPost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepseek/" rel="tag">deepseek</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dockerFile/" rel="tag">dockerFile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/" rel="tag">english</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8/" rel="tag">es搜索引擎使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/goland/" rel="tag">goland</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8/" rel="tag">mysql8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/personal/" rel="tag">personal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">postman 环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA/" rel="tag">个人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%B1%E7%94%9F%E5%A3%B3/" rel="tag">花生壳</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BDphp/" rel="tag">高性能php</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -647,7 +655,7 @@ docker k8s
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -660,7 +668,7 @@ docker k8s
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2025-3-28 庞学军 | <a href="https://beian.miit.gov.cn" target="_blank">粤ICP备2024179527号</a><br>
+      &copy; 2025-3-31 庞学军 | <a href="https://beian.miit.gov.cn" target="_blank">粤ICP备2024179527号</a><br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
