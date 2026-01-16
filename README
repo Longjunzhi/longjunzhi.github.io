@@ -7,3 +7,7 @@
 docker 部署方式
 docker build -t www:0.0.1 .
 
+生成
+hexo g
+部署
+hexo d
