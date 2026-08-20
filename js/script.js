@@ -51,21 +51,32 @@
         return;
       }
     } else {
-      var html = [
-        '<div id="' + id + '" class="article-share-box">',
-          '<input class="article-share-input" value="' + url + '">',
-          '<div class="article-share-links">',
-            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-          '</div>',
-        '</div>'
-      ].join('');
+      var box = $('<div>', {
+        id: id,
+        'class': 'article-share-box'
+      });
+      var links = $('<div>', {'class': 'article-share-links'});
 
-      var box = $(html);
+      box.append($('<input>', {
+        'class': 'article-share-input',
+        type: 'text'
+      }).val(url));
 
-      $('body').append(box);
+      [
+        ['https://twitter.com/intent/tweet?url=', 'article-share-twitter', 'Twitter'],
+        ['https://www.facebook.com/sharer.php?u=', 'article-share-facebook', 'Facebook'],
+        ['https://pinterest.com/pin/create/button/?url=', 'article-share-pinterest', 'Pinterest']
+      ].forEach(function(item) {
+        links.append($('<a>', {
+          href: item[0] + encodedUrl,
+          'class': item[1],
+          target: '_blank',
+          rel: 'noopener noreferrer',
+          title: item[2]
+        }));
+      });
+
+      box.append(links).appendTo('body');
     }
 
     $('.article-share-box.on').hide();
@@ -76,7 +87,7 @@
     }).addClass('on');
   }).on('click', '.article-share-box', function(e){
     e.stopPropagation();
-  }).on('click', '.article-share-box-input', function(){
+  }).on('click', '.article-share-input', function(){
     $(this).select();
   }).on('click', '.article-share-box-link', function(e){
     e.preventDefault();
@@ -85,26 +96,21 @@
     window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
   });
 
-  // Caption
-  $('.article-entry').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
+  // Caption and image link. Build DOM nodes directly so image metadata is never parsed as HTML.
+  $('.article-entry img').each(function(){
+    var image = $(this);
+    var alt = this.alt || '';
 
-      var alt = this.alt;
+    if (alt) {
+      image.after($('<span>', {'class': 'caption'}).text(alt));
+    }
 
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
+    image.wrap($('<a>', {
+      href: this.src,
+      title: alt,
+      'class': 'article-image-link'
+    }));
   });
-
-  if ($.fancybox){
-    $('.fancybox').fancybox();
-  }
 
   // Mobile nav
   var $container = $('#container'),
