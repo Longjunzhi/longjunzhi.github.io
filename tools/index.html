@@ -7,7 +7,7 @@
   
 
   
-  <title>归档 | 军的小屋</title>
+  <title>在线工具 | 军的小屋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   <meta name="baidu-site-verification" content="codeva-cSR3vf2y9M" />
@@ -15,13 +15,15 @@
   
     <meta name="sogou_site_verification" content="Bu8E4GUknz" />
   
-  <meta name="description" content="庞学军 龙军 学军 的个人简介,技术栈,计算机相关的技术文章,后端,前端,算法,go,php,开源项目">
+  <meta name="description" content="JSON &#x2F; Python 字典格式化     自动识别 JSON 与 Python 字典，仅在当前浏览器中解析，不会上传数据。                     输入                                格式化结果                                 格式化       压缩       复制结果       清空">
 <meta property="og:type" content="website">
-<meta property="og:title" content="军的小屋">
-<meta property="og:url" content="https://pangxuejun.cn/archives/index.html">
+<meta property="og:title" content="在线工具">
+<meta property="og:url" content="https://pangxuejun.cn/tools/index.html">
 <meta property="og:site_name" content="军的小屋">
-<meta property="og:description" content="庞学军 龙军 学军 的个人简介,技术栈,计算机相关的技术文章,后端,前端,算法,go,php,开源项目">
+<meta property="og:description" content="JSON &#x2F; Python 字典格式化     自动识别 JSON 与 Python 字典，仅在当前浏览器中解析，不会上传数据。                     输入                                格式化结果                                 格式化       压缩       复制结果       清空">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-09-10T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-09-10T03:49:43.337Z">
 <meta property="article:author" content="庞学军">
 <meta property="article:tag" content="庞学军 龙军 GO PHP 后端 全栈开发 学军 龙军之">
 <meta name="twitter:card" content="summary">
@@ -62,236 +64,95 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2026" class="archive-year">2026</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2026/09/10/AI-%E6%88%91%E6%9D%A5%E4%BA%86-%E6%96%B0%E6%97%B6%E4%BB%A3/" class="archive-article-date">
-  <time datetime="2026-09-10T03:24:00.000Z" itemprop="datePublished">9月 10日</time>
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/tools/index.html" class="article-date">
+  <time datetime="2026-09-10T04:00:00.000Z" itemprop="datePublished">2026-09-10</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2026/09/10/AI-%E6%88%91%E6%9D%A5%E4%BA%86-%E6%96%B0%E6%97%B6%E4%BB%A3/">AI，我来了：新时代</a>
+    <h1 class="article-title" itemprop="name">
+      在线工具
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <div class="tools-page">
+  <section class="tool-card" aria-labelledby="data-format-title">
+    <h2 id="data-format-title">JSON / Python 字典格式化</h2>
+    <p>自动识别 JSON 与 Python 字典，仅在当前浏览器中解析，不会上传数据。</p>
+    <div class="tool-grid">
+      <div class="tool-field">
+        <label for="data-input">输入</label>
+        <textarea id="data-input" spellcheck="false" placeholder='粘贴 JSON，或 Python 字典：{"name": "军的小屋", "enabled": True, "value": None}'></textarea>
+      </div>
+      <div class="tool-field">
+        <label for="data-output">格式化结果</label>
+        <textarea id="data-output" spellcheck="false" readonly placeholder="解析结果会自动显示在这里"></textarea>
+      </div>
+    </div>
+    <div class="tool-actions">
+      <button id="format-data" class="tool-button primary" type="button">格式化</button>
+      <button id="compact-data" class="tool-button" type="button">压缩</button>
+      <button id="copy-data" class="tool-button" type="button">复制结果</button>
+      <button id="clear-data" class="tool-button" type="button">清空</button>
+    </div>
+    <div id="data-status" class="tool-status" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="tool-card" aria-labelledby="timestamp-title">
+    <h2 id="timestamp-title">时间戳转换</h2>
+    <p>支持秒和毫秒时间戳自动识别，也可以把本地日期时间转换为时间戳。</p>
+    <div class="tool-grid">
+      <div class="tool-field">
+        <label for="timestamp-input">时间戳</label>
+        <input id="timestamp-input" type="text" inputmode="numeric" placeholder="例如：1757476800 或 1757476800000">
+      </div>
+      <div class="tool-field">
+        <label for="datetime-input">本地日期时间</label>
+        <input id="datetime-input" type="datetime-local" step="1">
+      </div>
+    </div>
+    <div class="tool-actions">
+      <button id="timestamp-now" class="tool-button primary" type="button">当前时间</button>
+      <button id="timestamp-convert" class="tool-button" type="button">时间戳转日期</button>
+      <button id="datetime-convert" class="tool-button" type="button">日期转时间戳</button>
+      <button id="copy-timestamp" class="tool-button" type="button">复制毫秒时间戳</button>
+    </div>
+    <dl class="time-result">
+      <div><dt>本地时间</dt><dd id="time-local">-</dd></div>
+      <div><dt>UTC / ISO 8601</dt><dd id="time-utc">-</dd></div>
+      <div><dt>秒时间戳</dt><dd id="time-seconds">-</dd></div>
+      <div><dt>毫秒时间戳</dt><dd id="time-milliseconds">-</dd></div>
+    </dl>
+    <div id="time-status" class="tool-status" role="status" aria-live="polite"></div>
+  </section>
+</div>
+
+          <p style="color: gray; font-size: 0.75em;">
+              作者：庞学军
+          </p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://pangxuejun.cn/tools/index.html" data-id="cuidSBI02d8kyau-eLELzhabW" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
+  
+    
+  
 </article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2025" class="archive-year">2025</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/06/06/%E5%A6%82%E4%BD%95%E4%B8%8A%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  <time datetime="2025-06-06T08:14:33.000Z" itemprop="datePublished">6月 06日</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/06/06/%E5%A6%82%E4%BD%95%E4%B8%8A%E9%83%A8%E7%BD%B2/">如何上部署</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/04/11/how-to-create-a-great-company/" class="archive-article-date">
-  <time datetime="2025-04-11T10:00:47.000Z" itemprop="datePublished">4月 11日</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/04/11/how-to-create-a-great-company/">how to create a great company</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/04/03/value-of-company/" class="archive-article-date">
-  <time datetime="2025-04-03T06:56:18.000Z" itemprop="datePublished">4月 03日</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/04/03/value-of-company/">value of company</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/03/31/my-Q2-plan/" class="archive-article-date">
-  <time datetime="2025-03-31T01:56:21.000Z" itemprop="datePublished">3月 31日</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/03/31/my-Q2-plan/">my Q2 plan</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/03/28/2025-plan/" class="archive-article-date">
-  <time datetime="2025-03-28T05:57:53.000Z" itemprop="datePublished">3月 28日</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/03/28/2025-plan/">2025 plan</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2025/03/28/think-something-in-ai/" class="archive-article-date">
-  <time datetime="2025-03-28T05:45:59.000Z" itemprop="datePublished">3月 28日</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2025/03/28/think-something-in-ai/">think something in ai</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/12/24%E5%B9%B4%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  <time datetime="2024-09-12T09:18:28.000Z" itemprop="datePublished">9月 12日</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/12/24%E5%B9%B4%E7%BB%A7%E7%BB%AD%E6%B7%B1%E5%85%A5%E5%AD%A6%E4%B9%A0/">24年继续深入学习</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/06/php-fpm%E5%86%85%E5%AD%98%E8%B7%91%E6%BB%A1/" class="archive-article-date">
-  <time datetime="2024-09-06T03:05:27.000Z" itemprop="datePublished">9月 06日</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/06/php-fpm%E5%86%85%E5%AD%98%E8%B7%91%E6%BB%A1/">php-fpm内存跑满</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/09/06/nginx%E9%85%8D%E7%BD%AE%E8%B7%A8%E5%9F%9F/" class="archive-article-date">
-  <time datetime="2024-09-06T03:01:48.000Z" itemprop="datePublished">9月 06日</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/09/06/nginx%E9%85%8D%E7%BD%AE%E8%B7%A8%E5%9F%9F/">nginx配置跨域</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/">下一页 »</a>
-  </nav>
 
 </section>
         
@@ -396,6 +257,10 @@
 
 
 <script src="/js/script.js"></script>
+
+
+  
+<script src="/js/tools.js"></script>
 
 
 
