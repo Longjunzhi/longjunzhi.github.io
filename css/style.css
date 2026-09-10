@@ -1774,6 +1774,7 @@ pre .javascript .function {
 }
 .tool-panel-color {
   width: 100%;
+  max-width: 920px;
   min-height: 0;
   padding: 24px;
 }
