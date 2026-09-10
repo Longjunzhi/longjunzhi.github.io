@@ -1536,7 +1536,7 @@ pre .javascript .function {
   transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 .tool-field textarea {
-  min-height: 330px;
+  min-height: 460px;
   padding: 14px;
   resize: vertical;
 }
@@ -1554,8 +1554,51 @@ pre .javascript .function {
   -webkit-box-shadow: 0 0 0 3px rgba(56,189,248,0.14);
   box-shadow: 0 0 0 3px rgba(56,189,248,0.14);
 }
-.tool-output-field textarea {
-  background: #f8fafc;
+.json-highlight-output {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  min-height: 460px;
+  max-height: 680px;
+  overflow: auto;
+  margin: 0;
+  padding: 14px;
+  border: 1px solid #dbe3ed;
+  border-radius: 9px;
+  background: #0f172a;
+  color: #cbd5e1;
+  font: 14px/1.65 "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
+  -moz-tab-size: 2;
+  tab-size: 2;
+  white-space: pre;
+}
+.json-highlight-output:focus {
+  border-color: #38bdf8;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 3px rgba(56,189,248,0.14);
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.14);
+}
+.json-key {
+  color: #7dd3fc;
+}
+.json-string {
+  color: #86efac;
+}
+.json-number {
+  color: #fbbf24;
+}
+.json-boolean {
+  color: #c4b5fd;
+}
+.json-null {
+  color: #fda4af;
+  font-style: italic;
+}
+.json-placeholder {
+  color: #64748b;
+}
+.tool-field textarea[hidden] {
+  display: none;
 }
 .tool-field-heading {
   display: -webkit-box;
@@ -1576,7 +1619,8 @@ pre .javascript .function {
   justify-content: space-between;
   gap: 12px;
 }
-.tool-field-heading label {
+.tool-field-heading label,
+.tool-field-heading .tool-field-label {
   color: #334155;
   font-size: 13px;
   font-weight: 700;
@@ -1772,7 +1816,11 @@ pre .javascript .function {
     display: none;
   }
   .tool-field textarea {
-    min-height: 240px;
+    min-height: 320px;
+  }
+  .json-highlight-output {
+    min-height: 320px;
+    max-height: 520px;
   }
   .tool-panel-footer {
     display: block;

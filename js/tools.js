@@ -5,6 +5,7 @@
   if (!dataInput) return;
 
   var dataOutput = document.getElementById('data-output');
+  var dataHighlightOutput = document.getElementById('data-highlight-output');
   var dataStatus = document.getElementById('data-status');
   var timestampInput = document.getElementById('timestamp-input');
   var datetimeInput = document.getElementById('datetime-input');
@@ -212,13 +213,64 @@
     }
   }
 
+  function resetHighlightedOutput() {
+    dataHighlightOutput.textContent = '';
+    var placeholder = document.createElement('span');
+    placeholder.className = 'json-placeholder';
+    placeholder.textContent = '解析结果会自动显示在这里';
+    dataHighlightOutput.appendChild(placeholder);
+  }
+
+  function renderHighlightedJson(jsonText) {
+    dataHighlightOutput.textContent = '';
+
+    // Keep large payloads responsive by avoiding thousands of highlight nodes.
+    if (jsonText.length > 300000) {
+      dataHighlightOutput.textContent = jsonText;
+      return false;
+    }
+
+    var fragment = document.createDocumentFragment();
+    var tokenPattern = /("(?:\\u[a-fA-F0-9]{4}|\\[^u]|[^\\"])*"\s*:|"(?:\\u[a-fA-F0-9]{4}|\\[^u]|[^\\"])*"|\btrue\b|\bfalse\b|\bnull\b|-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)/g;
+    var cursor = 0;
+    var match;
+
+    while ((match = tokenPattern.exec(jsonText)) !== null) {
+      if (match.index > cursor) {
+        fragment.appendChild(document.createTextNode(jsonText.slice(cursor, match.index)));
+      }
+
+      var token = match[0];
+      var span = document.createElement('span');
+      if (/^".*"\s*:$/.test(token)) span.className = 'json-key';
+      else if (token.charAt(0) === '"') span.className = 'json-string';
+      else if (token === 'true' || token === 'false') span.className = 'json-boolean';
+      else if (token === 'null') span.className = 'json-null';
+      else span.className = 'json-number';
+      span.textContent = token;
+      fragment.appendChild(span);
+      cursor = tokenPattern.lastIndex;
+    }
+
+    if (cursor < jsonText.length) {
+      fragment.appendChild(document.createTextNode(jsonText.slice(cursor)));
+    }
+    dataHighlightOutput.appendChild(fragment);
+    return true;
+  }
+
   function renderData(compact) {
     try {
       var parsed = parseData(dataInput.value);
-      dataOutput.value = JSON.stringify(parsed.value, null, compact ? 0 : 2);
-      setStatus(dataStatus, '已识别为' + parsed.type + '，格式化成功。', 'success');
+      var formatted = JSON.stringify(parsed.value, null, compact ? 0 : 2);
+      dataOutput.value = formatted;
+      var highlighted = renderHighlightedJson(formatted);
+      var message = '已识别为' + parsed.type + '，格式化成功。';
+      if (!highlighted) message += ' 内容较大，已关闭高亮以保持流畅。';
+      setStatus(dataStatus, message, 'success');
     } catch (error) {
       dataOutput.value = '';
+      resetHighlightedOutput();
       setStatus(dataStatus, error.message, 'error');
     }
   }
@@ -277,6 +329,7 @@
   document.getElementById('clear-data').addEventListener('click', function() {
     dataInput.value = '';
     dataOutput.value = '';
+    resetHighlightedOutput();
     setStatus(dataStatus, '', '');
     dataInput.focus();
   });
@@ -286,6 +339,7 @@
       if (dataInput.value.trim()) renderData(false);
       else {
         dataOutput.value = '';
+        resetHighlightedOutput();
         setStatus(dataStatus, '', '');
       }
     }, 350);
