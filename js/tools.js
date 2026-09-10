@@ -9,7 +9,47 @@
   var timestampInput = document.getElementById('timestamp-input');
   var datetimeInput = document.getElementById('datetime-input');
   var timeStatus = document.getElementById('time-status');
+  var toolNavItems = document.querySelectorAll('[data-tool-target]');
+  var toolPanels = document.querySelectorAll('[data-tool-panel]');
   var parseTimer;
+
+  function activateTool(toolId, updateHash) {
+    var matched = false;
+
+    Array.prototype.forEach.call(toolPanels, function(panel) {
+      var isActive = panel.id === toolId;
+      panel.hidden = !isActive;
+      panel.classList.toggle('is-active', isActive);
+      if (isActive) matched = true;
+    });
+
+    if (!matched) return false;
+
+    Array.prototype.forEach.call(toolNavItems, function(item) {
+      var isActive = item.getAttribute('data-tool-target') === toolId;
+      item.classList.toggle('is-active', isActive);
+      item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      item.tabIndex = isActive ? 0 : -1;
+    });
+
+    if (updateHash && window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', '#' + toolId);
+    }
+    return true;
+  }
+
+  Array.prototype.forEach.call(toolNavItems, function(item) {
+    item.addEventListener('click', function() {
+      activateTool(item.getAttribute('data-tool-target'), true);
+    });
+  });
+
+  var initialTool = window.location.hash.slice(1);
+  if (!activateTool(initialTool, false)) activateTool('data-formatter', false);
+
+  window.addEventListener('hashchange', function() {
+    activateTool(window.location.hash.slice(1), false);
+  });
 
   function setStatus(element, message, type) {
     element.textContent = message;

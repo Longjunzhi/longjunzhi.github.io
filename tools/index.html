@@ -15,15 +15,15 @@
   
     <meta name="sogou_site_verification" content="Bu8E4GUknz" />
   
-  <meta name="description" content="JSON &#x2F; Python 字典格式化     自动识别 JSON 与 Python 字典，仅在当前浏览器中解析，不会上传数据。                     输入                                格式化结果                                 格式化       压缩       复制结果       清空">
+  <meta name="description" content="我的工具箱                     { }         数据格式化JSON &#x2F; Python 字典                       ⏱         时间戳转换秒 &#x2F; 毫秒 &#x2F; 日期                 所有数据仅在本机浏览器处理，不会上传服务器。                            FORMATTERJSON &#x2F; P">
 <meta property="og:type" content="website">
 <meta property="og:title" content="在线工具">
 <meta property="og:url" content="https://pangxuejun.cn/tools/index.html">
 <meta property="og:site_name" content="军的小屋">
-<meta property="og:description" content="JSON &#x2F; Python 字典格式化     自动识别 JSON 与 Python 字典，仅在当前浏览器中解析，不会上传数据。                     输入                                格式化结果                                 格式化       压缩       复制结果       清空">
+<meta property="og:description" content="我的工具箱                     { }         数据格式化JSON &#x2F; Python 字典                       ⏱         时间戳转换秒 &#x2F; 毫秒 &#x2F; 日期                 所有数据仅在本机浏览器处理，不会上传服务器。                            FORMATTERJSON &#x2F; P">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-09-10T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-10T03:49:43.337Z">
+<meta property="article:modified_time" content="2026-09-10T04:28:52.510Z">
 <meta property="article:author" content="庞学军">
 <meta property="article:tag" content="庞学军 龙军 GO PHP 后端 全栈开发 学军 龙军之">
 <meta name="twitter:card" content="summary">
@@ -37,7 +37,8 @@
 
 <meta name="generator" content="Hexo 8.1.2"></head>
 
-<body>
+<body class="tools-body">
+  
   <div id="container">
     <div id="wrap">
       <header id="header">
@@ -63,8 +64,8 @@
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="outer no-sidebar">
+        <section id="main" class="main-full-width"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/tools/index.html" class="article-date">
   <time datetime="2026-09-10T04:00:00.000Z" itemprop="datePublished">2026-09-10</time>
@@ -86,65 +87,85 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div class="tools-page">
-  <section class="tool-card" aria-labelledby="data-format-title">
-    <h2 id="data-format-title">JSON / Python 字典格式化</h2>
-    <p>自动识别 JSON 与 Python 字典，仅在当前浏览器中解析，不会上传数据。</p>
-    <div class="tool-grid">
-      <div class="tool-field">
-        <label for="data-input">输入</label>
-        <textarea id="data-input" spellcheck="false" placeholder='粘贴 JSON，或 Python 字典：{"name": "军的小屋", "enabled": True, "value": None}'></textarea>
-      </div>
-      <div class="tool-field">
-        <label for="data-output">格式化结果</label>
-        <textarea id="data-output" spellcheck="false" readonly placeholder="解析结果会自动显示在这里"></textarea>
-      </div>
+        <div class="tools-shell">
+  <aside class="tools-nav" aria-label="工具选择">
+    <div class="tools-nav-heading">我的工具箱</div>
+    <div class="tools-nav-list" role="tablist" aria-orientation="vertical">
+      <button id="tool-tab-data" class="tools-nav-item is-active" type="button" role="tab" data-tool-target="data-formatter" aria-controls="data-formatter" aria-selected="true">
+        <span class="tools-nav-icon" aria-hidden="true">{ }</span>
+        <span><strong>数据格式化</strong><small>JSON / Python 字典</small></span>
+      </button>
+      <button id="tool-tab-time" class="tools-nav-item" type="button" role="tab" data-tool-target="timestamp-converter" aria-controls="timestamp-converter" aria-selected="false">
+        <span class="tools-nav-icon" aria-hidden="true">⏱</span>
+        <span><strong>时间戳转换</strong><small>秒 / 毫秒 / 日期</small></span>
+      </button>
     </div>
-    <div class="tool-actions">
-      <button id="format-data" class="tool-button primary" type="button">格式化</button>
-      <button id="compact-data" class="tool-button" type="button">压缩</button>
-      <button id="copy-data" class="tool-button" type="button">复制结果</button>
-      <button id="clear-data" class="tool-button" type="button">清空</button>
-    </div>
-    <div id="data-status" class="tool-status" role="status" aria-live="polite"></div>
-  </section>
+    <div class="tools-nav-note">所有数据仅在本机浏览器处理，不会上传服务器。</div>
+  </aside>
 
-  <section class="tool-card" aria-labelledby="timestamp-title">
-    <h2 id="timestamp-title">时间戳转换</h2>
-    <p>支持秒和毫秒时间戳自动识别，也可以把本地日期时间转换为时间戳。</p>
-    <div class="tool-grid">
-      <div class="tool-field">
-        <label for="timestamp-input">时间戳</label>
-        <input id="timestamp-input" type="text" inputmode="numeric" placeholder="例如：1757476800 或 1757476800000">
+  <main class="tools-workspace">
+    <section id="data-formatter" class="tool-panel is-active" role="tabpanel" data-tool-panel aria-labelledby="tool-tab-data">
+      <header class="tool-panel-header">
+        <div><span class="tool-eyebrow">FORMATTER</span><h2>JSON / Python 字典格式化</h2><p>自动识别两种数据格式，并实时生成规范 JSON。</p></div>
+        <span class="tool-local-badge">本地处理</span>
+      </header>
+      <div class="tool-grid tool-grid-editor">
+        <div class="tool-field">
+          <div class="tool-field-heading"><label for="data-input">输入内容</label><span>JSON / Python</span></div>
+          <textarea id="data-input" spellcheck="false" placeholder='粘贴 JSON，或 Python 字典：{"name": "军的小屋", "enabled": True, "value": None}'></textarea>
+        </div>
+        <div class="tool-field tool-output-field">
+          <div class="tool-field-heading"><label for="data-output">格式化结果</label><span>标准 JSON</span></div>
+          <textarea id="data-output" spellcheck="false" readonly placeholder="解析结果会自动显示在这里"></textarea>
+        </div>
       </div>
-      <div class="tool-field">
-        <label for="datetime-input">本地日期时间</label>
-        <input id="datetime-input" type="datetime-local" step="1">
+      <div class="tool-panel-footer">
+        <div class="tool-actions">
+          <button id="format-data" class="tool-button primary" type="button">格式化</button>
+          <button id="compact-data" class="tool-button" type="button">压缩</button>
+          <button id="copy-data" class="tool-button" type="button">复制结果</button>
+          <button id="clear-data" class="tool-button subtle" type="button">清空</button>
+        </div>
+        <div id="data-status" class="tool-status" role="status" aria-live="polite"></div>
       </div>
-    </div>
-    <div class="tool-actions">
-      <button id="timestamp-now" class="tool-button primary" type="button">当前时间</button>
-      <button id="timestamp-convert" class="tool-button" type="button">时间戳转日期</button>
-      <button id="datetime-convert" class="tool-button" type="button">日期转时间戳</button>
-      <button id="copy-timestamp" class="tool-button" type="button">复制毫秒时间戳</button>
-    </div>
-    <dl class="time-result">
-      <div><dt>本地时间</dt><dd id="time-local">-</dd></div>
-      <div><dt>UTC / ISO 8601</dt><dd id="time-utc">-</dd></div>
-      <div><dt>秒时间戳</dt><dd id="time-seconds">-</dd></div>
-      <div><dt>毫秒时间戳</dt><dd id="time-milliseconds">-</dd></div>
-    </dl>
-    <div id="time-status" class="tool-status" role="status" aria-live="polite"></div>
-  </section>
+    </section>
+    <section id="timestamp-converter" class="tool-panel" role="tabpanel" data-tool-panel aria-labelledby="tool-tab-time" hidden>
+      <header class="tool-panel-header">
+        <div><span class="tool-eyebrow">TIME CONVERTER</span><h2>时间戳转换</h2><p>秒、毫秒时间戳与本地日期时间双向转换。</p></div>
+        <span class="tool-local-badge">自动识别</span>
+      </header>
+      <div class="tool-grid tool-grid-time">
+        <div class="tool-field">
+          <div class="tool-field-heading"><label for="timestamp-input">时间戳</label><span>秒 / 毫秒</span></div>
+          <input id="timestamp-input" type="text" inputmode="numeric" placeholder="例如：1757476800 或 1757476800000">
+        </div>
+        <div class="tool-field">
+          <div class="tool-field-heading"><label for="datetime-input">本地日期时间</label><span>当前时区</span></div>
+          <input id="datetime-input" type="datetime-local" step="1">
+        </div>
+      </div>
+      <div class="tool-actions">
+        <button id="timestamp-now" class="tool-button primary" type="button">当前时间</button>
+        <button id="timestamp-convert" class="tool-button" type="button">时间戳转日期</button>
+        <button id="datetime-convert" class="tool-button" type="button">日期转时间戳</button>
+        <button id="copy-timestamp" class="tool-button" type="button">复制毫秒时间戳</button>
+      </div>
+      <dl class="time-result">
+        <div><dt>本地时间</dt><dd id="time-local">-</dd></div>
+        <div><dt>UTC / ISO 8601</dt><dd id="time-utc">-</dd></div>
+        <div><dt>秒时间戳</dt><dd id="time-seconds">-</dd></div>
+        <div><dt>毫秒时间戳</dt><dd id="time-milliseconds">-</dd></div>
+      </dl>
+      <div id="time-status" class="tool-status" role="status" aria-live="polite"></div>
+    </section>
+  </main>
 </div>
 
-          <p style="color: gray; font-size: 0.75em;">
-              作者：庞学军
-          </p>
+          
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://pangxuejun.cn/tools/index.html" data-id="cuidSBI02d8kyau-eLELzhabW" class="article-share-link">Share</a>
+      <a data-url="https://pangxuejun.cn/tools/index.html" data-id="cuidfuOWRikQGE4iCgSj30pQu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,72 +175,8 @@
   
 </article>
 
+
 </section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/09/10/AI-%E6%88%91%E6%9D%A5%E4%BA%86-%E6%96%B0%E6%97%B6%E4%BB%A3/">AI，我来了：新时代</a>
-          </li>
-        
-          <li>
-            <a href="/2025/06/06/%E5%A6%82%E4%BD%95%E4%B8%8A%E9%83%A8%E7%BD%B2/">如何上部署</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/11/how-to-create-a-great-company/">how to create a great company</a>
-          </li>
-        
-          <li>
-            <a href="/2025/04/03/value-of-company/">value of company</a>
-          </li>
-        
-          <li>
-            <a href="/2025/03/31/my-Q2-plan/">my Q2 plan</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/RabbitMQ/">RabbitMQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/go/">go</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/laravel/">laravel</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">ai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apiPost/" rel="tag">apiPost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/deepseek/" rel="tag">deepseek</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dockerFile/" rel="tag">dockerFile</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/english/" rel="tag">english</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/es%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8/" rel="tag">es搜索引擎使用</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go/" rel="tag">go</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/laravel/" rel="tag">laravel</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/" rel="tag">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql8/" rel="tag">mysql8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/" rel="tag">nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/personal/" rel="tag">personal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="tag">postman 环境变量</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA/" rel="tag">个人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/" rel="tag">个人成长</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" rel="tag">内网穿透</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag">容器</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%B0%E6%97%B6%E4%BB%A3/" rel="tag">新时代</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8A%B1%E7%94%9F%E5%A3%B3/" rel="tag">花生壳</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%80%A7%E8%83%BDphp/" rel="tag">高性能php</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/09/">九月 2026</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/06/">六月 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">四月 2025</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">三月 2025</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">九月 2024</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">八月 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">十一月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">六月 2023</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">六月 2022</a><span class="archive-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
         
       </div>
       <footer id="footer">
