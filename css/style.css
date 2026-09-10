@@ -1772,6 +1772,11 @@ pre .javascript .function {
   gap: 12px;
   margin-bottom: 22px;
 }
+.tool-panel-color {
+  width: 100%;
+  min-height: 0;
+  padding: 24px;
+}
 .color-picker-shell {
   display: grid;
   grid-template-columns: 46px 1fr;
@@ -1809,8 +1814,8 @@ pre .javascript .function {
 }
 .color-palette {
   display: grid;
-  grid-template-columns: repeat(9, minmax(74px, 1fr));
-  min-height: 270px;
+  grid-template-columns: repeat(10, minmax(68px, 1fr));
+  min-height: 150px;
   overflow: hidden;
   border-radius: 12px;
   -webkit-box-shadow: 0 8px 24px rgba(15,23,42,0.12);
@@ -1824,7 +1829,7 @@ pre .javascript .function {
   display: box;
   display: flex;
   min-width: 0;
-  padding: 16px 8px;
+  padding: 12px 6px;
   border: 0;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
@@ -1910,10 +1915,10 @@ pre .javascript .function {
     grid-template-columns: 132px minmax(160px, 1fr);
   }
   .color-palette {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
   .color-swatch {
-    min-height: 100px;
+    min-height: 82px;
   }
 }
 @media screen and (max-width: 479px) {
@@ -1983,11 +1988,11 @@ pre .javascript .function {
     grid-template-columns: 1fr;
   }
   .color-palette {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     min-height: 0;
   }
   .color-swatch {
-    min-height: 94px;
+    min-height: 68px;
   }
 }
 @media screen and (max-width: 479px) {
