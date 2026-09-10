@@ -15,15 +15,15 @@
   
     <meta name="sogou_site_verification" content="Bu8E4GUknz" />
   
-  <meta name="description" content="我的工具箱                     { }         数据格式化JSON &#x2F; Python 字典                       ⏱         时间戳转换秒 &#x2F; 毫秒 &#x2F; 日期                 所有数据仅在本机浏览器处理，不会上传服务器。                            FORMATTERJSON &#x2F; P">
+  <meta name="description" content="我的工具箱                     { }         数据格式化JSON &#x2F; Python 字典                       ⏱         时间戳转换秒 &#x2F; 毫秒 &#x2F; 日期                       ▦         色块工具色阶 &#x2F; CSS 变量                 所有数据仅在本机浏览器处理，不会上传服">
 <meta property="og:type" content="website">
 <meta property="og:title" content="在线工具">
 <meta property="og:url" content="https://pangxuejun.cn/tools/index.html">
 <meta property="og:site_name" content="军的小屋">
-<meta property="og:description" content="我的工具箱                     { }         数据格式化JSON &#x2F; Python 字典                       ⏱         时间戳转换秒 &#x2F; 毫秒 &#x2F; 日期                 所有数据仅在本机浏览器处理，不会上传服务器。                            FORMATTERJSON &#x2F; P">
+<meta property="og:description" content="我的工具箱                     { }         数据格式化JSON &#x2F; Python 字典                       ⏱         时间戳转换秒 &#x2F; 毫秒 &#x2F; 日期                       ▦         色块工具色阶 &#x2F; CSS 变量                 所有数据仅在本机浏览器处理，不会上传服">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-09-10T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-10T06:12:50.618Z">
+<meta property="article:modified_time" content="2026-09-10T12:59:47.177Z">
 <meta property="article:author" content="庞学军">
 <meta property="article:tag" content="庞学军 龙军 GO PHP 后端 全栈开发 学军 龙军之">
 <meta name="twitter:card" content="summary">
@@ -97,6 +97,10 @@
         <span class="tools-nav-icon" aria-hidden="true">⏱</span>
         <span><strong>时间戳转换</strong><small>秒 / 毫秒 / 日期</small></span>
       </button>
+      <button id="tool-tab-color" class="tools-nav-item" type="button" role="tab" data-tool-target="color-blocks" aria-controls="color-blocks" aria-selected="false">
+        <span class="tools-nav-icon tools-nav-color-icon" aria-hidden="true">▦</span>
+        <span><strong>色块工具</strong><small>色阶 / CSS 变量</small></span>
+      </button>
     </div>
     <div class="tools-nav-note">所有数据仅在本机浏览器处理，不会上传服务器。</div>
   </aside>
@@ -157,6 +161,31 @@
       </dl>
       <div id="time-status" class="tool-status" role="status" aria-live="polite"></div>
     </section>
+    <section id="color-blocks" class="tool-panel" role="tabpanel" data-tool-panel aria-labelledby="tool-tab-color" hidden>
+      <header class="tool-panel-header">
+        <div><span class="tool-eyebrow">COLOR PALETTE</span><h2>色块工具</h2><p>选择一个基础色，自动生成可直接用于界面设计的十级色阶。</p></div>
+        <span class="tool-local-badge">点击即复制</span>
+      </header>
+      <div class="color-controls">
+        <label class="color-picker-shell" for="color-picker">
+          <input id="color-picker" type="color" value="#0284c7" aria-label="选择基础颜色">
+          <span>选择颜色</span>
+        </label>
+        <div class="tool-field color-hex-field">
+          <div class="tool-field-heading"><label for="color-hex">HEX 颜色</label><span>支持 3 位或 6 位</span></div>
+          <input id="color-hex" type="text" value="#0284C7" maxlength="7" spellcheck="false" autocomplete="off" placeholder="#0284C7">
+        </div>
+        <button id="random-color" class="tool-button" type="button">随机颜色</button>
+        <button id="copy-color-css" class="tool-button primary" type="button">复制 CSS 变量</button>
+      </div>
+      <div id="color-palette" class="color-palette" aria-label="生成的色阶"></div>
+      <div class="color-summary">
+        <div><span>基础色</span><strong id="color-base-value">#0284C7</strong></div>
+        <div><span>RGB</span><strong id="color-rgb-value">rgb(2, 132, 199)</strong></div>
+        <div><span>HSL</span><strong id="color-hsl-value">hsl(200, 98%, 39%)</strong></div>
+      </div>
+      <div id="color-status" class="tool-status" role="status" aria-live="polite">点击任意色块可复制对应的 HEX 值。</div>
+    </section>
   </main>
 </div>
 
@@ -164,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://pangxuejun.cn/tools/index.html" data-id="cuidc3Ot1MJ7dwUzGeKD4JHVu" class="article-share-link">Share</a>
+      <a data-url="https://pangxuejun.cn/tools/index.html" data-id="cuidV74vUlPjVlDGdnnQjmXiQ" class="article-share-link">Share</a>
       
       
     </footer>

@@ -10,6 +10,10 @@
   var timestampInput = document.getElementById('timestamp-input');
   var datetimeInput = document.getElementById('datetime-input');
   var timeStatus = document.getElementById('time-status');
+  var colorPicker = document.getElementById('color-picker');
+  var colorHexInput = document.getElementById('color-hex');
+  var colorPalette = document.getElementById('color-palette');
+  var colorStatus = document.getElementById('color-status');
   var toolNavItems = document.querySelectorAll('[data-tool-target]');
   var toolPanels = document.querySelectorAll('[data-tool-panel]');
   var parseTimer;
@@ -291,6 +295,119 @@
     return String(value).padStart(2, '0');
   }
 
+  function normalizeHex(value) {
+    var hex = value.trim().replace(/^#/, '');
+    if (/^[0-9a-fA-F]{3}$/.test(hex)) {
+      hex = hex.charAt(0) + hex.charAt(0) + hex.charAt(1) + hex.charAt(1) + hex.charAt(2) + hex.charAt(2);
+    }
+    return /^[0-9a-fA-F]{6}$/.test(hex) ? '#' + hex.toUpperCase() : null;
+  }
+
+  function hexToRgb(hex) {
+    return {
+      r: parseInt(hex.slice(1, 3), 16),
+      g: parseInt(hex.slice(3, 5), 16),
+      b: parseInt(hex.slice(5, 7), 16)
+    };
+  }
+
+  function rgbToHex(rgb) {
+    return '#' + [rgb.r, rgb.g, rgb.b].map(function(value) {
+      return Math.round(value).toString(16).padStart(2, '0');
+    }).join('').toUpperCase();
+  }
+
+  function mixColors(base, target, amount) {
+    return rgbToHex({
+      r: base.r + (target.r - base.r) * amount,
+      g: base.g + (target.g - base.g) * amount,
+      b: base.b + (target.b - base.b) * amount
+    });
+  }
+
+  function rgbToHsl(rgb) {
+    var r = rgb.r / 255;
+    var g = rgb.g / 255;
+    var b = rgb.b / 255;
+    var max = Math.max(r, g, b);
+    var min = Math.min(r, g, b);
+    var delta = max - min;
+    var hue = 0;
+    var lightness = (max + min) / 2;
+    var saturation = delta === 0 ? 0 : delta / (1 - Math.abs(2 * lightness - 1));
+    if (delta !== 0) {
+      if (max === r) hue = 60 * (((g - b) / delta) % 6);
+      else if (max === g) hue = 60 * ((b - r) / delta + 2);
+      else hue = 60 * ((r - g) / delta + 4);
+    }
+    if (hue < 0) hue += 360;
+    return {h: Math.round(hue), s: Math.round(saturation * 100), l: Math.round(lightness * 100)};
+  }
+
+  function readableTextColor(rgb) {
+    var luminance = (rgb.r * 299 + rgb.g * 587 + rgb.b * 114) / 1000;
+    return luminance > 150 ? '#0F172A' : '#FFFFFF';
+  }
+
+  function buildPalette(hex) {
+    var base = hexToRgb(hex);
+    var white = {r: 255, g: 255, b: 255};
+    var black = {r: 0, g: 0, b: 0};
+    var stops = [
+      {name: '50', color: mixColors(base, white, 0.92)},
+      {name: '100', color: mixColors(base, white, 0.82)},
+      {name: '200', color: mixColors(base, white, 0.66)},
+      {name: '300', color: mixColors(base, white, 0.48)},
+      {name: '400', color: mixColors(base, white, 0.25)},
+      {name: '500', color: hex},
+      {name: '600', color: mixColors(base, black, 0.14)},
+      {name: '700', color: mixColors(base, black, 0.28)},
+      {name: '800', color: mixColors(base, black, 0.4)},
+      {name: '900', color: mixColors(base, black, 0.52)}
+    ];
+    return stops;
+  }
+
+  function renderColorPalette(hex) {
+    var rgb = hexToRgb(hex);
+    var hsl = rgbToHsl(rgb);
+    var stops = buildPalette(hex);
+    colorPalette.textContent = '';
+    stops.forEach(function(stop) {
+      var button = document.createElement('button');
+      var stopRgb = hexToRgb(stop.color);
+      button.type = 'button';
+      button.className = 'color-swatch';
+      button.style.backgroundColor = stop.color;
+      button.style.color = readableTextColor(stopRgb);
+      button.setAttribute('data-color', stop.color);
+      button.setAttribute('aria-label', '复制色阶 ' + stop.name + '：' + stop.color);
+      var name = document.createElement('strong');
+      name.textContent = stop.name;
+      var value = document.createElement('span');
+      value.textContent = stop.color;
+      button.appendChild(name);
+      button.appendChild(value);
+      colorPalette.appendChild(button);
+    });
+    document.getElementById('color-base-value').textContent = hex;
+    document.getElementById('color-rgb-value').textContent = 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')';
+    document.getElementById('color-hsl-value').textContent = 'hsl(' + hsl.h + ', ' + hsl.s + '%, ' + hsl.l + '%)';
+    colorPicker.value = hex.toLowerCase();
+    colorHexInput.value = hex;
+    return stops;
+  }
+
+  function updateColor(value) {
+    var hex = normalizeHex(value);
+    if (!hex) {
+      setStatus(colorStatus, '请输入有效的 HEX 颜色，例如 #0284C7。', 'error');
+      return;
+    }
+    renderColorPalette(hex);
+    setStatus(colorStatus, '色阶已更新，点击任意色块即可复制。', 'success');
+  }
+
   function toDatetimeLocal(date) {
     return date.getFullYear() + '-' + pad(date.getMonth() + 1) + '-' + pad(date.getDate()) +
       'T' + pad(date.getHours()) + ':' + pad(date.getMinutes()) + ':' + pad(date.getSeconds());
@@ -356,5 +473,32 @@
     copyText(document.getElementById('time-milliseconds').textContent, timeStatus, '已复制毫秒时间戳。');
   });
 
+  colorPicker.addEventListener('input', function() { updateColor(colorPicker.value); });
+  colorHexInput.addEventListener('input', function() {
+    if (normalizeHex(colorHexInput.value)) updateColor(colorHexInput.value);
+  });
+  colorHexInput.addEventListener('change', function() { updateColor(colorHexInput.value); });
+  document.getElementById('random-color').addEventListener('click', function() {
+    var value = '#' + Math.floor(Math.random() * 16777216).toString(16).padStart(6, '0').toUpperCase();
+    updateColor(value);
+  });
+  colorPalette.addEventListener('click', function(event) {
+    var swatch = event.target.closest('[data-color]');
+    if (!swatch) return;
+    copyText(swatch.getAttribute('data-color'), colorStatus, '已复制 ' + swatch.getAttribute('data-color') + '。');
+  });
+  document.getElementById('copy-color-css').addEventListener('click', function() {
+    var hex = normalizeHex(colorHexInput.value);
+    if (!hex) {
+      setStatus(colorStatus, '请先输入有效的 HEX 颜色。', 'error');
+      return;
+    }
+    var css = ':root {\n' + buildPalette(hex).map(function(stop) {
+      return '  --color-' + stop.name + ': ' + stop.color + ';';
+    }).join('\n') + '\n}';
+    copyText(css, colorStatus, '已复制整组 CSS 变量。');
+  });
+
   renderTime(Date.now());
+  renderColorPalette('#0284C7');
 })();
