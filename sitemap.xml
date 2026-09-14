@@ -470,6 +470,20 @@
 
   
   <url>
+    <loc>https://pangxuejun.cn/tags/%E9%AB%98%E6%80%A7%E8%83%BDphp/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://pangxuejun.cn/tags/es%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://pangxuejun.cn/tags/AI/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -491,14 +505,7 @@
   </url>
   
   <url>
-    <loc>https://pangxuejun.cn/tags/%E9%AB%98%E6%80%A7%E8%83%BDphp/</loc>
-    <lastmod>2026-09-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://pangxuejun.cn/tags/es%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://pangxuejun.cn/tags/apiPost/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -519,7 +526,14 @@
   </url>
   
   <url>
-    <loc>https://pangxuejun.cn/tags/apiPost/</loc>
+    <loc>https://pangxuejun.cn/tags/mysql/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://pangxuejun.cn/tags/mysql8/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -533,14 +547,7 @@
   </url>
   
   <url>
-    <loc>https://pangxuejun.cn/tags/mysql/</loc>
-    <lastmod>2026-09-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://pangxuejun.cn/tags/mysql8/</loc>
+    <loc>https://pangxuejun.cn/tags/git/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -561,20 +568,6 @@
   </url>
   
   <url>
-    <loc>https://pangxuejun.cn/tags/git/</loc>
-    <lastmod>2026-09-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://pangxuejun.cn/tags/js/</loc>
-    <lastmod>2026-09-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://pangxuejun.cn/tags/laravel/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -582,7 +575,7 @@
   </url>
   
   <url>
-    <loc>https://pangxuejun.cn/tags/nginx/</loc>
+    <loc>https://pangxuejun.cn/tags/js/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -603,6 +596,13 @@
   </url>
   
   <url>
+    <loc>https://pangxuejun.cn/tags/nginx/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://pangxuejun.cn/tags/php/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -610,14 +610,7 @@
   </url>
   
   <url>
-    <loc>https://pangxuejun.cn/tags/%E4%B8%AA%E4%BA%BA/</loc>
-    <lastmod>2026-09-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://pangxuejun.cn/tags/ubuntu/</loc>
+    <loc>https://pangxuejun.cn/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -638,7 +631,14 @@
   </url>
   
   <url>
-    <loc>https://pangxuejun.cn/tags/postman-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</loc>
+    <loc>https://pangxuejun.cn/tags/ubuntu/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://pangxuejun.cn/tags/%E4%B8%AA%E4%BA%BA/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -689,13 +689,6 @@
   </url>
   
   <url>
-    <loc>https://pangxuejun.cn/categories/go/</loc>
-    <lastmod>2026-09-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://pangxuejun.cn/categories/%E8%BF%90%E7%BB%B4/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -704,6 +697,13 @@
   
   <url>
     <loc>https://pangxuejun.cn/categories/git/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://pangxuejun.cn/categories/go/</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

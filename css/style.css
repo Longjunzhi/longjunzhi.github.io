@@ -1269,9 +1269,12 @@ pre .javascript .function {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  max-width: 1380px;
-  padding-left: 24px;
-  padding-right: 24px;
+  width: calc(100% - 48px);
+  max-width: 1680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 .tools-body .main-full-width {
   float: none;
@@ -1926,8 +1929,7 @@ pre .javascript .function {
 }
 @media screen and (min-width: 480px) and (max-width: 767px) {
   .tools-body .outer.no-sidebar {
-    padding-left: 14px;
-    padding-right: 14px;
+    width: calc(100% - 28px);
   }
   .tools-shell {
     grid-template-columns: 195px minmax(0, 1fr);
@@ -1948,8 +1950,7 @@ pre .javascript .function {
 }
 @media screen and (max-width: 479px) {
   .tools-body .outer.no-sidebar {
-    padding-left: 10px;
-    padding-right: 10px;
+    width: calc(100% - 20px);
   }
   .tools-shell {
     grid-template-columns: 1fr;

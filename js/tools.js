@@ -6,6 +6,7 @@
 
   var dataOutput = document.getElementById('data-output');
   var dataHighlightOutput = document.getElementById('data-highlight-output');
+  var dataOutputFormat = document.getElementById('data-output-format');
   var dataStatus = document.getElementById('data-status');
   var timestampInput = document.getElementById('timestamp-input');
   var datetimeInput = document.getElementById('datetime-input');
@@ -272,19 +273,77 @@
     return true;
   }
 
+  function stringifyPython(value, compact, depth) {
+    depth = depth || 0;
+    if (value === null) return 'None';
+    if (value === true) return 'True';
+    if (value === false) return 'False';
+    if (typeof value === 'string') return JSON.stringify(value);
+    if (typeof value === 'number') return String(value);
+
+    var indent = compact ? '' : new Array(depth + 1).join('  ');
+    var childIndent = compact ? '' : new Array(depth + 2).join('  ');
+    var separator = compact ? ', ' : ',\n';
+    if (Array.isArray(value)) {
+      if (!value.length) return '[]';
+      var items = value.map(function(item) {
+        return childIndent + stringifyPython(item, compact, depth + 1);
+      });
+      return compact ? '[' + items.join(separator) + ']' : '[\n' + items.join(separator) + '\n' + indent + ']';
+    }
+
+    var keys = Object.keys(value);
+    if (!keys.length) return '{}';
+    var entries = keys.map(function(key) {
+      return childIndent + JSON.stringify(key) + ': ' + stringifyPython(value[key], compact, depth + 1);
+    });
+    return compact ? '{' + entries.join(separator) + '}' : '{\n' + entries.join(separator) + '\n' + indent + '}';
+  }
+
+  function showDataResult(value, type, compact, sourceType) {
+    var formatted = type === 'Python 字典'
+      ? stringifyPython(value, compact, 0)
+      : JSON.stringify(value, null, compact ? 0 : 2);
+    dataOutput.value = formatted;
+    dataHighlightOutput.textContent = formatted;
+    var highlighted = true;
+    if (type === 'JSON') highlighted = renderHighlightedJson(formatted);
+    dataOutputFormat.textContent = type + (type === 'JSON' ? ' · 语法高亮' : ' · Python 字面量');
+    var message = sourceType ? sourceType + ' → ' + type + ' 转换成功。' : '已识别为' + type + '，格式化成功。';
+    if (!highlighted) message += ' 内容较大，已关闭高亮以保持流畅。';
+    setStatus(dataStatus, message, 'success');
+  }
+
   function renderData(compact) {
     try {
       var parsed = parseData(dataInput.value);
-      var formatted = JSON.stringify(parsed.value, null, compact ? 0 : 2);
-      dataOutput.value = formatted;
-      var highlighted = renderHighlightedJson(formatted);
-      var message = '已识别为' + parsed.type + '，格式化成功。';
-      if (!highlighted) message += ' 内容较大，已关闭高亮以保持流畅。';
-      setStatus(dataStatus, message, 'success');
+      showDataResult(parsed.value, 'JSON', compact, parsed.type === 'JSON' ? '' : parsed.type);
     } catch (error) {
       dataOutput.value = '';
       resetHighlightedOutput();
       setStatus(dataStatus, error.message, 'error');
+    }
+  }
+
+  function convertJsonToPython() {
+    try {
+      var value = JSON.parse(dataInput.value.trim());
+      showDataResult(value, 'Python 字典', false, 'JSON');
+    } catch (error) {
+      dataOutput.value = '';
+      resetHighlightedOutput();
+      setStatus(dataStatus, '请输入有效的 JSON：' + error.message, 'error');
+    }
+  }
+
+  function convertPythonToJson() {
+    try {
+      var value = new PythonLiteralParser(dataInput.value.trim()).parse();
+      showDataResult(value, 'JSON', false, 'Python 字典');
+    } catch (error) {
+      dataOutput.value = '';
+      resetHighlightedOutput();
+      setStatus(dataStatus, '请输入有效的 Python 字典：' + error.message, 'error');
     }
   }
 
@@ -610,12 +669,15 @@
 
   document.getElementById('format-data').addEventListener('click', function() { renderData(false); });
   document.getElementById('compact-data').addEventListener('click', function() { renderData(true); });
+  document.getElementById('json-to-python').addEventListener('click', convertJsonToPython);
+  document.getElementById('python-to-json').addEventListener('click', convertPythonToJson);
   document.getElementById('copy-data').addEventListener('click', function() {
     copyText(dataOutput.value, dataStatus, '已复制格式化结果。');
   });
   document.getElementById('clear-data').addEventListener('click', function() {
     dataInput.value = '';
     dataOutput.value = '';
+    dataOutputFormat.textContent = '标准 JSON · 语法高亮';
     resetHighlightedOutput();
     setStatus(dataStatus, '', '');
     dataInput.focus();
