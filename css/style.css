@@ -1484,6 +1484,10 @@ pre .javascript .function {
   font-size: 12px;
   font-weight: 600;
 }
+.tool-warning-badge {
+  background: #fff7ed;
+  color: #c2410c;
+}
 .tool-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1778,6 +1782,26 @@ pre .javascript .function {
   min-height: 0;
   padding: 24px;
 }
+.tool-panel-compact {
+  width: 100%;
+  max-width: 1020px;
+  min-height: 0;
+  padding: 24px;
+}
+.tool-panel-compact .tool-textarea-compact {
+  min-height: 280px;
+  max-height: 560px;
+}
+.tool-help {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-left: 3px solid #bae6fd;
+  border-radius: 0 7px 7px 0;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.65;
+}
 .color-picker-shell {
   display: grid;
   grid-template-columns: 46px 1fr;
@@ -1973,6 +1997,9 @@ pre .javascript .function {
   }
   .tool-field textarea {
     min-height: 320px;
+  }
+  .tool-panel-compact .tool-textarea-compact {
+    min-height: 220px;
   }
   .json-highlight-output {
     min-height: 320px;

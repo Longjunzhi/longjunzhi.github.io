@@ -14,6 +14,15 @@
   var colorHexInput = document.getElementById('color-hex');
   var colorPalette = document.getElementById('color-palette');
   var colorStatus = document.getElementById('color-status');
+  var urlInput = document.getElementById('url-input');
+  var urlOutput = document.getElementById('url-output');
+  var urlStatus = document.getElementById('url-status');
+  var codecInput = document.getElementById('codec-input');
+  var codecOutput = document.getElementById('codec-output');
+  var codecStatus = document.getElementById('codec-status');
+  var sqlInput = document.getElementById('sql-input');
+  var sqlOutput = document.getElementById('sql-output');
+  var sqlStatus = document.getElementById('sql-status');
   var toolNavItems = document.querySelectorAll('[data-tool-target]');
   var toolPanels = document.querySelectorAll('[data-tool-panel]');
   var parseTimer;
@@ -438,6 +447,167 @@
     renderTime(Math.abs(value) < 100000000000 ? value * 1000 : value);
   }
 
+  function requireInput(element, message) {
+    var value = element.value;
+    if (!value.trim()) throw new Error(message);
+    return value;
+  }
+
+  function runTextTransform(input, output, status, transform, successMessage) {
+    try {
+      output.value = transform(requireInput(input, '请输入需要转换的内容。'));
+      setStatus(status, successMessage, 'success');
+    } catch (error) {
+      output.value = '';
+      setStatus(status, error.message || '转换失败，请检查输入内容。', 'error');
+    }
+  }
+
+  function getQueryText(value) {
+    var text = value.trim();
+    var questionMark = text.indexOf('?');
+    if (questionMark !== -1) text = text.slice(questionMark + 1);
+    var hash = text.indexOf('#');
+    if (hash !== -1) text = text.slice(0, hash);
+    return text.replace(/^\?/, '');
+  }
+
+  function parseQuery(value) {
+    var query = getQueryText(value);
+    if (!query) throw new Error('未找到 Query 参数。');
+    var result = Object.create(null);
+    new URLSearchParams(query).forEach(function(itemValue, key) {
+      if (!Object.prototype.hasOwnProperty.call(result, key)) result[key] = itemValue;
+      else if (Array.isArray(result[key])) result[key].push(itemValue);
+      else result[key] = [result[key], itemValue];
+    });
+    return JSON.stringify(result, null, 2);
+  }
+
+  function buildQuery(value) {
+    var parsed;
+    try {
+      parsed = JSON.parse(value);
+    } catch (error) {
+      throw new Error('请输入有效的 JSON 对象。');
+    }
+    if (!parsed || Array.isArray(parsed) || typeof parsed !== 'object') {
+      throw new Error('Query 数据必须是 JSON 对象。');
+    }
+    var params = new URLSearchParams();
+    Object.keys(parsed).forEach(function(key) {
+      var values = Array.isArray(parsed[key]) ? parsed[key] : [parsed[key]];
+      values.forEach(function(item) {
+        params.append(key, item === null ? '' : String(item));
+      });
+    });
+    return params.toString();
+  }
+
+  function textToBase64(value) {
+    var bytes = new TextEncoder().encode(value);
+    var binary = '';
+    var chunkSize = 32768;
+    for (var offset = 0; offset < bytes.length; offset += chunkSize) {
+      binary += String.fromCharCode.apply(null, bytes.subarray(offset, offset + chunkSize));
+    }
+    return btoa(binary);
+  }
+
+  function base64ToText(value) {
+    var normalized = value.replace(/\s+/g, '').replace(/-/g, '+').replace(/_/g, '/');
+    if (!normalized || !/^[A-Za-z0-9+/]*={0,2}$/.test(normalized) || normalized.length % 4 === 1) {
+      throw new Error('请输入有效的 Base64 内容。');
+    }
+    while (normalized.length % 4) normalized += '=';
+    var binary;
+    try {
+      binary = atob(normalized);
+    } catch (error) {
+      throw new Error('请输入有效的 Base64 内容。');
+    }
+    var bytes = new Uint8Array(binary.length);
+    for (var index = 0; index < binary.length; index += 1) bytes[index] = binary.charCodeAt(index);
+    try {
+      return new TextDecoder('utf-8', {fatal: true}).decode(bytes);
+    } catch (error) {
+      throw new Error('Base64 解码结果不是有效的 UTF-8 文本。');
+    }
+  }
+
+  function textToUnicode(value) {
+    var result = '';
+    for (var index = 0; index < value.length; index += 1) {
+      var code = value.charCodeAt(index);
+      if (code >= 32 && code <= 126 && code !== 92) result += value.charAt(index);
+      else result += '\\u' + code.toString(16).toUpperCase().padStart(4, '0');
+    }
+    return result;
+  }
+
+  function unicodeToText(value) {
+    return value
+      .replace(/\\u\{([0-9a-fA-F]{1,6})\}/g, function(match, hex) {
+        var codePoint = parseInt(hex, 16);
+        if (codePoint > 0x10FFFF) throw new Error('Unicode 码点超出有效范围。');
+        return String.fromCodePoint(codePoint);
+      })
+      .replace(/\\u([0-9a-fA-F]{4})/g, function(match, hex) {
+        return String.fromCharCode(parseInt(hex, 16));
+      });
+  }
+
+  function protectSqlParts(value) {
+    var parts = [];
+    var pattern = /(?:'(?:''|\\.|[^'\\])*'|"(?:""|\\.|[^"\\])*"|`(?:``|[^`])*`|\[(?:\]\]|[^\]])*\]|--[^\r\n]*|#[^\r\n]*|\/\*[\s\S]*?\*\/)/g;
+    return {
+      text: value.replace(pattern, function(match) {
+        var token = '\uE000' + parts.length + '\uE001';
+        parts.push(match);
+        return token;
+      }),
+      parts: parts
+    };
+  }
+
+  function restoreSqlParts(value, parts) {
+    return value.replace(/\uE000(\d+)\uE001/g, function(match, index) {
+      return parts[Number(index)];
+    });
+  }
+
+  function normalizeSqlKeywords(value) {
+    var keywords = 'select|distinct|from|where|group by|order by|having|limit|offset|fetch|insert into|update|delete from|set|values|returning|union all|union|intersect|except|left outer join|right outer join|full outer join|left join|right join|full join|inner join|cross join|join|on|and|or|as|case|when|then|else|end|is null|is not null|in|not in|exists|between|like|asc|desc';
+    var pattern = new RegExp('\\b(' + keywords.replace(/ /g, '\\s+') + ')\\b', 'gi');
+    return value.replace(pattern, function(keyword) {
+      return keyword.replace(/\s+/g, ' ').toUpperCase();
+    });
+  }
+
+  function formatSql(value) {
+    var protectedSql = protectSqlParts(value.trim());
+    var sql = protectedSql.text.replace(/\s+/g, ' ').trim();
+    if (!sql) throw new Error('请输入需要格式化的 SQL。');
+    sql = normalizeSqlKeywords(sql);
+    sql = sql
+      .replace(/\s*,\s*/g, ', ')
+      .replace(/\s*;\s*/g, ';\n')
+      .replace(/\s+(SELECT|INSERT INTO|UPDATE|DELETE FROM|FROM|WHERE|GROUP BY|ORDER BY|HAVING|LIMIT|OFFSET|FETCH|RETURNING|UNION ALL|UNION|INTERSECT|EXCEPT)\b/g, '\n$1')
+      .replace(/\s+(LEFT OUTER JOIN|RIGHT OUTER JOIN|FULL OUTER JOIN|LEFT JOIN|RIGHT JOIN|FULL JOIN|INNER JOIN|CROSS JOIN|JOIN)\b/g, '\n$1')
+      .replace(/\s+(AND|OR)\s+/g, '\n  $1 ')
+      .replace(/\s+(ON|SET|VALUES)\s+/g, '\n  $1 ')
+      .replace(/\n{2,}/g, '\n')
+      .trim();
+    return restoreSqlParts(sql, protectedSql.parts);
+  }
+
+  function compactSql(value) {
+    var protectedSql = protectSqlParts(value.trim());
+    if (!protectedSql.text) throw new Error('请输入需要压缩的 SQL。');
+    var sql = protectedSql.text.replace(/\s+/g, ' ').replace(/\s*([,;()])\s*/g, '$1').trim();
+    return restoreSqlParts(sql, protectedSql.parts);
+  }
+
   document.getElementById('format-data').addEventListener('click', function() { renderData(false); });
   document.getElementById('compact-data').addEventListener('click', function() { renderData(true); });
   document.getElementById('copy-data').addEventListener('click', function() {
@@ -497,6 +667,66 @@
       return '  --color-' + stop.name + ': ' + stop.color + ';';
     }).join('\n') + '\n}';
     copyText(css, colorStatus, '已复制整组 CSS 变量。');
+  });
+
+  document.getElementById('url-encode').addEventListener('click', function() {
+    runTextTransform(urlInput, urlOutput, urlStatus, encodeURIComponent, 'URL 组件编码完成。');
+  });
+  document.getElementById('url-decode').addEventListener('click', function() {
+    runTextTransform(urlInput, urlOutput, urlStatus, decodeURIComponent, 'URL 组件解码完成。');
+  });
+  document.getElementById('url-parse-query').addEventListener('click', function() {
+    runTextTransform(urlInput, urlOutput, urlStatus, parseQuery, 'Query 参数解析完成。');
+  });
+  document.getElementById('url-build-query').addEventListener('click', function() {
+    runTextTransform(urlInput, urlOutput, urlStatus, buildQuery, 'Query 参数重组完成。');
+  });
+  document.getElementById('url-copy').addEventListener('click', function() {
+    copyText(urlOutput.value, urlStatus, '已复制转换结果。');
+  });
+  document.getElementById('url-clear').addEventListener('click', function() {
+    urlInput.value = '';
+    urlOutput.value = '';
+    setStatus(urlStatus, '', '');
+    urlInput.focus();
+  });
+
+  document.getElementById('base64-encode').addEventListener('click', function() {
+    runTextTransform(codecInput, codecOutput, codecStatus, textToBase64, 'Base64 编码完成。');
+  });
+  document.getElementById('base64-decode').addEventListener('click', function() {
+    runTextTransform(codecInput, codecOutput, codecStatus, base64ToText, 'Base64 解码完成。');
+  });
+  document.getElementById('unicode-encode').addEventListener('click', function() {
+    runTextTransform(codecInput, codecOutput, codecStatus, textToUnicode, 'Unicode 转义完成。');
+  });
+  document.getElementById('unicode-decode').addEventListener('click', function() {
+    runTextTransform(codecInput, codecOutput, codecStatus, unicodeToText, 'Unicode 还原完成。');
+  });
+  document.getElementById('codec-copy').addEventListener('click', function() {
+    copyText(codecOutput.value, codecStatus, '已复制转换结果。');
+  });
+  document.getElementById('codec-clear').addEventListener('click', function() {
+    codecInput.value = '';
+    codecOutput.value = '';
+    setStatus(codecStatus, '', '');
+    codecInput.focus();
+  });
+
+  document.getElementById('sql-format').addEventListener('click', function() {
+    runTextTransform(sqlInput, sqlOutput, sqlStatus, formatSql, 'SQL 格式化完成。');
+  });
+  document.getElementById('sql-compact').addEventListener('click', function() {
+    runTextTransform(sqlInput, sqlOutput, sqlStatus, compactSql, 'SQL 压缩完成。');
+  });
+  document.getElementById('sql-copy').addEventListener('click', function() {
+    copyText(sqlOutput.value, sqlStatus, '已复制 SQL 结果。');
+  });
+  document.getElementById('sql-clear').addEventListener('click', function() {
+    sqlInput.value = '';
+    sqlOutput.value = '';
+    setStatus(sqlStatus, '', '');
+    sqlInput.focus();
   });
 
   renderTime(Date.now());
